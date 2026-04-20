@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arithmetic Progressions – Class 10 Maths Notes | Chapter 5</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:       #1a1a2e;
+      --paper:     #fdfaf4;
+      --accent:    #c0392b;
+      --accent2:   #2471a3;
+      --gold:      #d4a017;
+      --muted:     #6b6b7a;
+      --rule:      #e0ddd5;
+      --card-bg:   #ffffff;
+      --mono-bg:   #1a1a2e;
+      --mono-fg:   #e8f4f8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,.03) 40px,
+        rgba(255,255,255,.03) 80px
+      );
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .chapter-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 2px;
+      margin-bottom: 1.1rem;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: .6rem;
+    }
+    .header-sub {
+      color: #a0aec0;
+      font-size: .95rem;
+      font-family: 'Source Serif 4', serif;
+      font-style: italic;
+    }
+    .header-meta {
+      margin-top: 1.6rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .meta-pill {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      padding: .3rem .9rem;
+      border-radius: 20px;
+      font-size: .82rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #cbd5e0;
+    }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* ── TABLE OF CONTENTS ── */
+    .toc {
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      padding: 1.6rem 2rem;
+      margin-bottom: 3.5rem;
+      background: var(--card-bg);
+    }
+    .toc h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      padding: .22rem 0;
+      border-bottom: 1px dashed var(--rule);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .toc ol li:last-child { border-bottom: none; }
+    .toc ol li::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      color: var(--accent);
+      min-width: 2rem;
+    }
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .95rem;
+    }
+    .toc a:hover { color: var(--accent); }
+
+    /* ── SECTIONS ── */
+    section {
+      margin-bottom: 3.5rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: .8rem;
+      border-bottom: 3px solid var(--ink);
+    }
+    .section-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--rule);
+      user-select: none;
+      min-width: 2.8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-weight: 700;
+      line-height: 1.2;
+      padding-top: .4rem;
+    }
+
+    p { margin-bottom: 1rem; }
+
+    /* ── FORMULA BOX ── */
+    .formula-box {
+      background: var(--mono-bg);
+      color: var(--mono-fg);
+      border-left: 4px solid var(--accent);
+      padding: 1.4rem 1.8rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1.5rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+    .formula-box .formula-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--accent);
+      margin-bottom: .6rem;
+      display: block;
+    }
+    .formula-box .f {
+      color: #f9ca24;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .formula-box .comment {
+      color: #718096;
+      font-size: .85rem;
+    }
+
+    /* ── CALLOUT ── */
+    .callout {
+      background: #eaf4fb;
+      border-left: 4px solid var(--accent2);
+      padding: 1rem 1.4rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1.4rem 0;
+      font-size: .95rem;
+    }
+    .callout.tip { background: #fef9e7; border-color: var(--gold); }
+    .callout.remember { background: #fdecea; border-color: var(--accent); }
+    .callout strong { font-weight: 600; }
+
+    /* ── EXAMPLE BLOCK ── */
+    .example {
+      border: 1.5px solid var(--rule);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+    .example-header {
+      background: var(--ink);
+      color: #fff;
+      padding: .5rem 1.1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82rem;
+      letter-spacing: .08em;
+    }
+    .example-body {
+      padding: 1.1rem 1.4rem;
+      background: var(--card-bg);
+    }
+    .example-body p { margin-bottom: .6rem; }
+    .example-body .step {
+      display: flex;
+      gap: .7rem;
+      margin-bottom: .5rem;
+      align-items: flex-start;
+    }
+    .example-body .step-num {
+      background: var(--accent);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .2rem;
+    }
+
+    /* ── KEY TERMS ── */
+    .key-terms {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .term-card {
+      border: 1.5px solid var(--rule);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      background: var(--card-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .term-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+    .term-card h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82rem;
+      color: var(--accent);
+      margin-bottom: .4rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .term-card p {
+      font-size: .9rem;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── FORMULA SUMMARY TABLE ── */
+    .formula-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: .9rem;
+    }
+    .formula-table th {
+      background: var(--ink);
+      color: #fff;
+      padding: .7rem 1rem;
+      text-align: left;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .formula-table td {
+      padding: .8rem 1rem;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    .formula-table tr:last-child td { border-bottom: none; }
+    .formula-table tr:nth-child(even) td { background: #f9f7f3; }
+    .formula-table .mono {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── SVG DIAGRAM WRAPPERS ── */
+    .diagram-wrap {
+      background: var(--card-bg);
+      border: 1.5px solid var(--rule);
+      border-radius: 10px;
+      padding: 1.4rem;
+      margin: 1.8rem 0;
+      text-align: center;
+    }
+    .diagram-caption {
+      margin-top: .8rem;
+      font-size: .85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    svg { max-width: 100%; height: auto; }
+
+    /* ── REAL LIFE APPS ── */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .app-card {
+      background: var(--ink);
+      color: #fff;
+      border-radius: 10px;
+      padding: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .app-card::before {
+      content: attr(data-icon);
+      position: absolute;
+      top: -8px; right: 10px;
+      font-size: 3.5rem;
+      opacity: .12;
+    }
+    .app-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      margin-bottom: .4rem;
+      color: #f9ca24;
+    }
+    .app-card p { font-size: .85rem; color: #a0aec0; margin: 0; line-height: 1.6; }
+
+    /* ── IMPORTANT POINTS ── */
+    .imp-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    .imp-list li {
+      padding: .5rem 0 .5rem 1.8rem;
+      position: relative;
+      border-bottom: 1px dashed var(--rule);
+      font-size: .95rem;
+    }
+    .imp-list li:last-child { border-bottom: none; }
+    .imp-list li::before {
+      content: '▶';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: .7rem;
+      top: .75rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: #718096;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .82rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 2rem 1.2rem; }
+      .formula-box { font-size: .9rem; padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header>
+  <div class="header-inner">
+    <span class="chapter-tag">CBSE Class 10 · Maths · Chapter 5</span>
+    <h1>Arithmetic Progressions</h1>
+    <p class="header-sub">Complete revision notes with formulas, diagrams &amp; solved examples</p>
+    <div class="header-meta">
+      <span class="meta-pill">📘 NCERT Aligned</span>
+      <span class="meta-pill">📐 Diagrams Included</span>
+      <span class="meta-pill">🎯 Board Exam Ready</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+ 
+  <!-- ══ SECTION 1 ══ -->
+  <section id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Sequences, Series &amp; Progressions</h2>
+    </div>
+
+    <p>Before diving into Arithmetic Progressions, it helps to understand a few foundational ideas.</p>
+
+    <div class="key-terms">
+      <div class="term-card">
+        <h4>Sequence</h4>
+        <p>An ordered list of numbers following a definite rule. Each number in the list is called a <strong>term</strong>. A sequence can be finite (ends) or infinite (goes on forever).</p>
+      </div>
+      <div class="term-card">
+        <h4>Series</h4>
+        <p>When the terms of a sequence are added together, the result is called a series. For example, 1 + 2 + 3 + 4 + … is the series of natural numbers.</p>
+      </div>
+      <div class="term-card">
+        <h4>Progression</h4>
+        <p>A progression is a special sequence in which the general (nth) term can be written using a neat mathematical formula.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Note:</strong> Every progression is a sequence, but not every sequence is a progression. A random list like 2, 7, 1, 9, 4 is a sequence with no formula — it is not a progression.
+    </div>
+
+    <!-- DIAGRAM 1 : Sequence vs Series -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+        <!-- Sequence box -->
+        <rect x="30" y="30" width="280" height="120" rx="8" fill="#1a1a2e" />
+        <text x="170" y="60" text-anchor="middle" fill="#f9ca24" font-size="13" font-weight="700">SEQUENCE</text>
+        <text x="170" y="85" text-anchor="middle" fill="#e8f4f8" font-size="13">1,  3,  5,  7,  9,  11, ...</text>
+        <text x="170" y="108" text-anchor="middle" fill="#718096" font-size="11">ordered list of terms</text>
+        <text x="170" y="130" text-anchor="middle" fill="#718096" font-size="11">each separated by commas</text>
+
+        <!-- Arrow -->
+        <line x1="320" y1="90" x2="370" y2="90" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arr)"/>
+        <text x="345" y="80" text-anchor="middle" fill="#c0392b" font-size="11">add</text>
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#c0392b"/>
+          </marker>
+        </defs>
+
+        <!-- Series box -->
+        <rect x="385" y="30" width="285" height="120" rx="8" fill="#1a1a2e"/>
+        <text x="527" y="60" text-anchor="middle" fill="#f9ca24" font-size="13" font-weight="700">SERIES</text>
+        <text x="527" y="85" text-anchor="middle" fill="#e8f4f8" font-size="13">1 + 3 + 5 + 7 + 9 + 11 + …</text>
+        <text x="527" y="108" text-anchor="middle" fill="#718096" font-size="11">sum of the terms</text>
+        <text x="527" y="130" text-anchor="middle" fill="#718096" font-size="11">of a sequence</text>
+      </svg>
+      <p class="diagram-caption">Fig. 1 — Difference between a Sequence and a Series</p>
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 2 ══ -->
+  <section id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">What is an Arithmetic Progression?</h2>
+    </div>
+
+    <p>An <strong>Arithmetic Progression (AP)</strong> is a sequence of numbers in which each term after the first is obtained by adding a fixed constant to the term before it. This fixed constant is the same throughout the entire sequence.</p>
+
+    <p>In simpler terms: subtract any term from the one that follows it — if you always get the same answer, the sequence is an AP.</p>
+
+    <div class="callout tip">
+      <strong>Quick Test:</strong> Is 4, 7, 10, 13, 16 an AP?<br/>
+      7 − 4 = 3 ✔ &nbsp; 10 − 7 = 3 ✔ &nbsp; 13 − 10 = 3 ✔ &nbsp; 16 − 13 = 3 ✔<br/>
+      Yes! The difference is always 3, so this is an AP.
+    </div>
+
+    <!-- DIAGRAM 2 : Number line AP -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg" font-family="'Source Serif 4', serif">
+        <!-- Number line -->
+        <line x1="50" y1="85" x2="660" y2="85" stroke="#1a1a2e" stroke-width="2.5"/>
+        <!-- Arrowhead -->
+        <polygon points="660,79 670,85 660,91" fill="#1a1a2e"/>
+
+        <!-- Terms: 4, 7, 10, 13, 16 at positions -->
+        <!-- spacing: (660-50)/5 ≈ 122 ; x = 80, 202, 324, 446, 568 -->
+        <circle cx="80"  cy="85" r="14" fill="#c0392b"/>
+        <circle cx="202" cy="85" r="14" fill="#c0392b"/>
+        <circle cx="324" cy="85" r="14" fill="#c0392b"/>
+        <circle cx="446" cy="85" r="14" fill="#c0392b"/>
+        <circle cx="568" cy="85" r="14" fill="#c0392b"/>
+
+        <!-- Term labels above -->
+        <text x="80"  y="60" text-anchor="middle" fill="#1a1a2e" font-size="15" font-weight="700">4</text>
+        <text x="202" y="60" text-anchor="middle" fill="#1a1a2e" font-size="15" font-weight="700">7</text>
+        <text x="324" y="60" text-anchor="middle" fill="#1a1a2e" font-size="15" font-weight="700">10</text>
+        <text x="446" y="60" text-anchor="middle" fill="#1a1a2e" font-size="15" font-weight="700">13</text>
+        <text x="568" y="60" text-anchor="middle" fill="#1a1a2e" font-size="15" font-weight="700">16</text>
+
+        <!-- White term numbers -->
+        <text x="80"  y="90" text-anchor="middle" fill="#fff" font-size="11">a₁</text>
+        <text x="202" y="90" text-anchor="middle" fill="#fff" font-size="11">a₂</text>
+        <text x="324" y="90" text-anchor="middle" fill="#fff" font-size="11">a₃</text>
+        <text x="446" y="90" text-anchor="middle" fill="#fff" font-size="11">a₄</text>
+        <text x="568" y="90" text-anchor="middle" fill="#fff" font-size="11">a₅</text>
+
+        <!-- +3 arrows below -->
+        <defs>
+          <marker id="barr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L7,3 z" fill="#2471a3"/>
+          </marker>
+        </defs>
+        <line x1="94" y1="112" x2="188" y2="112" stroke="#2471a3" stroke-width="2" marker-end="url(#barr)"/>
+        <line x1="216" y1="112" x2="310" y2="112" stroke="#2471a3" stroke-width="2" marker-end="url(#barr)"/>
+        <line x1="338" y1="112" x2="432" y2="112" stroke="#2471a3" stroke-width="2" marker-end="url(#barr)"/>
+        <line x1="460" y1="112" x2="554" y2="112" stroke="#2471a3" stroke-width="2" marker-end="url(#barr)"/>
+
+        <text x="141" y="128" text-anchor="middle" fill="#2471a3" font-size="12" font-weight="600">+3</text>
+        <text x="263" y="128" text-anchor="middle" fill="#2471a3" font-size="12" font-weight="600">+3</text>
+        <text x="385" y="128" text-anchor="middle" fill="#2471a3" font-size="12" font-weight="600">+3</text>
+        <text x="507" y="128" text-anchor="middle" fill="#2471a3" font-size="12" font-weight="600">+3</text>
+      </svg>
+      <p class="diagram-caption">Fig. 2 — The AP 4, 7, 10, 13, 16 visualised on a number line. Each jump is exactly +3.</p>
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 3 ══ -->
+  <section id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Key Terms: First Term &amp; Common Difference</h2>
+    </div>
+
+    <div class="key-terms">
+      <div class="term-card">
+        <h4>First Term (a)</h4>
+        <p>The very first number in the AP. Denoted by <strong>a</strong> or <strong>a₁</strong>. For the AP 3, 6, 9, 12, … the first term is <strong>a = 3</strong>.</p>
+      </div>
+      <div class="term-card">
+        <h4>Common Difference (d)</h4>
+        <p>The constant value added to each term to get the next one. <strong>d = aₙ − aₙ₋₁</strong>. It can be positive, negative, or zero.</p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="formula-label">Finding Common Difference</span>
+      <span class="f">d = a₂ − a₁  =  a₃ − a₂  =  a₄ − a₃  =  …</span><br/>
+      <span class="comment">// subtract any term from the NEXT term — the result is always d</span>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 .6rem;">Types of AP based on common difference</h3>
+    <ul class="imp-list">
+      <li><strong>d &gt; 0 (Positive):</strong> The sequence is increasing. Example: 2, 5, 8, 11, … (d = 3)</li>
+      <li><strong>d &lt; 0 (Negative):</strong> The sequence is decreasing. Example: 20, 15, 10, 5, … (d = −5)</li>
+      <li><strong>d = 0 (Zero):</strong> All terms are equal (constant AP). Example: 7, 7, 7, 7, … (d = 0)</li>
+    </ul>
+
+    <!-- DIAGRAM 3 : Three types of AP -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono',monospace">
+        <!-- Panel 1: Increasing -->
+        <rect x="10" y="10" width="208" height="178" rx="8" fill="#1a1a2e"/>
+        <text x="114" y="35" text-anchor="middle" fill="#f9ca24" font-size="12" font-weight="700">d &gt; 0 (Increasing)</text>
+        <!-- bars -->
+        <rect x="25"  y="140" width="24" height="20" fill="#c0392b"/>
+        <rect x="58"  y="120" width="24" height="40" fill="#c0392b"/>
+        <rect x="91"  y="100" width="24" height="60" fill="#c0392b"/>
+        <rect x="124" y="80"  width="24" height="80" fill="#c0392b"/>
+        <rect x="157" y="60"  width="24" height="100" fill="#c0392b"/>
+        <!-- baseline -->
+        <line x1="20" y1="162" x2="195" y2="162" stroke="#718096" stroke-width="1.5"/>
+        <text x="114" y="183" text-anchor="middle" fill="#718096" font-size="10">2, 5, 8, 11, 14</text>
+
+        <!-- Panel 2: Decreasing -->
+        <rect x="246" y="10" width="208" height="178" rx="8" fill="#1a1a2e"/>
+        <text x="350" y="35" text-anchor="middle" fill="#f9ca24" font-size="12" font-weight="700">d &lt; 0 (Decreasing)</text>
+        <rect x="261" y="60"  width="24" height="100" fill="#2471a3"/>
+        <rect x="294" y="80"  width="24" height="80"  fill="#2471a3"/>
+        <rect x="327" y="100" width="24" height="60"  fill="#2471a3"/>
+        <rect x="360" y="120" width="24" height="40"  fill="#2471a3"/>
+        <rect x="393" y="140" width="24" height="20"  fill="#2471a3"/>
+        <line x1="256" y1="162" x2="431" y2="162" stroke="#718096" stroke-width="1.5"/>
+        <text x="350" y="183" text-anchor="middle" fill="#718096" font-size="10">20, 15, 10, 5, 0</text>
+
+        <!-- Panel 3: Constant -->
+        <rect x="482" y="10" width="208" height="178" rx="8" fill="#1a1a2e"/>
+        <text x="586" y="35" text-anchor="middle" fill="#f9ca24" font-size="12" font-weight="700">d = 0 (Constant)</text>
+        <rect x="497" y="100" width="24" height="60" fill="#d4a017"/>
+        <rect x="530" y="100" width="24" height="60" fill="#d4a017"/>
+        <rect x="563" y="100" width="24" height="60" fill="#d4a017"/>
+        <rect x="596" y="100" width="24" height="60" fill="#d4a017"/>
+        <rect x="629" y="100" width="24" height="60" fill="#d4a017"/>
+        <line x1="492" y1="162" x2="667" y2="162" stroke="#718096" stroke-width="1.5"/>
+        <text x="586" y="183" text-anchor="middle" fill="#718096" font-size="10">7, 7, 7, 7, 7</text>
+      </svg>
+      <p class="diagram-caption">Fig. 3 — Bar chart visualisation of increasing, decreasing, and constant APs</p>
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 4 ══ -->
+  <section id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">General Form of an AP</h2>
+    </div>
+
+    <p>If the first term is <em>a</em> and the common difference is <em>d</em>, every AP can be written in the following standard form:</p>
+
+    <div class="formula-box">
+      <span class="formula-label">General Form of an AP</span>
+      <span class="f">a,  a+d,  a+2d,  a+3d,  …,  a+(n−1)d</span>
+    </div>
+
+    <div class="example">
+      <div class="example-header">EXAMPLE — Write an AP with a = 5 and d = −2</div>
+      <div class="example-body">
+        <div class="step"><span class="step-num">1</span><span>First term: a = 5</span></div>
+        <div class="step"><span class="step-num">2</span><span>Second term: a + d = 5 + (−2) = 3</span></div>
+        <div class="step"><span class="step-num">3</span><span>Third term: a + 2d = 5 + 2(−2) = 1</span></div>
+        <div class="step"><span class="step-num">4</span><span>Fourth term: a + 3d = 5 + 3(−2) = −1</span></div>
+        <p><strong>AP:</strong> 5, 3, 1, −1, −3, … (a decreasing AP)</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 5 ══ -->
+  <section id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Finite vs. Infinite AP</h2>
+    </div>
+
+    <div class="key-terms">
+      <div class="term-card">
+        <h4>Finite AP</h4>
+        <p>Has a definite last term. The number of terms is limited. Example: Days of a week as multiples — 7, 14, 21, 28 (stops at 4 terms).</p>
+      </div>
+      <div class="term-card">
+        <h4>Infinite AP</h4>
+        <p>Continues without end. There is no last term. Example: 1, 4, 7, 10, 13, … (three dots indicate it goes on forever).</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <strong>Memory tip:</strong> If you can count the number of terms, it's finite. If the sequence trails off with "…", it's infinite.
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 6 ══ -->
+  <section id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">nth Term (General Term) Formula</h2>
+    </div>
+
+    <p>The <strong>nth term</strong> (also called the <em>general term</em>) lets you find any term in the AP without listing all the terms before it. This is the most frequently tested formula in board exams.</p>
+
+    <div class="formula-box">
+      <span class="formula-label">nth Term Formula</span>
+      <span class="f">aₙ = a + (n − 1) × d</span><br/><br/>
+      <span class="comment">where:</span><br/>
+      <span class="comment">  aₙ = nth term (the term you want to find)</span><br/>
+      <span class="comment">  a  = first term</span><br/>
+      <span class="comment">  n  = position of the term (1, 2, 3, …)</span><br/>
+      <span class="comment">  d  = common difference</span>
+    </div>
+
+    <!-- DIAGRAM 4: nth term derivation visual -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono',monospace">
+        <!-- Boxes for each term -->
+        <rect x="20"  y="40" width="80" height="50" rx="6" fill="#c0392b"/>
+        <rect x="120" y="40" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#c0392b" stroke-width="1.5"/>
+        <rect x="220" y="40" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#c0392b" stroke-width="1.5"/>
+        <rect x="320" y="40" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#718096" stroke-width="1"/>
+        <text x="360" y="68" text-anchor="middle" fill="#718096" font-size="15">…</text>
+        <rect x="510" y="40" width="170" height="50" rx="6" fill="#2471a3"/>
+
+        <!-- Labels inside boxes -->
+        <text x="60"  y="62" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">a</text>
+        <text x="60"  y="80" text-anchor="middle" fill="#fec9c5" font-size="10">1st term</text>
+
+        <text x="160" y="62" text-anchor="middle" fill="#fff" font-size="11">a + d</text>
+        <text x="160" y="80" text-anchor="middle" fill="#718096" font-size="10">2nd term</text>
+
+        <text x="260" y="62" text-anchor="middle" fill="#fff" font-size="11">a + 2d</text>
+        <text x="260" y="80" text-anchor="middle" fill="#718096" font-size="10">3rd term</text>
+
+        <text x="595" y="62" text-anchor="middle" fill="#fff" font-size="11">a + (n−1)d</text>
+        <text x="595" y="80" text-anchor="middle" fill="#b3d9f0" font-size="10">nth term = aₙ</text>
+
+        <!-- Brace / label below for pattern -->
+        <text x="350" y="125" text-anchor="middle" fill="#1a1a2e" font-size="12">
+          Pattern: each term adds one more <tspan fill="#c0392b" font-weight="700">d</tspan> than the previous
+        </text>
+        <text x="350" y="148" text-anchor="middle" fill="#2471a3" font-size="12" font-weight="700">
+          ∴  aₙ = a + (n−1)d
+        </text>
+      </svg>
+      <p class="diagram-caption">Fig. 4 — How the nth term formula is derived from the pattern of the AP</p>
+    </div>
+
+    <div class="example">
+      <div class="example-header">EXAMPLE — Find the 15th term of the AP: 7, 11, 15, 19, …</div>
+      <div class="example-body">
+        <div class="step"><span class="step-num">1</span><span>Identify: a = 7, d = 11 − 7 = 4, n = 15</span></div>
+        <div class="step"><span class="step-num">2</span><span>Apply formula: a₁₅ = 7 + (15 − 1) × 4</span></div>
+        <div class="step"><span class="step-num">3</span><span>= 7 + 14 × 4 = 7 + 56 = <strong>63</strong></span></div>
+        <p>∴ The 15th term is <strong>63</strong>.</p>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-header">EXAMPLE — Which term of the AP 3, 8, 13, 18, … is 78?</div>
+      <div class="example-body">
+        <div class="step"><span class="step-num">1</span><span>Here a = 3, d = 5, aₙ = 78</span></div>
+        <div class="step"><span class="step-num">2</span><span>78 = 3 + (n − 1) × 5</span></div>
+        <div class="step"><span class="step-num">3</span><span>75 = (n − 1) × 5 → n − 1 = 15 → n = 16</span></div>
+        <p>∴ 78 is the <strong>16th term</strong> of this AP.</p>
+      </div>
+    </div>
+
+    <div class="callout remember">
+      <strong>Last Term (l):</strong> In a finite AP, the last term is also called <em>l</em>. Using the nth term formula, <strong>l = a + (n − 1)d</strong>.
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 7 ══ -->
+  <section id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Sum of First n Terms</h2>
+    </div>
+
+    <p>Instead of adding every term individually, we use a formula to find the sum of the first <em>n</em> terms of an AP instantly. There are two versions — use whichever is more convenient.</p>
+
+    <div class="formula-box">
+      <span class="formula-label">Sum of First n Terms — Two Versions</span>
+      <span class="f">Sₙ = (n/2) × [2a + (n−1)d]</span><br/>
+      <span class="comment">// use when you know: first term (a) and common difference (d)</span><br/><br/>
+      <span class="f">Sₙ = (n/2) × (a + l)</span><br/>
+      <span class="comment">// use when you know: first term (a) and last term (l)</span>
+    </div>
+
+    <!-- DIAGRAM 5: Gauss visualisation of sum -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" font-family="'Source Serif 4',serif">
+        <text x="350" y="25" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700" font-family="'Playfair Display',serif">Gauss's Pairing Trick — Why Sₙ = (n/2)(a + l)</text>
+
+        <!-- Forward row -->
+        <text x="50" y="58" fill="#c0392b" font-size="12" font-weight="700" font-family="'JetBrains Mono',monospace">Forward:  a</text>
+        <text x="195" y="58" fill="#c0392b" font-size="12" font-family="'JetBrains Mono',monospace">a+d</text>
+        <text x="295" y="58" fill="#c0392b" font-size="12" font-family="'JetBrains Mono',monospace">a+2d</text>
+        <text x="410" y="58" fill="#c0392b" font-size="12" font-family="'JetBrains Mono',monospace">…</text>
+        <text x="480" y="58" fill="#c0392b" font-size="12" font-family="'JetBrains Mono',monospace">l−d</text>
+        <text x="590" y="58" fill="#c0392b" font-size="12" font-family="'JetBrains Mono',monospace">l</text>
+
+        <!-- Reverse row -->
+        <text x="50" y="90" fill="#2471a3" font-size="12" font-weight="700" font-family="'JetBrains Mono',monospace">Reverse:  l</text>
+        <text x="195" y="90" fill="#2471a3" font-size="12" font-family="'JetBrains Mono',monospace">l−d</text>
+        <text x="295" y="90" fill="#2471a3" font-size="12" font-family="'JetBrains Mono',monospace">l−2d</text>
+        <text x="410" y="90" fill="#2471a3" font-size="12" font-family="'JetBrains Mono',monospace">…</text>
+        <text x="480" y="90" fill="#2471a3" font-size="12" font-family="'JetBrains Mono',monospace">a+d</text>
+        <text x="590" y="90" fill="#2471a3" font-size="12" font-family="'JetBrains Mono',monospace">a</text>
+
+        <!-- Separator -->
+        <line x1="40" y1="100" x2="660" y2="100" stroke="#e0ddd5" stroke-width="1.5"/>
+
+        <!-- Sum pairs row -->
+        <text x="50"  y="125" fill="#1a1a2e" font-size="12" font-family="'JetBrains Mono',monospace">  Each pair:</text>
+        <text x="195" y="125" fill="#d4a017" font-size="12" font-weight="700" font-family="'JetBrains Mono',monospace">a+l</text>
+        <text x="295" y="125" fill="#d4a017" font-size="12" font-weight="700" font-family="'JetBrains Mono',monospace">a+l</text>
+        <text x="410" y="125" fill="#d4a017" font-size="12" font-family="'JetBrains Mono',monospace">…</text>
+        <text x="480" y="125" fill="#d4a017" font-size="12" font-weight="700" font-family="'JetBrains Mono',monospace">a+l</text>
+        <text x="590" y="125" fill="#d4a017" font-size="12" font-weight="700" font-family="'JetBrains Mono',monospace">a+l</text>
+
+        <!-- Result -->
+        <rect x="40" y="148" width="620" height="55" rx="8" fill="#1a1a2e"/>
+        <text x="350" y="172" text-anchor="middle" fill="#e8f4f8" font-size="13" font-family="'JetBrains Mono',monospace">2Sₙ = n × (a + l)</text>
+        <text x="350" y="193" text-anchor="middle" fill="#f9ca24" font-size="14" font-weight="700" font-family="'JetBrains Mono',monospace">∴  Sₙ = (n/2)(a + l)</text>
+      </svg>
+      <p class="diagram-caption">Fig. 5 — Derivation of the sum formula using Gauss's pairing method: write the AP forwards and backwards, pair each column (always gives a + l), then divide by 2.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-header">EXAMPLE — Find the sum of the first 20 terms of AP: 5, 8, 11, 14, …</div>
+      <div class="example-body">
+        <div class="step"><span class="step-num">1</span><span>a = 5, d = 3, n = 20</span></div>
+        <div class="step"><span class="step-num">2</span><span>S₂₀ = (20/2) × [2(5) + (20−1)(3)]</span></div>
+        <div class="step"><span class="step-num">3</span><span>= 10 × [10 + 57] = 10 × 67 = <strong>670</strong></span></div>
+        <p>∴ The sum of the first 20 terms is <strong>670</strong>.</p>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-header">EXAMPLE — Sum of the first 100 natural numbers</div>
+      <div class="example-body">
+        <div class="step"><span class="step-num">1</span><span>AP: 1, 2, 3, …, 100 → a = 1, l = 100, n = 100</span></div>
+        <div class="step"><span class="step-num">2</span><span>S₁₀₀ = (100/2) × (1 + 100) = 50 × 101 = <strong>5050</strong></span></div>
+        <p>∴ The sum is <strong>5050</strong>. (This is Gauss's famous result!)</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 8 ══ -->
+  <section id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Relationship Between aₙ and Sₙ</h2>
+    </div>
+
+    <p>There is a very useful connection between the <em>nth term</em> and the <em>sum of n terms</em> that helps you find any term if you already know the sum formula.</p>
+
+    <div class="formula-box">
+      <span class="formula-label">Key Relationship</span>
+      <span class="f">aₙ = Sₙ − Sₙ₋₁</span><br/>
+      <span class="comment">// The nth term equals the sum of n terms MINUS the sum of (n−1) terms</span><br/><br/>
+      <span class="comment">Special case: a₁ = S₁</span>
+    </div>
+
+    <div class="example">
+      <div class="example-header">EXAMPLE — If Sₙ = 3n² + 5n, find the 8th term</div>
+      <div class="example-body">
+        <div class="step"><span class="step-num">1</span><span>S₈ = 3(8²) + 5(8) = 192 + 40 = 232</span></div>
+        <div class="step"><span class="step-num">2</span><span>S₇ = 3(7²) + 5(7) = 147 + 35 = 182</span></div>
+        <div class="step"><span class="step-num">3</span><span>a₈ = S₈ − S₇ = 232 − 182 = <strong>50</strong></span></div>
+        <p>∴ The 8th term is <strong>50</strong>.</p>
+      </div>
+    </div>
+
+    <!-- DIAGRAM 6: Sn relationship visual -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono',monospace">
+        <!-- Full Sn bar -->
+        <rect x="30" y="30" width="640" height="40" rx="6" fill="#1a1a2e"/>
+        <text x="350" y="56" text-anchor="middle" fill="#f9ca24" font-size="13" font-weight="700">Sₙ  (sum of first n terms)</text>
+
+        <!-- Sn-1 part -->
+        <rect x="30" y="90" width="510" height="40" rx="6" fill="#2471a3"/>
+        <text x="275" y="116" text-anchor="middle" fill="#fff" font-size="13">Sₙ₋₁  (sum of first n−1 terms)</text>
+
+        <!-- aₙ part -->
+        <rect x="548" y="90" width="122" height="40" rx="6" fill="#c0392b"/>
+        <text x="609" y="116" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">aₙ</text>
+
+        <!-- Brace label -->
+        <text x="350" y="148" text-anchor="middle" fill="#1a1a2e" font-size="12">aₙ = Sₙ − Sₙ₋₁</text>
+      </svg>
+      <p class="diagram-caption">Fig. 6 — The nth term is the "extra" piece added when going from Sₙ₋₁ to Sₙ</p>
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 9 ══ -->
+  <section id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Properties of AP</h2>
+    </div>
+
+    <ul class="imp-list">
+      <li>If a fixed number is added to (or subtracted from) every term of an AP, the resulting sequence is also an AP with the same common difference.</li>
+      <li>If every term of an AP is multiplied (or divided) by a fixed non-zero number, the result is again an AP, but with a scaled common difference.</li>
+      <li>If three numbers a, b, c are in AP, then <strong>2b = a + c</strong> (the middle term is the arithmetic mean of the other two).</li>
+      <li>The sum of terms equidistant from both ends of a finite AP is always equal to the sum of the first and last terms.</li>
+      <li>If you pick terms from an AP at equal intervals, those terms also form an AP.</li>
+      <li>For any AP, the nth term from the end is given by: <strong>l − (n − 1)d</strong>, where l is the last term.</li>
+    </ul>
+
+    <!-- DIAGRAM 7: Middle term property -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 700 130" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono',monospace">
+        <text x="350" y="22" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700" font-family="'Playfair Display',serif">Three numbers in AP: Arithmetic Mean Property</text>
+
+        <!-- Three circles -->
+        <circle cx="160" cy="80" r="35" fill="#c0392b"/>
+        <circle cx="350" cy="80" r="35" fill="#1a1a2e"/>
+        <circle cx="540" cy="80" r="35" fill="#2471a3"/>
+
+        <text x="160" y="77" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">a</text>
+        <text x="160" y="95" text-anchor="middle" fill="#fec9c5" font-size="10">first</text>
+
+        <text x="350" y="77" text-anchor="middle" fill="#f9ca24" font-size="16" font-weight="700">b</text>
+        <text x="350" y="95" text-anchor="middle" fill="#718096" font-size="10">middle</text>
+
+        <text x="540" y="77" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">c</text>
+        <text x="540" y="95" text-anchor="middle" fill="#b3d9f0" font-size="10">third</text>
+
+        <!-- Connecting lines -->
+        <line x1="198" y1="80" x2="312" y2="80" stroke="#e0ddd5" stroke-width="2" stroke-dasharray="6,4"/>
+        <line x1="388" y1="80" x2="502" y2="80" stroke="#e0ddd5" stroke-width="2" stroke-dasharray="6,4"/>
+
+        <!-- Label -->
+        <text x="350" y="125" text-anchor="middle" fill="#c0392b" font-size="13" font-weight="700">2b = a + c   ↔   b = (a + c)/2</text>
+      </svg>
+      <p class="diagram-caption">Fig. 7 — If a, b, c are in AP, then b is the arithmetic mean of a and c</p>
+    </div>
+  </section>
+
+
+  <!-- ══ SECTION 10 ══ -->
+  <section id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2 class="section-title">Formula Summary &amp; Real-Life Applications</h2>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif; margin-bottom:.8rem;">Quick Reference — All Formulas</h3>
+    <table class="formula-table">
+      <thead>
+        <tr><th>What to Find</th><th>Formula</th><th>Conditions</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Common Difference</td>
+          <td class="mono">d = a₂ − a₁</td>
+          <td>Subtract consecutive terms</td>
+        </tr>
+        <tr>
+          <td>nth Term</td>
+          <td class="mono">aₙ = a + (n−1)d</td>
+          <td>Know a, d, and n</td>
+        </tr>
+        <tr>
+          <td>Last term</td>
+          <td class="mono">l = a + (n−1)d</td>
+          <td>Same as nth term with n = total terms</td>
+        </tr>
+        <tr>
+          <td>Sum (using d)</td>
+          <td class="mono">Sₙ = (n/2)[2a + (n−1)d]</td>
+          <td>Know a, d, and n</td>
+        </tr>
+        <tr>
+          <td>Sum (using last term)</td>
+          <td class="mono">Sₙ = (n/2)(a + l)</td>
+          <td>Know a, l (last term), and n</td>
+        </tr>
+        <tr>
+          <td>nth term from Sum</td>
+          <td class="mono">aₙ = Sₙ − Sₙ₋₁</td>
+          <td>Know the sum formula Sₙ</td>
+        </tr>
+        <tr>
+          <td>Middle term check</td>
+          <td class="mono">2b = a + c</td>
+          <td>For three consecutive AP terms a, b, c</td>
+        </tr>
+        <tr>
+          <td>nth term from end</td>
+          <td class="mono">l − (n−1)d</td>
+          <td>Know l (last term) and d</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Playfair Display',serif; margin: 1.8rem 0 .8rem;">Real-Life Applications of AP</h3>
+    <div class="apps-grid">
+      <div class="app-card" data-icon="💰">
+        <h4>Simple Interest</h4>
+        <p>Interest earned each year on a fixed principal forms an AP since it increases by the same amount every year.</p>
+      </div>
+      <div class="app-card" data-icon="🏗️">
+        <h4>Stacking Objects</h4>
+        <p>Logs stacked in rows where each row has one fewer log than the one below form an AP.</p>
+      </div>
+      <div class="app-card" data-icon="🏃">
+        <h4>Constant Speed Motion</h4>
+        <p>Distance covered in successive equal time intervals by an object moving at constant speed forms an AP.</p>
+      </div>
+      <div class="app-card" data-icon="💸">
+        <h4>Savings Plans</h4>
+        <p>Saving a fixed additional amount each month results in monthly savings forming an AP.</p>
+      </div>
+      <div class="app-card" data-icon="🏟️">
+        <h4>Stadium Seating</h4>
+        <p>Seats in rows of an auditorium often increase by a fixed number per row, forming an AP.</p>
+      </div>
+      <div class="app-card" data-icon="📅">
+        <h4>Calendars &amp; Schedules</h4>
+        <p>Days of a specific weekday in a month (e.g., all Mondays) are in AP with d = 7.</p>
+      </div>
+    </div>
+
+    <div class="callout remember" style="margin-top:2rem;">
+      <strong>Board Exam Tip:</strong> Always identify <em>a</em>, <em>d</em>, and <em>n</em> before applying any formula. Write each value clearly in your answer — examiners award marks for correct identification even if calculation has a minor error.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Class 10 Mathematics · Chapter 5 · Arithmetic Progressions · CBSE Notes
+</footer>
+
+</body>
+</html>
