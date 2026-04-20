@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Triangles – Class 10 Maths Chapter 6 Notes | CBSE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink:      #1a1410;
+    --paper:    #fdf9f3;
+    --cream:    #f5ede0;
+    --rust:     #c0392b;
+    --gold:     #b8860b;
+    --teal:     #1a6b6b;
+    --teal-lt:  #e8f4f4;
+    --rust-lt:  #fdf0ee;
+    --gold-lt:  #fdf8ec;
+    --rule:     #d4c4a8;
+    --shadow:   rgba(26,20,16,.12);
+    --mono:     'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent 0px, transparent 18px,
+      rgba(255,255,255,.03) 18px, rgba(255,255,255,.03) 19px
+    );
+  }
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 4px 14px;
+    margin-bottom: 22px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    margin-bottom: 14px;
+  }
+  header p {
+    font-size: 1rem;
+    opacity: .65;
+    font-style: italic;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ─── LAYOUT ─── */
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 28px 100px;
+  }
+
+  /* ─── TABLE OF CONTENTS ─── */
+  .toc {
+    border: 1px solid var(--rule);
+    background: var(--cream);
+    padding: 28px 32px;
+    margin-bottom: 56px;
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    color: var(--teal);
+  }
+  .toc ol {
+    padding-left: 22px;
+    columns: 2;
+    gap: 16px;
+    font-size: .93rem;
+  }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: var(--rust); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ─── SECTION HEADINGS ─── */
+  .section { margin-bottom: 60px; }
+
+  h2.sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    border-bottom: 2px solid var(--rust);
+    padding-bottom: 8px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  h2.sec-title .num {
+    font-family: var(--mono);
+    font-size: 1rem;
+    color: var(--rust);
+    font-weight: 600;
+    min-width: 32px;
+  }
+
+  h3.sub-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.22rem;
+    color: var(--teal);
+    margin: 28px 0 10px;
+  }
+
+  p { margin-bottom: 14px; }
+
+  /* ─── CALLOUT BOXES ─── */
+  .box {
+    border-left: 4px solid var(--teal);
+    background: var(--teal-lt);
+    padding: 16px 22px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .box.theorem { border-color: var(--rust); background: var(--rust-lt); }
+  .box.formula  { border-color: var(--gold); background: var(--gold-lt); }
+
+  .box-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--teal);
+  }
+  .box.theorem .box-label { color: var(--rust); }
+  .box.formula  .box-label { color: var(--gold); }
+
+  /* ─── MATH INLINE ─── */
+  .math {
+    font-family: var(--mono);
+    font-size: .92rem;
+    background: rgba(0,0,0,.06);
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+
+  /* ─── CRITERIA GRID ─── */
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 22px 0;
+  }
+  .criterion-card {
+    border: 1px solid var(--rule);
+    padding: 18px 20px;
+    background: #fff;
+    position: relative;
+  }
+  .criterion-card .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    color: var(--paper);
+    background: var(--teal);
+    padding: 2px 8px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .criterion-card h4 { font-size: 1rem; margin-bottom: 6px; }
+  .criterion-card p  { font-size: .88rem; color: #444; margin: 0; line-height: 1.6; }
+
+  /* ─── RESULTS TABLE ─── */
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: .9rem;
+  }
+  .results-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 16px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: .8rem;
+    letter-spacing: .06em;
+  }
+  .results-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .results-table tr:nth-child(even) td { background: var(--cream); }
+
+  /* ─── SVG DIAGRAMS ─── */
+  .diagram-wrap {
+    margin: 28px 0;
+    text-align: center;
+  }
+  .diagram-wrap svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .diagram-caption {
+    font-size: .82rem;
+    font-style: italic;
+    color: #666;
+    margin-top: 8px;
+  }
+
+  /* ─── KEY POINTS ─── */
+  .key-list {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0;
+  }
+  .key-list li {
+    padding: 7px 0 7px 28px;
+    border-bottom: 1px dashed var(--rule);
+    position: relative;
+    font-size: .95rem;
+  }
+  .key-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--rust);
+    font-size: .7rem;
+    top: 11px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,.45);
+    text-align: center;
+    padding: 28px;
+    font-size: .82rem;
+    font-family: var(--mono);
+    letter-spacing: .06em;
+  }
+
+  /* ─── PRINT ─── */
+  @media print {
+    header { background: #000 !important; -webkit-print-color-adjust: exact; }
+    .toc { break-inside: avoid; }
+    .section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════ HEADER ════════════ -->
+<header>
+  <div class="badge">CBSE · Class 10 · Mathematics · Chapter 6</div>
+  <h1>Triangles</h1>
+  <p>Complete revision notes covering similarity, proportionality theorems, and the Pythagorean theorem — with diagrams.</p>
+</header>
+
+<div class="wrapper">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h2>📋 Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">Introduction to Triangles</a></li>
+      <li><a href="#s2">Similar Figures</a></li>
+      <li><a href="#s3">Similar Triangles</a></li>
+      <li><a href="#s4">Basic Proportionality Theorem</a></li>
+      <li><a href="#s5">Criteria for Similarity</a></li>
+      <li><a href="#s6">Area of Similar Triangles</a></li>
+      <li><a href="#s7">Pythagorean Theorem</a></li>
+      <li><a href="#s8">Converse of Pythagoras</a></li>
+      <li><a href="#s9">Key Results & Formulas</a></li>
+    </ol>
+  </div>
+
+  <!-- ── SECTION 1 ── -->
+  <div class="section" id="s1">
+    <h2 class="sec-title"><span class="num">01</span> Introduction to Triangles</h2>
+    <p>A <strong>triangle</strong> is the simplest closed polygon, formed by joining three non-collinear points with straight line segments. Every triangle has three sides, three angles, and three vertices, and the sum of its interior angles always equals 180°.</p>
+
+    <h3 class="sub-title">Types Based on Sides</h3>
+    <ul class="key-list">
+      <li><strong>Equilateral Triangle</strong> — All three sides are equal in length; each interior angle measures exactly 60°.</li>
+      <li><strong>Isosceles Triangle</strong> — Exactly two sides are equal; the angles opposite those equal sides are also equal.</li>
+      <li><strong>Scalene Triangle</strong> — All three sides have different lengths; all three angles are different.</li>
+    </ul>
+
+    <h3 class="sub-title">Types Based on Angles</h3>
+    <ul class="key-list">
+      <li><strong>Acute Triangle</strong> — All three interior angles are less than 90°.</li>
+      <li><strong>Right Triangle</strong> — One angle is exactly 90°. The side opposite the right angle is the <em>hypotenuse</em>.</li>
+      <li><strong>Obtuse Triangle</strong> — One angle is greater than 90°.</li>
+    </ul>
+
+    <!-- Diagram: Types of triangles -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4, serif">
+        <!-- Equilateral -->
+        <polygon points="110,170 60,80 160,80" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <text x="110" y="50" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a6b6b">Equilateral</text>
+        <text x="110" y="192" text-anchor="middle" font-size="11" fill="#555">All sides equal</text>
+        <!-- tick marks -->
+        <line x1="82" y1="127" x2="92" y2="122" stroke="#1a6b6b" stroke-width="1.5"/>
+        <line x1="86" y1="133" x2="96" y2="128" stroke="#1a6b6b" stroke-width="1.5"/>
+        <line x1="130" y1="122" x2="140" y2="127" stroke="#1a6b6b" stroke-width="1.5"/>
+        <line x1="126" y1="128" x2="136" y2="133" stroke="#1a6b6b" stroke-width="1.5"/>
+        <line x1="98" y1="80" x2="103" y2="90" stroke="#1a6b6b" stroke-width="1.5"/>
+        <line x1="115" y1="80" x2="120" y2="90" stroke="#1a6b6b" stroke-width="1.5"/>
+
+        <!-- Isosceles -->
+        <polygon points="350,170 295,85 405,85" fill="#fdf8ec" stroke="#b8860b" stroke-width="2"/>
+        <text x="350" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="#b8860b">Isosceles</text>
+        <text x="350" y="192" text-anchor="middle" font-size="11" fill="#555">Two sides equal</text>
+        <line x1="314" y1="133" x2="324" y2="128" stroke="#b8860b" stroke-width="1.5"/>
+        <line x1="378" y1="128" x2="388" y2="133" stroke="#b8860b" stroke-width="1.5"/>
+
+        <!-- Right -->
+        <polygon points="560,170 560,80 650,170" fill="#fdf0ee" stroke="#c0392b" stroke-width="2"/>
+        <text x="600" y="55" text-anchor="middle" font-size="13" font-weight="bold" fill="#c0392b">Right</text>
+        <text x="600" y="192" text-anchor="middle" font-size="11" fill="#555">One angle = 90°</text>
+        <rect x="560" y="150" width="20" height="20" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+      </svg>
+      <div class="diagram-caption">Fig 1.1 — Three common types of triangles</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 2 ── -->
+  <div class="section" id="s2">
+    <h2 class="sec-title"><span class="num">02</span> Similar Figures</h2>
+    <p>Two figures are called <strong>similar</strong> when they share the same shape but do not necessarily have the same size. Think of a photograph and its enlargement — the shape is identical, but the scale differs.</p>
+
+    <div class="box">
+      <div class="box-label">Key Idea</div>
+      Two figures are similar if their corresponding angles are equal <em>and</em> their corresponding sides are in the same ratio (proportion).
+    </div>
+
+    <ul class="key-list">
+      <li>All congruent figures are automatically similar (congruence is a special case of similarity where the scale factor is 1).</li>
+      <li>However, similar figures are <em>not</em> necessarily congruent — they can differ in size.</li>
+      <li>Any two line segments are always similar (lengths are proportional by some factor).</li>
+      <li>Any two circles are always similar (their radii are proportional).</li>
+      <li>Any two squares are always similar (equal angles, proportional sides).</li>
+      <li>Two rectangles are similar only if their length-to-breadth ratios are equal.</li>
+    </ul>
+
+    <!-- Diagram: Similar polygons -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+        <!-- Small square -->
+        <rect x="40" y="50" width="80" height="80" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <text x="80" y="156" text-anchor="middle" font-size="12" fill="#1a6b6b">Square (small)</text>
+        <!-- Big square -->
+        <rect x="200" y="30" width="120" height="120" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <text x="260" y="168" text-anchor="middle" font-size="12" fill="#1a6b6b">Square (large)</text>
+        <!-- Arrow with label -->
+        <line x1="132" y1="90" x2="192" y2="90" stroke="#b8860b" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <polygon points="192,86 200,90 192,94" fill="#b8860b"/>
+        <text x="162" y="82" text-anchor="middle" font-size="11" fill="#b8860b">Similar</text>
+
+        <!-- Two rectangles -->
+        <rect x="380" y="60" width="80" height="50" fill="#fdf8ec" stroke="#b8860b" stroke-width="2"/>
+        <text x="420" y="128" text-anchor="middle" font-size="11" fill="#555">ratio 8:5</text>
+        <rect x="490" y="50" width="80" height="50" fill="#fdf0ee" stroke="#c0392b" stroke-width="2"/>
+        <text x="530" y="128" text-anchor="middle" font-size="11" fill="#555">ratio 8:5</text>
+        <text x="455" y="30" text-anchor="middle" font-size="11" fill="#c0392b">Similar rectangles (same ratio)</text>
+      </svg>
+      <div class="diagram-caption">Fig 2.1 — Similar figures share shape; corresponding sides stay proportional</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 3 ── -->
+  <div class="section" id="s3">
+    <h2 class="sec-title"><span class="num">03</span> Similar Triangles</h2>
+    <p>Two triangles are said to be <strong>similar</strong> when their corresponding angles are equal and their corresponding sides are proportional. We write △ABC ~ △DEF to express this.</p>
+
+    <div class="box">
+      <div class="box-label">Definition</div>
+      △ABC ~ △DEF means: ∠A = ∠D, ∠B = ∠E, ∠C = ∠F, <strong>and</strong> AB/DE = BC/EF = CA/FD.
+    </div>
+
+    <!-- Diagram: Similar triangles -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4,serif" font-size="13">
+        <!-- Small triangle ABC -->
+        <polygon points="80,170 30,80 160,80" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <text x="80" y="188" text-anchor="middle" fill="#1a6b6b">A</text>
+        <text x="18" y="78" fill="#1a6b6b">B</text>
+        <text x="162" y="78" fill="#1a6b6b">C</text>
+        <text x="80" y="38" text-anchor="middle" font-size="12" fill="#333">△ABC</text>
+
+        <!-- Dashed proportionality line -->
+        <line x1="195" y1="125" x2="265" y2="125" stroke="#b8860b" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="230" y="118" text-anchor="middle" font-size="11" fill="#b8860b">~</text>
+
+        <!-- Large triangle DEF -->
+        <polygon points="430,170 340,55 560,55" fill="#fdf8ec" stroke="#b8860b" stroke-width="2"/>
+        <text x="430" y="188" text-anchor="middle" fill="#b8860b">D</text>
+        <text x="326" y="55" fill="#b8860b">E</text>
+        <text x="562" y="55" fill="#b8860b">F</text>
+        <text x="430" y="32" text-anchor="middle" font-size="12" fill="#333">△DEF (larger, same shape)</text>
+
+        <!-- angle marks at A and D -->
+        <path d="M 70,158 A 14,14 0 0,1 92,158" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <path d="M 418,157 A 14,14 0 0,1 442,157" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <text x="81" y="153" text-anchor="middle" font-size="10" fill="#c0392b">α</text>
+        <text x="430" y="152" text-anchor="middle" font-size="10" fill="#c0392b">α</text>
+      </svg>
+      <div class="diagram-caption">Fig 3.1 — △ABC ~ △DEF: same shape, different size, equal corresponding angles</div>
+    </div>
+
+    <p>If the areas of two similar triangles happen to be equal, then the triangles are also <strong>congruent</strong>.</p>
+  </div>
+
+  <!-- ── SECTION 4 ── -->
+  <div class="section" id="s4">
+    <h2 class="sec-title"><span class="num">04</span> Basic Proportionality Theorem (Thales' Theorem)</h2>
+
+    <div class="box theorem">
+      <div class="box-label">Theorem (BPT / Thales)</div>
+      If a line is drawn <strong>parallel to one side</strong> of a triangle so that it intersects the other two sides at distinct points, then it divides those two sides in the <strong>same ratio</strong>.
+    </div>
+
+    <p>In triangle ABC, if a line PQ is drawn parallel to BC and it intersects AB at P and AC at Q, then:</p>
+
+    <div class="box formula">
+      <div class="box-label">Result</div>
+      <span class="math">AP / PB = AQ / QC</span>
+    </div>
+
+    <!-- Diagram: BPT -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4,serif">
+        <!-- Triangle ABC -->
+        <polygon points="240,20 60,240 420,240" fill="#fdf8ec" stroke="#b8860b" stroke-width="2"/>
+        <!-- Labels -->
+        <text x="240" y="14" text-anchor="middle" font-size="15" font-weight="bold" fill="#b8860b">A</text>
+        <text x="44" y="254" font-size="15" font-weight="bold" fill="#b8860b">B</text>
+        <text x="420" y="254" font-size="15" font-weight="bold" fill="#b8860b">C</text>
+
+        <!-- PQ parallel to BC at ~45% from A -->
+        <!-- P is on AB, Q is on AC -->
+        <!-- A=(240,20), B=(60,240), C=(420,240) -->
+        <!-- At t=0.55: P = A + 0.55*(B-A) = (240-99, 20+121) = (141, 141) -->
+        <!-- At t=0.55: Q = A + 0.55*(C-A) = (240+99, 20+121) = (339, 141) -->
+        <line x1="141" y1="141" x2="339" y2="141" stroke="#1a6b6b" stroke-width="2.5" stroke-dasharray="8,4"/>
+        <circle cx="141" cy="141" r="4" fill="#1a6b6b"/>
+        <circle cx="339" cy="141" r="4" fill="#1a6b6b"/>
+        <text x="128" y="137" text-anchor="end" font-size="14" font-weight="bold" fill="#1a6b6b">P</text>
+        <text x="352" y="137" font-size="14" font-weight="bold" fill="#1a6b6b">Q</text>
+
+        <!-- Parallel arrows -->
+        <text x="220" y="134" font-size="11" fill="#1a6b6b" text-anchor="middle">PQ ∥ BC</text>
+
+        <!-- Dimension labels -->
+        <text x="170" y="82" font-size="12" fill="#c0392b">AP</text>
+        <text x="105" y="198" font-size="12" fill="#c0392b">PB</text>
+        <text x="302" y="82" font-size="12" fill="#c0392b">AQ</text>
+        <text x="368" y="198" font-size="12" fill="#c0392b">QC</text>
+
+        <!-- Ratio label -->
+        <text x="240" y="280" text-anchor="middle" font-size="13" fill="#333">AP / PB = AQ / QC</text>
+      </svg>
+      <div class="diagram-caption">Fig 4.1 — Thales' (Basic Proportionality) Theorem: PQ ∥ BC divides AB and AC in equal ratio</div>
+    </div>
+
+    <h3 class="sub-title">Converse of BPT</h3>
+    <p>The converse is equally important: if a line divides two sides of a triangle in the same ratio, then that line must be parallel to the third side.</p>
+    <div class="box">
+      <div class="box-label">Converse</div>
+      If <span class="math">AP/PB = AQ/QC</span>, then PQ ∥ BC.
+    </div>
+  </div>
+
+  <!-- ── SECTION 5 ── -->
+  <div class="section" id="s5">
+    <h2 class="sec-title"><span class="num">05</span> Criteria for Similarity of Triangles</h2>
+    <p>There are three standard tests (criteria) used to establish that two triangles are similar without checking all six measurements:</p>
+
+    <div class="criteria-grid">
+      <div class="criterion-card">
+        <span class="tag">AA</span>
+        <h4>Angle–Angle (AA)</h4>
+        <p>If two angles of one triangle equal two angles of another triangle, the triangles are similar. (The third angles must also match since angle-sum = 180°.)</p>
+      </div>
+      <div class="criterion-card">
+        <span class="tag">SSS</span>
+        <h4>Side–Side–Side (SSS)</h4>
+        <p>If all three pairs of corresponding sides are in the same proportion, the triangles are similar.</p>
+      </div>
+      <div class="criterion-card">
+        <span class="tag">SAS</span>
+        <h4>Side–Angle–Side (SAS)</h4>
+        <p>If two pairs of corresponding sides are proportional <em>and</em> the angle between those sides is equal, the triangles are similar.</p>
+      </div>
+    </div>
+
+    <!-- Diagram: AA similarity -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 640 210" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4,serif" font-size="13">
+        <!-- Triangle 1 (AA) -->
+        <polygon points="100,185 40,75 190,75" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <text x="100" y="200" text-anchor="middle" fill="#1a6b6b" font-weight="bold">A</text>
+        <text x="28" y="74" fill="#1a6b6b" font-weight="bold">B</text>
+        <text x="192" y="74" fill="#1a6b6b" font-weight="bold">C</text>
+        <!-- angle arcs at B and C -->
+        <path d="M 53,82 A 16,16 0 0,1 68,82" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <path d="M 173,82 A 16,16 0 0,0 157,82" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <text x="100" y="40" text-anchor="middle" font-size="11" fill="#555">△ABC</text>
+
+        <!-- Label: AA -->
+        <text x="300" y="130" text-anchor="middle" font-size="22" fill="#b8860b" font-family="Playfair Display,serif">~</text>
+        <text x="300" y="158" text-anchor="middle" font-size="11" fill="#555">AA Criterion</text>
+
+        <!-- Triangle 2 (AA, larger) -->
+        <polygon points="490,185 390,60 610,60" fill="#fdf8ec" stroke="#b8860b" stroke-width="2"/>
+        <text x="490" y="200" text-anchor="middle" fill="#b8860b" font-weight="bold">D</text>
+        <text x="376" y="60" fill="#b8860b" font-weight="bold">E</text>
+        <text x="612" y="60" fill="#b8860b" font-weight="bold">F</text>
+        <!-- angle arcs at E and F -->
+        <path d="M 405,68 A 16,16 0 0,1 422,68" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <path d="M 594,68 A 16,16 0 0,0 577,68" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <text x="490" y="28" text-anchor="middle" font-size="11" fill="#555">△DEF</text>
+
+        <!-- equal angle note -->
+        <text x="57" y="100" font-size="10" fill="#c0392b">∠B</text>
+        <text x="400" y="90" font-size="10" fill="#c0392b">∠E</text>
+      </svg>
+      <div class="diagram-caption">Fig 5.1 — AA Similarity: equal angles at B & E, and at C & F → triangles are similar</div>
+    </div>
+
+    <!-- SSS diagram -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4,serif" font-size="12">
+        <polygon points="90,175 30,70 180,70" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <text x="90" y="192" text-anchor="middle" fill="#1a6b6b" font-weight="bold">A</text>
+        <text x="18" y="68" fill="#1a6b6b" font-weight="bold">B</text>
+        <text x="182" y="68" fill="#1a6b6b" font-weight="bold">C</text>
+        <!-- side labels -->
+        <text x="50" y="128" fill="#c0392b">a</text>
+        <text x="140" y="128" fill="#c0392b">b</text>
+        <text x="100" y="60" text-anchor="middle" fill="#c0392b">c</text>
+
+        <text x="300" y="125" text-anchor="middle" font-size="20" fill="#b8860b" font-family="Playfair Display,serif">~</text>
+        <text x="300" y="150" text-anchor="middle" font-size="11" fill="#555">SSS: a/d = b/e = c/f</text>
+
+        <polygon points="480,175 380,50 610,50" fill="#fdf8ec" stroke="#b8860b" stroke-width="2"/>
+        <text x="480" y="192" text-anchor="middle" fill="#b8860b" font-weight="bold">D</text>
+        <text x="366" y="50" fill="#b8860b" font-weight="bold">E</text>
+        <text x="612" y="50" fill="#b8860b" font-weight="bold">F</text>
+        <text x="415" y="118" fill="#c0392b">d</text>
+        <text x="556" y="118" fill="#c0392b">e</text>
+        <text x="490" y="38" text-anchor="middle" fill="#c0392b">f</text>
+      </svg>
+      <div class="diagram-caption">Fig 5.2 — SSS Similarity: all three pairs of sides in the same ratio</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 6 ── -->
+  <div class="section" id="s6">
+    <h2 class="sec-title"><span class="num">06</span> Areas of Similar Triangles</h2>
+    <p>When two triangles are similar, there is an elegant relationship between their areas and their corresponding side lengths.</p>
+
+    <div class="box theorem">
+      <div class="box-label">Theorem 2</div>
+      The ratio of the <strong>areas</strong> of two similar triangles equals the <strong>square</strong> of the ratio of their corresponding sides.
+    </div>
+
+    <div class="box formula">
+      <div class="box-label">Formula</div>
+      If △ABC ~ △DEF, then:<br>
+      <span class="math">ar(△ABC) / ar(△DEF) = (AB/DE)² = (BC/EF)² = (CA/FD)²</span>
+    </div>
+
+    <!-- Diagram: Area ratio -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4,serif">
+        <!-- Small triangle -->
+        <polygon points="90,175 50,80 155,80" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <text x="90" y="192" text-anchor="middle" fill="#1a6b6b" font-size="13" font-weight="bold">A</text>
+        <text x="36" y="80" fill="#1a6b6b" font-size="13" font-weight="bold">B</text>
+        <text x="157" y="80" fill="#1a6b6b" font-size="13" font-weight="bold">C</text>
+        <!-- altitude -->
+        <line x1="90" y1="175" x2="90" y2="80" stroke="#1a6b6b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="98" y="133" font-size="11" fill="#1a6b6b">h₁</text>
+        <text x="87" y="45" text-anchor="middle" font-size="11" fill="#555">Area = ½·BC·h₁</text>
+
+        <!-- Ratio box -->
+        <rect x="210" y="100" width="145" height="50" rx="4" fill="#fdf8ec" stroke="#b8860b" stroke-width="1.5"/>
+        <text x="282" y="121" text-anchor="middle" font-size="12" fill="#333">ar(△ABC)</text>
+        <line x1="224" y1="128" x2="340" y2="128" stroke="#b8860b" stroke-width="1.2"/>
+        <text x="282" y="143" text-anchor="middle" font-size="12" fill="#333">ar(△DEF)</text>
+        <text x="370" y="128" font-size="18" fill="#b8860b">=</text>
+        <text x="390" y="120" font-size="12" fill="#333">( BC )²</text>
+        <line x1="390" y1="124" x2="440" y2="124" stroke="#b8860b" stroke-width="1.2"/>
+        <text x="390" y="138" font-size="12" fill="#333">( EF )²</text>
+
+        <!-- Large triangle -->
+        <polygon points="490,175 420,55 575,55" fill="#fdf8ec" stroke="#b8860b" stroke-width="2"/>
+        <text x="490" y="192" text-anchor="middle" fill="#b8860b" font-size="13" font-weight="bold">D</text>
+        <text x="405" y="55" fill="#b8860b" font-size="13" font-weight="bold">E</text>
+        <text x="577" y="55" fill="#b8860b" font-size="13" font-weight="bold">F</text>
+        <line x1="490" y1="175" x2="490" y2="55" stroke="#b8860b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="498" y="118" font-size="11" fill="#b8860b">h₂</text>
+      </svg>
+      <div class="diagram-caption">Fig 6.1 — The area ratio equals the square of the side ratio for similar triangles</div>
+    </div>
+
+    <p>This means if two corresponding sides are in the ratio 2:3, their areas are in the ratio 4:9. Remember: if the areas are equal, the triangles are congruent.</p>
+  </div>
+
+  <!-- ── SECTION 7 ── -->
+  <div class="section" id="s7">
+    <h2 class="sec-title"><span class="num">07</span> Pythagorean Theorem</h2>
+    <p>One of the most celebrated results in all of mathematics, the Pythagorean theorem connects the three sides of any right-angled triangle.</p>
+
+    <div class="box theorem">
+      <div class="box-label">Theorem 3 — Pythagoras</div>
+      In a right-angled triangle, the square of the length of the <strong>hypotenuse</strong> (the side opposite the right angle) is equal to the <strong>sum of squares</strong> of the other two sides.
+    </div>
+
+    <div class="box formula">
+      <div class="box-label">Formula</div>
+      If △ABC is right-angled at B:<br>
+      <span class="math">AC² = AB² + BC²</span>
+    </div>
+
+    <!-- Diagram: Pythagoras -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4,serif">
+        <!-- Triangle right-angled at B -->
+        <!-- A at top, B at bottom-left, C at bottom-right -->
+        <polygon points="100,40 100,220 340,220" fill="#fdf0ee" stroke="#c0392b" stroke-width="2.5"/>
+        <!-- right angle box at B -->
+        <rect x="100" y="200" width="20" height="20" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <!-- Labels -->
+        <text x="88" y="36" font-size="16" font-weight="bold" fill="#c0392b">A</text>
+        <text x="84" y="238" font-size="16" font-weight="bold" fill="#c0392b">B</text>
+        <text x="344" y="238" font-size="16" font-weight="bold" fill="#c0392b">C</text>
+        <!-- Side labels -->
+        <text x="75" y="135" text-anchor="middle" font-size="14" fill="#333" font-style="italic">AB</text>
+        <text x="220" y="240" text-anchor="middle" font-size="14" fill="#333" font-style="italic">BC</text>
+        <!-- hypotenuse label -->
+        <text x="238" y="118" text-anchor="middle" font-size="14" fill="#c0392b" font-style="italic">AC (hypotenuse)</text>
+
+        <!-- Squares on each side -->
+        <!-- Square on AB (left side, vertical: 100,40 to 100,220, length=180) -->
+        <rect x="20" y="40" width="80" height="180" fill="rgba(192,57,43,.08)" stroke="#c0392b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="60" y="135" text-anchor="middle" font-size="12" fill="#c0392b">AB²</text>
+
+        <!-- Square on BC (bottom, horizontal: 100,220 to 340,220, length=240) -->
+        <rect x="100" y="220" width="240" height="80" fill="rgba(192,57,43,.08)" stroke="#c0392b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="220" y="268" text-anchor="middle" font-size="12" fill="#c0392b">BC²</text>
+
+        <!-- Formula -->
+        <text x="420" y="130" text-anchor="middle" font-size="14" fill="#1a6b6b">AC²</text>
+        <text x="420" y="152" text-anchor="middle" font-size="18" fill="#1a6b6b">=</text>
+        <text x="420" y="172" text-anchor="middle" font-size="14" fill="#1a6b6b">AB²+BC²</text>
+
+        <!-- 90° label -->
+        <text x="126" y="212" font-size="11" fill="#c0392b">90°</text>
+      </svg>
+      <div class="diagram-caption">Fig 7.1 — Pythagorean Theorem: the square on the hypotenuse equals the sum of squares on the other two sides</div>
+    </div>
+
+    <h3 class="sub-title">Extended Results — Obtuse Triangles</h3>
+    <p>If △ABC is obtuse-angled at B, and AD is drawn perpendicular to CB (extended), then:</p>
+    <div class="box formula">
+      <div class="box-label">Obtuse Triangle Result</div>
+      <span class="math">AC² = AB² + BC² + 2·BC·BD</span>
+    </div>
+
+    <!-- Diagram: Obtuse triangle -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4,serif" font-size="13">
+        <!-- D, B, C along base; A above -->
+        <!-- D=(60,170), B=(180,170), C=(400,170), A=(120,60) -->
+        <line x1="40" y1="170" x2="430" y2="170" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+        <polygon points="120,60 180,170 400,170" fill="#fdf0ee" stroke="#c0392b" stroke-width="2"/>
+        <line x1="120" y1="60" x2="60" y2="170" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <!-- right angle at D -->
+        <rect x="60" y="150" width="16" height="16" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <text x="115" y="50" text-anchor="middle" font-size="14" font-weight="bold" fill="#c0392b">A</text>
+        <text x="180" y="188" text-anchor="middle" font-size="14" font-weight="bold" fill="#c0392b">B</text>
+        <text x="400" y="188" text-anchor="middle" font-size="14" font-weight="bold" fill="#c0392b">C</text>
+        <text x="55" y="188" font-size="14" font-weight="bold" fill="#1a6b6b">D</text>
+        <text x="120" y="118" text-anchor="end" font-size="12" fill="#333">AD⊥BC</text>
+        <text x="260" y="140" text-anchor="middle" font-size="12" fill="#555">Obtuse at B</text>
+      </svg>
+      <div class="diagram-caption">Fig 7.2 — Obtuse triangle: AD perpendicular to extended CB at D</div>
+    </div>
+
+    <h3 class="sub-title">Extended Results — Acute Triangles</h3>
+    <p>If △ABC is acute-angled and AD is perpendicular to BC, then:</p>
+    <div class="box formula">
+      <div class="box-label">Acute Triangle Result</div>
+      <span class="math">AC² = AB² + BC² – 2·BC·BD</span>
+    </div>
+  </div>
+
+  <!-- ── SECTION 8 ── -->
+  <div class="section" id="s8">
+    <h2 class="sec-title"><span class="num">08</span> Converse of Pythagorean Theorem</h2>
+    <p>The converse is just as powerful: it lets us identify right-angled triangles purely from their side lengths, without measuring any angles.</p>
+
+    <div class="box theorem">
+      <div class="box-label">Converse Theorem</div>
+      If, in a triangle, the square of the longest side equals the sum of the squares of the other two sides, then the angle opposite the longest side is a right angle (90°).
+    </div>
+
+    <p>For example, if a triangle has sides 3, 4, and 5 units: <span class="math">5² = 3² + 4²</span> → 25 = 9 + 16 ✓. Therefore, the triangle is right-angled at the vertex opposite the side of length 5. This is the famous <strong>3-4-5 Pythagorean triple</strong>.</p>
+
+    <!-- Diagram: 3-4-5 triangle -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4,serif">
+        <polygon points="60,180 60,60 220,180" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2.5"/>
+        <rect x="60" y="160" width="20" height="20" fill="none" stroke="#1a6b6b" stroke-width="1.5"/>
+        <text x="45" y="55" font-size="15" font-weight="bold" fill="#1a6b6b">A</text>
+        <text x="40" y="196" font-size="15" font-weight="bold" fill="#1a6b6b">B</text>
+        <text x="224" y="196" font-size="15" font-weight="bold" fill="#1a6b6b">C</text>
+        <!-- side lengths -->
+        <text x="36" y="125" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">4</text>
+        <text x="145" y="198" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">3</text>
+        <text x="160" y="110" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">5</text>
+        <!-- Verification box -->
+        <rect x="270" y="80" width="100" height="70" rx="4" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="1.5"/>
+        <text x="320" y="105" text-anchor="middle" font-size="12" fill="#333">5² = 4² + 3²</text>
+        <text x="320" y="123" text-anchor="middle" font-size="12" fill="#333">25 = 16 + 9</text>
+        <text x="320" y="141" text-anchor="middle" font-size="13" fill="#1a6b6b" font-weight="bold">✓ Right angle</text>
+      </svg>
+      <div class="diagram-caption">Fig 8.1 — The 3-4-5 Pythagorean triple verifies the converse theorem</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 9 ── -->
+  <div class="section" id="s9">
+    <h2 class="sec-title"><span class="num">09</span> Key Results & Quick Reference</h2>
+    <p>When two triangles are similar (△ABC ~ △DEF), a whole set of ratios involving their measurements all equal the same value — the scale factor. This is summarised below:</p>
+
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Property</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Corresponding sides</td>
+          <td><span class="math">AB/DE = BC/EF = CA/FD = k</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Perimeters</td>
+          <td><span class="math">Perimeter(△ABC) / Perimeter(△DEF) = k</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Corresponding medians</td>
+          <td>Ratio of medians = <span class="math">k</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Corresponding altitudes</td>
+          <td>Ratio of altitudes = <span class="math">k</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Areas</td>
+          <td><span class="math">ar(△ABC) / ar(△DEF) = k²</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Equal areas</td>
+          <td>If <span class="math">k = 1</span> (areas equal), triangles are congruent</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-title">Important Pythagorean Triples to Remember</h3>
+    <ul class="key-list">
+      <li><span class="math">(3, 4, 5)</span> — Fundamental triple; multiples like (6,8,10) and (9,12,15) also work.</li>
+      <li><span class="math">(5, 12, 13)</span> — Common in board exam problems.</li>
+      <li><span class="math">(8, 15, 17)</span> — Verify: 64 + 225 = 289 = 17².</li>
+      <li><span class="math">(7, 24, 25)</span> — Verify: 49 + 576 = 625 = 25².</li>
+    </ul>
+
+    <h3 class="sub-title">Summary Checklist</h3>
+    <ul class="key-list">
+      <li>BPT applies when a line is drawn parallel to one side of a triangle.</li>
+      <li>AA is the most commonly used similarity criterion in proofs.</li>
+      <li>The ratio of areas = (ratio of sides)² — never forget the square!</li>
+      <li>Pythagoras holds for right-angled triangles; the converse identifies them from side lengths.</li>
+      <li>For an obtuse triangle: <span class="math">AC² = AB² + BC² + 2·BC·BD</span>.</li>
+      <li>For an acute triangle: <span class="math">AC² = AB² + BC² – 2·BC·BD</span>.</li>
+      <li>Similar figures: same shape; congruent figures: same shape <em>and</em> same size.</li>
+    </ul>
+  </div>
+
+</div><!-- /wrapper -->
+
+<footer>
+  CBSE Class 10 Mathematics · Chapter 6 — Triangles · Revision Notes
+</footer>
+
+</body>
+</html>
