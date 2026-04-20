@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadratic Equations — Class 10 Maths Chapter 4 | CBSE Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple-50: #EEEDFE;
+    --purple-200: #AFA9EC;
+    --purple-600: #534AB7;
+    --purple-800: #3C3489;
+    --teal-50: #E1F5EE;
+    --teal-200: #5DCAA5;
+    --teal-800: #085041;
+    --teal-600: #0F6E56;
+    --amber-50: #FAEEDA;
+    --amber-200: #EF9F27;
+    --amber-600: #854F0B;
+    --amber-800: #633806;
+    --text: #1a1a2e;
+    --text-muted: #555;
+    --border: #ddd;
+    --bg: #fafaf8;
+    --surface: #fff;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* Header */
+  header {
+    background: var(--purple-600);
+    color: #fff;
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .header-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; }
+  .chapter-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: #e8e6ff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+  }
+
+  /* Layout */
+  .container { max-width: 820px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--purple-600);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .toc h2 { font-size: 14px; font-weight: 600; color: var(--purple-600); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.6rem; }
+  .toc ol { padding-left: 1.2rem; }
+  .toc ol li { margin: 0.25rem 0; }
+  .toc a { color: var(--text); text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: var(--purple-600); text-decoration: underline; }
+
+  /* Sections */
+  section { margin-bottom: 2.75rem; }
+  section h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--purple-800);
+    border-bottom: 2px solid var(--purple-50);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.25rem 0 0.4rem;
+  }
+  p { margin-bottom: 0.75rem; color: var(--text); }
+
+  /* Formula box */
+  .formula-box {
+    background: var(--purple-50);
+    border: 1px solid var(--purple-200);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .formula-box .formula {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--purple-800);
+    letter-spacing: 0.5px;
+  }
+  .formula-box .label {
+    font-size: 12px;
+    color: var(--purple-600);
+    margin-top: 6px;
+  }
+
+  /* Info / Warn boxes */
+  .info-box {
+    background: var(--teal-50);
+    border: 1px solid var(--teal-200);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    margin: 0.75rem 0;
+    font-size: 14px;
+    color: var(--teal-800);
+  }
+  .warn-box {
+    background: var(--amber-50);
+    border: 1px solid var(--amber-200);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    margin: 0.75rem 0;
+    font-size: 14px;
+    color: var(--amber-800);
+  }
+
+  /* Numbered steps */
+  .step-list { list-style: none; padding: 0; margin: 0.5rem 0 1rem; counter-reset: step; }
+  .step-list li {
+    counter-increment: step;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 0.6rem;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .step-list li::before {
+    content: counter(step);
+    min-width: 26px; height: 26px;
+    background: var(--purple-600);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 14px; }
+  th { background: var(--purple-50); color: var(--purple-800); font-weight: 600; padding: 10px 14px; border: 1px solid var(--purple-200); text-align: left; }
+  td { padding: 10px 14px; border: 1px solid var(--border); color: var(--text); vertical-align: top; }
+  tr:nth-child(even) td { background: #fafaf8; }
+
+  /* Key points grid */
+  .key-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 1rem 0; }
+  .kp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; }
+  .kp-title { font-size: 13px; font-weight: 600; color: var(--purple-600); margin-bottom: 5px; }
+  .kp-body { font-size: 14px; color: var(--text-muted); }
+
+  /* Method cards */
+  .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 1rem 0 1.5rem; }
+  .method-card { border-radius: 10px; padding: 1rem; text-align: center; }
+  .method-card .mc-num { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .method-card .mc-name { font-size: 14px; font-weight: 600; }
+  .mc-purple { background: var(--purple-50); border: 1px solid var(--purple-200); }
+  .mc-purple .mc-num, .mc-purple .mc-name { color: var(--purple-800); }
+  .mc-teal { background: var(--teal-50); border: 1px solid var(--teal-200); }
+  .mc-teal .mc-num, .mc-teal .mc-name { color: var(--teal-800); }
+  .mc-amber { background: var(--amber-50); border: 1px solid var(--amber-200); }
+  .mc-amber .mc-num, .mc-amber .mc-name { color: var(--amber-800); }
+
+  /* Parabola diagrams */
+  .parabola-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 1rem 0; }
+  .para-card { border-radius: 10px; padding: 1rem 0.75rem 0.75rem; text-align: center; }
+  .para-card svg { width: 100%; height: 130px; }
+  .para-card .pc-title { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+  .para-card .pc-desc { font-size: 12px; margin-top: 6px; }
+  .pc-purple { background: var(--purple-50); border: 1px solid var(--purple-200); }
+  .pc-purple .pc-title, .pc-purple .pc-desc { color: var(--purple-800); }
+  .pc-teal { background: var(--teal-50); border: 1px solid var(--teal-200); }
+  .pc-teal .pc-title, .pc-teal .pc-desc { color: var(--teal-800); }
+  .pc-amber { background: var(--amber-50); border: 1px solid var(--amber-200); }
+  .pc-amber .pc-title, .pc-amber .pc-desc { color: var(--amber-800); }
+
+  /* Formula summary grid */
+  .formula-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 1rem 0; }
+  .fg-card { border-radius: 10px; padding: 1rem 1.1rem; }
+  .fg-title { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; }
+  .fg-formula { font-family: 'Lora', serif; font-size: 15px; font-weight: 500; }
+  .fg-purple { background: var(--purple-50); border: 1px solid var(--purple-200); }
+  .fg-purple .fg-title, .fg-purple .fg-formula { color: var(--purple-800); }
+  .fg-teal { background: var(--teal-50); border: 1px solid var(--teal-200); }
+  .fg-teal .fg-title, .fg-teal .fg-formula { color: var(--teal-800); }
+  .fg-amber { background: var(--amber-50); border: 1px solid var(--amber-200); }
+  .fg-amber .fg-title, .fg-amber .fg-formula { color: var(--amber-800); }
+
+  /* Bullet list */
+  .notes-list { padding-left: 1.3rem; font-size: 15px; line-height: 1.9; color: var(--text); }
+  .notes-list li { margin-bottom: 0.3rem; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.6rem; }
+    .container { padding: 1.5rem 1rem 3rem; }
+    .formula-box .formula { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="chapter-tag">Class 10 Maths &mdash; Chapter 4 &mdash; CBSE</div>
+    <h1>Quadratic Equations</h1>
+    <p>Revision Notes &mdash; Standard Form &bull; Roots &bull; Methods &bull; Discriminant &bull; Graphs</p>
+  </div>
+</header>
+
+<div class="container">
+
+ 
+  <!-- Section 1 -->
+  <section id="s1">
+    <h2>1. What is a quadratic equation?</h2>
+    <p>A <strong>quadratic equation</strong> is a polynomial equation of degree 2 in one variable. Any equation that can be expressed in the following standard form is a quadratic equation:</p>
+    <div class="formula-box">
+      <div class="formula">ax&sup2; + bx + c = 0</div>
+      <div class="label">where a, b, c are real numbers and a &ne; 0</div>
+    </div>
+    <p>Here, <em>a</em> is the coefficient of x&sup2;, <em>b</em> is the coefficient of x, and <em>c</em> is the constant term. The condition a &ne; 0 is essential &mdash; if a were 0, the equation would reduce to a linear equation.</p>
+    <div class="info-box">&#128161; The highest power of the variable in a quadratic equation is always 2. This is why it is also called a &ldquo;second-degree equation.&rdquo;</div>
+    <h3>Examples of quadratic equations</h3>
+    <p>
+      &bull; x&sup2; &minus; 5x + 6 = 0 &nbsp;(a&nbsp;=&nbsp;1, b&nbsp;=&nbsp;&minus;5, c&nbsp;=&nbsp;6)<br>
+      &bull; 2x&sup2; + 3x &minus; 2 = 0 &nbsp;(a&nbsp;=&nbsp;2, b&nbsp;=&nbsp;3, c&nbsp;=&nbsp;&minus;2)<br>
+      &bull; x&sup2; &minus; 4 = 0 &nbsp;(a&nbsp;=&nbsp;1, b&nbsp;=&nbsp;0, c&nbsp;=&nbsp;&minus;4)
+    </p>
+    <h3>Not a quadratic equation</h3>
+    <p>
+      &bull; x&sup3; + x + 1 = 0 &nbsp;(degree is 3, not 2)<br>
+      &bull; 2x + 5 = 0 &nbsp;(degree is 1, this is linear)<br>
+      &bull; 0&middot;x&sup2; + 3x + 1 = 0 &nbsp;(a = 0, so not quadratic)
+    </p>
+  </section>
+
+  <!-- Section 2 -->
+  <section id="s2">
+    <h2>2. Roots of a quadratic equation</h2>
+    <p>A value of x that satisfies a quadratic equation is called a <strong>root</strong> (or solution) of that equation. If x = &alpha; is a root of ax&sup2; + bx + c = 0, then substituting &alpha; in place of x makes the equation true, i.e., a&alpha;&sup2; + b&alpha; + c = 0.</p>
+    <p>Every quadratic equation has exactly <strong>two roots</strong> (which may be equal, distinct, or non-real). The roots of a quadratic equation are the same as the zeroes of the corresponding quadratic polynomial ax&sup2; + bx + c.</p>
+    <div class="info-box">The two roots are commonly denoted by the Greek letters &alpha; (alpha) and &beta; (beta).</div>
+  </section>
+
+  <!-- Section 3 -->
+  <section id="s3">
+    <h2>3. Methods of solving quadratic equations</h2>
+    <p>There are three standard methods to find the roots of a quadratic equation:</p>
+    <div class="method-grid">
+      <div class="method-card mc-purple">
+        <div class="mc-num">Method 1</div>
+        <div class="mc-name">Factorisation</div>
+      </div>
+      <div class="method-card mc-teal">
+        <div class="mc-num">Method 2</div>
+        <div class="mc-name">Completing the square</div>
+      </div>
+      <div class="method-card mc-amber">
+        <div class="mc-num">Method 3</div>
+        <div class="mc-name">Quadratic formula</div>
+      </div>
+    </div>
+
+    <h3>Method 1 &mdash; Factorisation</h3>
+    <p>The quadratic expression is split into two linear factors. Each factor is then set equal to zero to find the two roots.</p>
+    <ol class="step-list">
+      <li>Write the equation in standard form: ax&sup2; + bx + c = 0.</li>
+      <li>Split the middle term bx into two terms mx + nx such that m + n = b and m &times; n = ac.</li>
+      <li>Group and factor to get two linear factors.</li>
+      <li>Set each factor equal to zero and solve for x.</li>
+    </ol>
+    <div class="info-box"><strong>Example:</strong> x&sup2; &minus; 5x + 6 = 0 &rarr; split &minus;5x as &minus;3x &minus; 2x (since &minus;3 + (&minus;2) = &minus;5, &minus;3 &times; &minus;2 = 6) &rarr; x(x&minus;3) &minus; 2(x&minus;3) = 0 &rarr; (x&minus;2)(x&minus;3) = 0 &rarr; x = 2 or x = 3</div>
+
+    <h3>Method 2 &mdash; Completing the square</h3>
+    <p>This method converts the equation into a perfect square form, making it easy to find the roots by taking square roots on both sides.</p>
+    <ol class="step-list">
+      <li>Write the equation as ax&sup2; + bx = &minus;c. Divide throughout by a.</li>
+      <li>Add (b/2a)&sup2; to both sides so the left side becomes a perfect square trinomial.</li>
+      <li>Write the left side as (x + b/2a)&sup2;.</li>
+      <li>Take the square root of both sides.</li>
+      <li>Solve for x by isolating it on one side.</li>
+    </ol>
+
+    <h3>Method 3 &mdash; The quadratic formula</h3>
+    <p>This is the most universal method. It works for all quadratic equations regardless of whether the roots are rational, irrational, or non-real. It is derived by applying the completing-the-square method to the general equation ax&sup2; + bx + c = 0.</p>
+    <div class="formula-box">
+      <div class="formula">x = (&minus;b &plusmn; &radic;(b&sup2; &minus; 4ac)) / 2a</div>
+      <div class="label">The quadratic formula &mdash; works for all values of a, b, c</div>
+    </div>
+    <p>To use this formula, identify the values of a, b, and c from the equation and substitute them in. The &plusmn; sign gives two roots &mdash; one with + and one with &minus;.</p>
+    <div class="warn-box"><strong>Tip:</strong> Use factorisation when the middle term splits easily. Use the quadratic formula when factorisation is not obvious or when roots are likely irrational.</div>
+  </section>
+
+  <!-- Section 4 -->
+  <section id="s4">
+    <h2>4. The discriminant and nature of roots</h2>
+    <p>The expression <strong>D = b&sup2; &minus; 4ac</strong> inside the square root of the quadratic formula is called the <strong>discriminant</strong>. It tells us the nature of the roots without actually solving the equation.</p>
+    <div class="formula-box">
+      <div class="formula">D = b&sup2; &minus; 4ac</div>
+      <div class="label">Discriminant &mdash; determines what kind of roots the equation has</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Value of D</th><th>Nature of roots</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>D &gt; 0</td><td>Two distinct real roots</td><td>The parabola crosses the x-axis at two different points</td></tr>
+        <tr><td>D = 0</td><td>Two equal real roots</td><td>The parabola just touches the x-axis at one point (the vertex)</td></tr>
+        <tr><td>D &lt; 0</td><td>No real roots</td><td>The parabola does not cross or touch the x-axis at all</td></tr>
+      </tbody>
+    </table>
+    <p>When D = 0, both roots are equal: &alpha; = &beta; = &minus;b/2a</p>
+    <div class="info-box">If D &ge; 0, the roots are real. For real and rational roots (when a, b, c are integers), D must be a perfect square.</div>
+  </section>
+
+  <!-- Section 5 -->
+  <section id="s5">
+    <h2>5. Graphical representation (parabola)</h2>
+    <p>The graph of a quadratic equation y = ax&sup2; + bx + c is always a smooth curved shape called a <strong>parabola</strong>. The roots of the equation are the x-coordinates of the points where the parabola intersects the x-axis (y = 0).</p>
+    <p>The direction of opening depends on the sign of <em>a</em>:<br>
+    &bull; If a &gt; 0 &rarr; parabola opens <strong>upward</strong> (U-shape)<br>
+    &bull; If a &lt; 0 &rarr; parabola opens <strong>downward</strong> (&cap;-shape)</p>
+
+    <div class="parabola-grid">
+
+      <div class="para-card pc-purple">
+        <div class="pc-title">D &gt; 0 &mdash; Two distinct real roots</div>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10" x2="170" y1="90" y2="90" stroke="#AFA9EC" stroke-width="1.2"/>
+          <line x1="90" x2="90" y1="10" y2="120" stroke="#AFA9EC" stroke-width="0.8" stroke-dasharray="4,3"/>
+          <path d="M 25,80 Q 90,20 155,80" stroke="#534AB7" stroke-width="2.2" fill="none"/>
+          <circle cx="57" cy="90" r="5" fill="#534AB7"/>
+          <circle cx="123" cy="90" r="5" fill="#534AB7"/>
+          <text x="52" y="110" text-anchor="middle" font-size="13" font-family="serif" fill="#3C3489">&alpha;</text>
+          <text x="126" y="110" text-anchor="middle" font-size="13" font-family="serif" fill="#3C3489">&beta;</text>
+          <text x="160" y="88" font-size="11" fill="#888">x</text>
+        </svg>
+        <div class="pc-desc">Parabola cuts x-axis at two points &alpha; and &beta;</div>
+      </div>
+
+      <div class="para-card pc-teal">
+        <div class="pc-title">D = 0 &mdash; Equal roots</div>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10" x2="170" y1="90" y2="90" stroke="#5DCAA5" stroke-width="1.2"/>
+          <line x1="90" x2="90" y1="10" y2="120" stroke="#5DCAA5" stroke-width="0.8" stroke-dasharray="4,3"/>
+          <path d="M 25,85 Q 90,30 155,85" stroke="#1D9E75" stroke-width="2.2" fill="none"/>
+          <circle cx="90" cy="90" r="5" fill="#1D9E75"/>
+          <text x="90" y="112" text-anchor="middle" font-size="12" font-family="serif" fill="#085041">&alpha; = &beta;</text>
+          <text x="160" y="88" font-size="11" fill="#888">x</text>
+        </svg>
+        <div class="pc-desc">Parabola touches x-axis at exactly one point (vertex)</div>
+      </div>
+
+      <div class="para-card pc-amber">
+        <div class="pc-title">D &lt; 0 &mdash; No real roots</div>
+        <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10" x2="170" y1="100" y2="100" stroke="#EF9F27" stroke-width="1.2"/>
+          <line x1="90" x2="90" y1="10" y2="120" stroke="#EF9F27" stroke-width="0.8" stroke-dasharray="4,3"/>
+          <path d="M 30,95 Q 90,25 150,95" stroke="#BA7517" stroke-width="2.2" fill="none"/>
+          <text x="90" y="118" text-anchor="middle" font-size="11" fill="#854F0B">no intersection</text>
+          <text x="160" y="98" font-size="11" fill="#888">x</text>
+        </svg>
+        <div class="pc-desc">Parabola does not cross or touch the x-axis</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 6 -->
+  <section id="s6">
+    <h2>6. Relationship between roots and coefficients</h2>
+    <p>If &alpha; and &beta; are the two roots of the quadratic equation ax&sup2; + bx + c = 0, then the following relationships always hold:</p>
+    <div class="key-points">
+      <div class="kp-card">
+        <div class="kp-title">Sum of roots</div>
+        <div class="kp-body">&alpha; + &beta; = &minus;b / a</div>
+      </div>
+      <div class="kp-card">
+        <div class="kp-title">Product of roots</div>
+        <div class="kp-body">&alpha; &times; &beta; = c / a</div>
+      </div>
+      <div class="kp-card">
+        <div class="kp-title">Rebuild the equation</div>
+        <div class="kp-body">x&sup2; &minus; (&alpha;+&beta;)x + &alpha;&beta; = 0</div>
+      </div>
+    </div>
+    <p>These relationships are very useful. If the sum and product of roots are known, the quadratic equation can be reconstructed directly without needing to solve for individual root values.</p>
+    <div class="formula-box">
+      <div class="formula">x&sup2; &minus; (sum of roots) &middot; x + (product of roots) = 0</div>
+    </div>
+  </section>
+
+  <!-- Section 7 -->
+  <section id="s7">
+    <h2>7. Forming a quadratic equation from given roots</h2>
+    <p>If we know both roots &alpha; and &beta;, the quadratic equation can be formed as:</p>
+    <div class="formula-box">
+      <div class="formula">(x &minus; &alpha;)(x &minus; &beta;) = 0</div>
+      <div class="label">Expanding gives: x&sup2; &minus; (&alpha;+&beta;)x + &alpha;&beta; = 0</div>
+    </div>
+    <div class="info-box"><strong>Example:</strong> If roots are 3 and &minus;2, then sum = 3 + (&minus;2) = 1 and product = 3 &times; (&minus;2) = &minus;6. The quadratic equation is x&sup2; &minus; x &minus; 6 = 0.</div>
+  </section>
+
+  <!-- Section 8 -->
+  <section id="s8">
+    <h2>8. Quick formula summary</h2>
+    <div class="formula-grid">
+      <div class="fg-card fg-purple">
+        <div class="fg-title">Standard form</div>
+        <div class="fg-formula">ax&sup2; + bx + c = 0, &nbsp;a &ne; 0</div>
+      </div>
+      <div class="fg-card fg-purple">
+        <div class="fg-title">Quadratic formula</div>
+        <div class="fg-formula">x = [&minus;b &plusmn; &radic;(b&sup2;&minus;4ac)] / 2a</div>
+      </div>
+      <div class="fg-card fg-teal">
+        <div class="fg-title">Discriminant</div>
+        <div class="fg-formula">D = b&sup2; &minus; 4ac</div>
+      </div>
+      <div class="fg-card fg-teal">
+        <div class="fg-title">Sum &amp; product of roots</div>
+        <div class="fg-formula">&alpha;+&beta; = &minus;b/a &nbsp;&bull;&nbsp; &alpha;&beta; = c/a</div>
+      </div>
+      <div class="fg-card fg-amber">
+        <div class="fg-title">Equal roots (D = 0)</div>
+        <div class="fg-formula">&alpha; = &beta; = &minus;b / 2a</div>
+      </div>
+      <div class="fg-card fg-amber">
+        <div class="fg-title">Rebuild from roots</div>
+        <div class="fg-formula">x&sup2; &minus; (&alpha;+&beta;)x + &alpha;&beta; = 0</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9 -->
+  <section id="s9">
+    <h2>9. Important points to remember</h2>
+    <ul class="notes-list">
+      <li>A quadratic equation always has exactly two roots (counting multiplicity).</li>
+      <li>The condition a &ne; 0 must always hold; otherwise it is not a quadratic equation.</li>
+      <li>For real roots to exist, the discriminant must satisfy D &ge; 0.</li>
+      <li>If D is a perfect square and a, b, c are integers, the roots are rational numbers.</li>
+      <li>The quadratic formula always works &mdash; use it when factorisation is not immediately obvious.</li>
+      <li>Completing the square is the method from which the quadratic formula is derived.</li>
+      <li>In word problems, always check whether both roots are meaningful in context (e.g., reject negative lengths or ages).</li>
+      <li>The graph of a quadratic is always a parabola; the roots are the x-intercepts.</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  Class 10 Maths &mdash; Chapter 4: Quadratic Equations &bull; CBSE Revision Notes &bull; Covers: Definition &bull; Roots &bull; Factorisation &bull; Completing the Square &bull; Quadratic Formula &bull; Discriminant &bull; Parabola &bull; Sum &amp; Product of Roots
+</footer>
+
+</body>
+</html>
