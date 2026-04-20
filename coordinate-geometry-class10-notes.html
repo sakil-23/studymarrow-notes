@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coordinate Geometry – Class 10 Maths Chapter 7 | CBSE Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:   #0f1f3d;
+      --indigo: #1a3a6b;
+      --blue:   #2557a7;
+      --sky:    #4a9ede;
+      --gold:   #f5a623;
+      --amber:  #fff3cd;
+      --mint:   #e8f5f0;
+      --rose:   #fff0f0;
+      --lilac:  #f0f0ff;
+      --bg:     #f7f8fc;
+      --surface:#ffffff;
+      --text:   #1a1f2e;
+      --muted:  #5a6278;
+      --border: #dde3f0;
+      --code-bg:#eef2fa;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(15,31,61,0.09);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ── Header ─────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 60%, #203f80 100%);
+      color: #fff;
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      color: #c8d8ff;
+    }
+    header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    header h1 span { color: var(--gold); }
+    header p.subtitle {
+      font-size: 16px;
+      color: #b0c4e8;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Layout ─────────────────────────────── */
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── TOC ─────────────────────────────────── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow);
+    }
+    .toc h2 {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin: 6px 0; }
+    .toc a { color: var(--indigo); text-decoration: none; font-weight: 500; }
+    .toc a:hover { color: var(--blue); text-decoration: underline; }
+
+    /* ── Sections ────────────────────────────── */
+    section { margin-bottom: 56px; }
+    section h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(22px, 3vw, 28px);
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    section h2 .num {
+      background: var(--blue);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    section h3 {
+      font-family: 'Lora', serif;
+      font-size: 19px;
+      color: var(--indigo);
+      margin: 28px 0 10px;
+    }
+    section p { margin-bottom: 14px; color: var(--text); }
+
+    /* ── Formula Box ─────────────────────────── */
+    .formula-box {
+      background: linear-gradient(135deg, #eef4ff 0%, #e6eeff 100%);
+      border: 1.5px solid #c0d0f0;
+      border-left: 5px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 22px 28px;
+      margin: 20px 0;
+    }
+    .formula-box .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .formula-box .formula {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.8;
+    }
+    .formula-box p { margin-top: 10px; font-size: 14px; color: var(--muted); margin-bottom: 0; }
+
+    /* ── Example Box ─────────────────────────── */
+    .example {
+      background: var(--mint);
+      border: 1px solid #b2dece;
+      border-radius: var(--radius);
+      padding: 22px 28px;
+      margin: 20px 0;
+    }
+    .example .ex-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: #1a7a55; margin-bottom: 8px;
+    }
+    .example p { margin-bottom: 8px; }
+    .example .solution {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #1a4a35;
+      background: rgba(255,255,255,0.6);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 10px;
+      line-height: 1.9;
+    }
+
+    /* ── Note Box ────────────────────────────── */
+    .note {
+      background: var(--amber);
+      border: 1px solid #f0d070;
+      border-left: 5px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 16px 22px;
+      margin: 16px 0;
+      font-size: 14.5px;
+    }
+    .note strong { color: #7a5200; }
+
+    /* ── Key Insight ─────────────────────────── */
+    .insight {
+      background: var(--lilac);
+      border: 1px solid #c5c5f0;
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      margin: 16px 0;
+      font-size: 14.5px;
+    }
+    .insight strong { color: #3a3a9a; }
+
+    /* ── Diagram container ───────────────────── */
+    .diagram-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 24px 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .diagram-wrap figcaption {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+    svg text { font-family: 'DM Sans', sans-serif; }
+
+    /* ── Summary Table ───────────────────────── */
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 24px 0;
+    }
+    .summary-card table { width: 100%; border-collapse: collapse; }
+    .summary-card th {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .summary-card td {
+      padding: 13px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      vertical-align: top;
+    }
+    .summary-card tr:last-child td { border-bottom: none; }
+    .summary-card tr:nth-child(even) td { background: #f5f7fc; }
+    .summary-card td:first-child { font-weight: 600; color: var(--indigo); }
+    .summary-card td:nth-child(2) {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--navy);
+    }
+
+    /* ── Footer ──────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--navy);
+      color: #8899bb;
+      font-size: 13px;
+    }
+    footer strong { color: #c8d8ff; }
+
+    /* ── Responsive ──────────────────────────── */
+    @media (max-width: 600px) {
+      header { padding: 40px 20px 36px; }
+      .container { padding: 32px 16px 60px; }
+      .formula-box, .example, .note, .insight { padding: 16px 18px; }
+      .toc { padding: 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ HEADER -->
+<header>
+  <div class="badge">CBSE · Class 10 · Chapter 7</div>
+  <h1>Coordinate <span>Geometry</span></h1>
+  <p class="subtitle">Complete revision notes covering the Cartesian plane, Distance Formula, Section Formula, and Area of a Triangle.</p>
+</header>
+
+<div class="container">
+
+  <!-- ══ TABLE OF CONTENTS -->
+  <div class="toc">
+    <h2>📋 Table of Contents</h2>
+    <ol>
+      <li><a href="#intro">Introduction to Coordinate Geometry</a></li>
+      <li><a href="#cartesian">The Cartesian Coordinate System</a></li>
+      <li><a href="#distance">Distance Formula</a></li>
+      <li><a href="#section">Section Formula</a></li>
+      <li><a href="#midpoint">Midpoint Formula</a></li>
+      <li><a href="#area">Area of a Triangle</a></li>
+      <li><a href="#collinear">Collinearity of Three Points</a></li>
+      <li><a href="#summary">Quick Reference – Formula Summary</a></li>
+    </ol>
+  </div>
+
+  <!-- ══════ 1. INTRODUCTION -->
+  <section id="intro">
+    <h2><span class="num">1</span> Introduction to Coordinate Geometry</h2>
+
+    <p>Coordinate geometry (also called <strong>analytic geometry</strong>) is the branch of mathematics that creates a bridge between algebra and geometry. Instead of studying shapes purely through diagrams, we assign numerical values — called <em>coordinates</em> — to every point, and then use algebraic methods to answer geometric questions such as "how far apart are these two points?" or "what is the area of this triangle?"</p>
+
+    <p>The French mathematician <strong>René Descartes</strong> introduced this idea in the 17th century, which is why the system is named the <em>Cartesian</em> coordinate system in his honour.</p>
+
+    <div class="insight">
+      <strong>💡 Why does it matter?</strong> Coordinate geometry lets you prove geometric properties using equations and formulas — a powerful technique that is used in physics, engineering, computer graphics, GPS navigation, and more.
+    </div>
+
+    <p>In Class 10, the chapter focuses on three core topics:</p>
+    <ul style="padding-left:22px; margin-bottom:14px;">
+      <li style="margin:5px 0;"><strong>Distance Formula</strong> – finding the length between two points</li>
+      <li style="margin:5px 0;"><strong>Section Formula</strong> – locating a point that divides a line segment in a given ratio</li>
+      <li style="margin:5px 0;"><strong>Area Formula</strong> – computing the area of a triangle given its three vertices</li>
+    </ul>
+  </section>
+
+  <!-- ══════ 2. CARTESIAN SYSTEM -->
+  <section id="cartesian">
+    <h2><span class="num">2</span> The Cartesian Coordinate System</h2>
+
+    <p>A <strong>Cartesian plane</strong> is formed by two number lines that intersect each other at right angles. The horizontal line is called the <strong>x-axis</strong> and the vertical line is called the <strong>y-axis</strong>. Their point of intersection is called the <strong>origin</strong>, denoted by <strong>O(0, 0)</strong>.</p>
+
+    <p>Every point on this plane is uniquely identified by an ordered pair <strong>(x, y)</strong>, where:</p>
+    <ul style="padding-left:22px; margin-bottom:14px;">
+      <li style="margin:5px 0;"><strong>x</strong> (the <em>abscissa</em>) measures the horizontal distance from the y-axis.</li>
+      <li style="margin:5px 0;"><strong>y</strong> (the <em>ordinate</em>) measures the vertical distance from the x-axis.</li>
+    </ul>
+
+    <!-- Diagram: Cartesian Plane -->
+    <figure class="diagram-wrap">
+      <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" style="max-width:480px; width:100%;">
+        <!-- Grid lines -->
+        <g stroke="#e0e8f5" stroke-width="1">
+          <!-- Vertical grid -->
+          <line x1="80"  y1="30" x2="80"  y2="350"/>
+          <line x1="140" y1="30" x2="140" y2="350"/>
+          <line x1="200" y1="30" x2="200" y2="350"/>
+          <line x1="260" y1="30" x2="260" y2="350"/>
+          <line x1="320" y1="30" x2="320" y2="350"/>
+          <line x1="380" y1="30" x2="380" y2="350"/>
+          <line x1="440" y1="30" x2="440" y2="350"/>
+          <!-- Horizontal grid -->
+          <line x1="30" y1="80"  x2="460" y2="80"/>
+          <line x1="30" y1="140" x2="460" y2="140"/>
+          <line x1="30" y1="200" x2="460" y2="200"/>
+          <line x1="30" y1="260" x2="460" y2="260"/>
+          <line x1="30" y1="320" x2="460" y2="320"/>
+        </g>
+
+        <!-- Axes -->
+        <line x1="30" y1="200" x2="460" y2="200" stroke="#1a3a6b" stroke-width="2.5"/>
+        <line x1="240" y1="30" x2="240" y2="360" stroke="#1a3a6b" stroke-width="2.5"/>
+
+        <!-- Arrowheads -->
+        <polygon points="460,200 450,195 450,205" fill="#1a3a6b"/>
+        <polygon points="240,28  235,40  245,40"  fill="#1a3a6b"/>
+
+        <!-- Axis labels -->
+        <text x="462" y="204" font-size="15" fill="#1a3a6b" font-weight="700">x</text>
+        <text x="244" y="22"  font-size="15" fill="#1a3a6b" font-weight="700">y</text>
+
+        <!-- Tick labels x-axis -->
+        <text x="72"  y="218" font-size="11" fill="#5a6278" text-anchor="middle">-3</text>
+        <text x="132" y="218" font-size="11" fill="#5a6278" text-anchor="middle">-2</text>
+        <text x="192" y="218" font-size="11" fill="#5a6278" text-anchor="middle">-1</text>
+        <text x="252" y="218" font-size="11" fill="#5a6278" text-anchor="middle"> 1</text>
+        <text x="312" y="218" font-size="11" fill="#5a6278" text-anchor="middle"> 2</text>
+        <text x="372" y="218" font-size="11" fill="#5a6278" text-anchor="middle"> 3</text>
+
+        <!-- Tick labels y-axis -->
+        <text x="228" y="84"  font-size="11" fill="#5a6278" text-anchor="middle"> 3</text>
+        <text x="228" y="144" font-size="11" fill="#5a6278" text-anchor="middle"> 2</text>
+        <text x="228" y="204" font-size="11" fill="#5a6278" text-anchor="middle">  </text>
+        <text x="228" y="264" font-size="11" fill="#5a6278" text-anchor="middle">-1</text>
+        <text x="228" y="324" font-size="11" fill="#5a6278" text-anchor="middle">-2</text>
+
+        <!-- Origin -->
+        <text x="222" y="217" font-size="12" fill="#1a3a6b" font-weight="700">O</text>
+
+        <!-- Sample Point P(3,2) -->
+        <circle cx="372" cy="140" r="6" fill="#2557a7"/>
+        <text x="380" y="132" font-size="13" fill="#2557a7" font-weight="700">P (3, 2)</text>
+        <!-- Dashed helpers -->
+        <line x1="372" y1="140" x2="372" y2="200" stroke="#f5a623" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <line x1="240" y1="140" x2="372" y2="140" stroke="#f5a623" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="370" y="215" font-size="11" fill="#c07800" text-anchor="middle">x=3</text>
+        <text x="200" y="143" font-size="11" fill="#c07800" text-anchor="end">y=2</text>
+
+        <!-- Sample Point Q(-2,-1) -->
+        <circle cx="132" cy="260" r="6" fill="#e02020"/>
+        <text x="50" y="256" font-size="13" fill="#e02020" font-weight="700">Q (-2,-1)</text>
+
+        <!-- Quadrant labels -->
+        <text x="140" y="110" font-size="13" fill="#8899bb" font-style="italic" text-anchor="middle">II</text>
+        <text x="370" y="110" font-size="13" fill="#8899bb" font-style="italic" text-anchor="middle">I</text>
+        <text x="140" y="310" font-size="13" fill="#8899bb" font-style="italic" text-anchor="middle">III</text>
+        <text x="370" y="310" font-size="13" fill="#8899bb" font-style="italic" text-anchor="middle">IV</text>
+      </svg>
+      <figcaption>Fig 1 – The Cartesian coordinate plane showing four quadrants, two sample points P(3,2) and Q(−2,−1).</figcaption>
+    </figure>
+
+    <h3>Signs of Coordinates in Each Quadrant</h3>
+
+    <div class="summary-card" style="margin-top:10px;">
+      <table>
+        <thead>
+          <tr><th>Quadrant</th><th>x-sign</th><th>y-sign</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>I (Top-Right)</td><td>Positive (+)</td><td>Positive (+)</td><td>(3, 4)</td></tr>
+          <tr><td>II (Top-Left)</td><td>Negative (−)</td><td>Positive (+)</td><td>(−2, 5)</td></tr>
+          <tr><td>III (Bottom-Left)</td><td>Negative (−)</td><td>Negative (−)</td><td>(−3, −1)</td></tr>
+          <tr><td>IV (Bottom-Right)</td><td>Positive (+)</td><td>Negative (−)</td><td>(4, −2)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>📝 Note:</strong> Points lying on the x-axis have a y-coordinate of 0, e.g. (5, 0). Points lying on the y-axis have an x-coordinate of 0, e.g. (0, −3). The origin O is (0, 0).
+    </div>
+  </section>
+
+  <!-- ══════ 3. DISTANCE FORMULA -->
+  <section id="distance">
+    <h2><span class="num">3</span> Distance Formula</h2>
+
+    <p>The <strong>distance formula</strong> gives us the length of the straight line segment connecting any two points on the Cartesian plane. It is derived directly from the <strong>Pythagorean theorem</strong>.</p>
+
+    <h3>Derivation</h3>
+    <p>Consider two points <strong>A(x₁, y₁)</strong> and <strong>B(x₂, y₂)</strong>. Draw a horizontal line from A and a vertical line from B to meet at a right angle at point C. The horizontal leg AC has length |x₂ − x₁| and the vertical leg BC has length |y₂ − y₁|. By Pythagoras:</p>
+
+    <!-- Diagram: Distance Formula -->
+    <figure class="diagram-wrap">
+      <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" style="max-width:420px; width:100%;">
+        <!-- Axes -->
+        <line x1="30" y1="230" x2="400" y2="230" stroke="#c0ccdd" stroke-width="1.5"/>
+        <line x1="50"  y1="20"  x2="50"  y2="240" stroke="#c0ccdd" stroke-width="1.5"/>
+
+        <!-- Right triangle -->
+        <polygon points="80,50 340,200 340,50" fill="#eef4ff" stroke="#c0d0f0" stroke-width="1"/>
+
+        <!-- Hypotenuse AB -->
+        <line x1="80" y1="50" x2="340" y2="200" stroke="#2557a7" stroke-width="2.5"/>
+
+        <!-- Right angle marker -->
+        <polyline points="325,50 325,65 340,65" fill="none" stroke="#888" stroke-width="1.5"/>
+
+        <!-- Dashed helpers -->
+        <line x1="80"  y1="50"  x2="80"  y2="200" stroke="#ccc" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <line x1="80"  y1="200" x2="340" y2="200" stroke="#ccc" stroke-width="1.2" stroke-dasharray="5,3"/>
+
+        <!-- Points -->
+        <circle cx="80"  cy="50"  r="6" fill="#2557a7"/>
+        <circle cx="340" cy="200" r="6" fill="#2557a7"/>
+        <circle cx="340" cy="50"  r="5" fill="#888"/>
+
+        <!-- Labels -->
+        <text x="58"  y="47"  font-size="14" fill="#2557a7" font-weight="700">A(x₁, y₁)</text>
+        <text x="344" y="210" font-size="14" fill="#2557a7" font-weight="700">B(x₂, y₂)</text>
+        <text x="344" y="46"  font-size="13" fill="#666">C(x₂, y₁)</text>
+
+        <!-- AB label -->
+        <text x="185" y="115" font-size="13" fill="#1a3a6b" font-weight="700" transform="rotate(-31 185 115)">AB = d</text>
+
+        <!-- Leg labels -->
+        <text x="196" y="218" font-size="12" fill="#c07800" text-anchor="middle">|x₂ − x₁|</text>
+        <text x="360" y="135" font-size="12" fill="#c07800" text-anchor="middle" transform="rotate(-90 360 135)">|y₂ − y₁|</text>
+
+        <!-- Axis labels -->
+        <text x="402" y="233" font-size="12" fill="#aaa">x</text>
+        <text x="42"  y="16"  font-size="12" fill="#aaa">y</text>
+      </svg>
+      <figcaption>Fig 2 – Deriving the Distance Formula using the Pythagorean theorem on a right triangle.</figcaption>
+    </figure>
+
+    <div class="formula-box">
+      <div class="label">🔢 Distance Formula</div>
+      <div class="formula">
+        d = AB = √[ (x₂ − x₁)² + (y₂ − y₁)² ]
+      </div>
+      <p>where A(x₁, y₁) and B(x₂, y₂) are two points on the plane and d is the distance between them.</p>
+    </div>
+
+    <h3>Distance from the Origin</h3>
+    <p>If one point is the origin O(0, 0) and the other is P(x, y), the formula simplifies to:</p>
+    <div class="formula-box">
+      <div class="label">🔢 Distance from Origin</div>
+      <div class="formula">OP = √(x² + y²)</div>
+    </div>
+
+    <div class="note">
+      <strong>📝 Important:</strong> Distance is always a <em>non-negative</em> value. It does not matter which point you call (x₁, y₁) and which you call (x₂, y₂) — the result will be the same.
+    </div>
+
+    <div class="example">
+      <div class="ex-label">✏️ Worked Example 1</div>
+      <p><strong>Problem:</strong> Find the distance between points A(2, −3) and B(6, 3).</p>
+      <div class="solution">
+d = √[(6 − 2)² + (3 − (−3))²]
+  = √[(4)² + (6)²]
+  = √[16 + 36]
+  = √52
+  = 2√13  ≈  7.21 units
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="ex-label">✏️ Worked Example 2</div>
+      <p><strong>Problem:</strong> Verify that points A(1, 5), B(2, 3), and C(−2, −1) are collinear using the distance formula.</p>
+      <div class="solution">
+AB = √[(2−1)² + (3−5)²]  = √[1 + 4]  = √5
+BC = √[(−2−2)² + (−1−3)²] = √[16+16]  = 4√2
+AC = √[(−2−1)² + (−1−5)²] = √[9 + 36]  = √45 = 3√5
+
+Check: AB + AC = √5 + 3√5 = 4√5 ≠ BC → Not collinear.
+      </div>
+    </div>
+
+    <h3>Application: Checking the Type of a Triangle</h3>
+    <p>Using the distance formula, you can determine whether a triangle formed by three given points is:</p>
+    <ul style="padding-left:22px; margin-bottom:14px;">
+      <li style="margin:5px 0;"><strong>Equilateral</strong> – all three sides are equal</li>
+      <li style="margin:5px 0;"><strong>Isosceles</strong> – any two sides are equal</li>
+      <li style="margin:5px 0;"><strong>Right-angled</strong> – satisfies Pythagoras' theorem (hypotenuse² = sum of squares of other two sides)</li>
+      <li style="margin:5px 0;"><strong>Scalene</strong> – all three sides are different</li>
+    </ul>
+  </section>
+
+  <!-- ══════ 4. SECTION FORMULA -->
+  <section id="section">
+    <h2><span class="num">4</span> Section Formula</h2>
+
+    <p>The <strong>section formula</strong> is used to find the coordinates of a point that divides the line segment joining two given points in a specified ratio. The division can be <em>internal</em> or <em>external</em>.</p>
+
+    <h3>4.1 Internal Division</h3>
+    <p>When point <strong>P(x, y)</strong> lies <em>between</em> A and B, it divides the segment internally in the ratio <strong>m : n</strong>.</p>
+
+    <!-- Diagram: Section Formula Internal -->
+    <figure class="diagram-wrap">
+      <svg viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg" style="max-width:480px; width:100%;">
+        <!-- Line -->
+        <line x1="40" y1="60" x2="440" y2="60" stroke="#c0ccdd" stroke-width="2"/>
+
+        <!-- Points -->
+        <circle cx="40"  cy="60" r="7" fill="#2557a7"/>
+        <circle cx="440" cy="60" r="7" fill="#2557a7"/>
+        <circle cx="240" cy="60" r="7" fill="#f5a623"/>
+
+        <!-- Labels -->
+        <text x="40"  y="46" font-size="14" fill="#2557a7" font-weight="700" text-anchor="middle">A(x₁,y₁)</text>
+        <text x="240" y="46" font-size="14" fill="#c07800" font-weight="700" text-anchor="middle">P(x,y)</text>
+        <text x="440" y="46" font-size="14" fill="#2557a7" font-weight="700" text-anchor="middle">B(x₂,y₂)</text>
+
+        <!-- Ratio labels -->
+        <text x="140" y="84" font-size="13" fill="#1a3a6b" text-anchor="middle">m</text>
+        <text x="340" y="84" font-size="13" fill="#1a3a6b" text-anchor="middle">n</text>
+
+        <!-- Arrows showing ratio -->
+        <line x1="40"  y1="78" x2="237" y2="78" stroke="#1a3a6b" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="440" y1="78" x2="243" y2="78" stroke="#1a3a6b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+        <defs>
+          <marker id="arr" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 z" fill="#1a3a6b"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>Fig 3 – Point P divides segment AB internally in the ratio m : n.</figcaption>
+    </figure>
+
+    <div class="formula-box">
+      <div class="label">🔢 Section Formula – Internal Division</div>
+      <div class="formula">
+P(x, y) = ( (mx₂ + nx₁) / (m + n) ,  (my₂ + ny₁) / (m + n) )
+      </div>
+      <p>where P divides the segment AB in the ratio m : n internally.</p>
+    </div>
+
+    <h3>4.2 External Division</h3>
+    <p>When point <strong>P(x, y)</strong> lies <em>outside</em> segment AB (on the extension beyond B), it divides the segment externally in the ratio <strong>m : n</strong>.</p>
+
+    <!-- Diagram: Section Formula External -->
+    <figure class="diagram-wrap">
+      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg" style="max-width:520px; width:100%;">
+        <!-- Extended line -->
+        <line x1="40" y1="60" x2="480" y2="60" stroke="#c0ccdd" stroke-width="2"/>
+        <line x1="340" y1="60" x2="480" y2="60" stroke="#e05050" stroke-width="2" stroke-dasharray="6,3"/>
+
+        <!-- Points -->
+        <circle cx="40"  cy="60" r="7" fill="#2557a7"/>
+        <circle cx="300" cy="60" r="7" fill="#2557a7"/>
+        <circle cx="470" cy="60" r="7" fill="#e05050"/>
+
+        <!-- Labels -->
+        <text x="40"  y="46" font-size="13" fill="#2557a7" font-weight="700" text-anchor="middle">A(x₁,y₁)</text>
+        <text x="300" y="46" font-size="13" fill="#2557a7" font-weight="700" text-anchor="middle">B(x₂,y₂)</text>
+        <text x="470" y="46" font-size="13" fill="#e05050" font-weight="700" text-anchor="middle">P(x,y)</text>
+
+        <!-- Ratio labels -->
+        <text x="170"  y="84" font-size="13" fill="#1a3a6b" text-anchor="middle">m</text>
+        <text x="385"  y="84" font-size="13" fill="#e05050" text-anchor="middle">n</text>
+      </svg>
+      <figcaption>Fig 4 – Point P divides segment AB externally in the ratio m : n (P lies beyond B).</figcaption>
+    </figure>
+
+    <div class="formula-box">
+      <div class="label">🔢 Section Formula – External Division</div>
+      <div class="formula">
+P(x, y) = ( (mx₂ − nx₁) / (m − n) ,  (my₂ − ny₁) / (m − n) )
+      </div>
+      <p>Valid when m ≠ n. Here P lies on the extension of the segment beyond B.</p>
+    </div>
+
+    <div class="note">
+      <strong>📝 Trick – Finding the Ratio:</strong> If you need to find the ratio m : n in which a point P divides AB, substitute the known coordinates into the section formula and let the ratio be k : 1. Solve for k — it's often quicker!
+    </div>
+
+    <div class="example">
+      <div class="ex-label">✏️ Worked Example 3</div>
+      <p><strong>Problem:</strong> Find the coordinates of the point that divides the segment joining A(−1, 7) and B(4, −3) in the ratio 2 : 3 internally.</p>
+      <div class="solution">
+m = 2, n = 3, A(x₁,y₁) = (−1, 7), B(x₂,y₂) = (4, −3)
+
+x = (2×4 + 3×(−1)) / (2+3)  =  (8 − 3) / 5  =  5/5  =  1
+y = (2×(−3) + 3×7) / (2+3)  =  (−6 + 21) / 5  =  15/5  =  3
+
+∴  P = (1, 3)
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ 5. MIDPOINT FORMULA -->
+  <section id="midpoint">
+    <h2><span class="num">5</span> Midpoint Formula</h2>
+
+    <p>The <strong>midpoint</strong> of a line segment is the point that divides it into two equal halves. It is a special case of the section formula where the ratio is <strong>1 : 1</strong>.</p>
+
+    <p>Substituting m = n = 1 into the internal section formula gives:</p>
+
+    <div class="formula-box">
+      <div class="label">🔢 Midpoint Formula</div>
+      <div class="formula">
+M(x, y) = ( (x₁ + x₂) / 2 ,  (y₁ + y₂) / 2 )
+      </div>
+      <p>where M is the midpoint of the segment joining A(x₁, y₁) and B(x₂, y₂).</p>
+    </div>
+
+    <!-- Diagram: Midpoint -->
+    <figure class="diagram-wrap">
+      <svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg" style="max-width:420px; width:100%;">
+        <line x1="40" y1="55" x2="380" y2="55" stroke="#c0ccdd" stroke-width="2"/>
+        <circle cx="40"  cy="55" r="7" fill="#2557a7"/>
+        <circle cx="210" cy="55" r="7" fill="#f5a623"/>
+        <circle cx="380" cy="55" r="7" fill="#2557a7"/>
+
+        <text x="40"  y="40" font-size="14" fill="#2557a7" font-weight="700" text-anchor="middle">A(x₁,y₁)</text>
+        <text x="210" y="40" font-size="14" fill="#c07800" font-weight="700" text-anchor="middle">M</text>
+        <text x="380" y="40" font-size="14" fill="#2557a7" font-weight="700" text-anchor="middle">B(x₂,y₂)</text>
+
+        <!-- Equal tick marks -->
+        <line x1="120" y1="47" x2="120" y2="63" stroke="#888" stroke-width="2"/>
+        <line x1="300" y1="47" x2="300" y2="63" stroke="#888" stroke-width="2"/>
+        <text x="125" y="78" font-size="12" fill="#888">equal</text>
+        <text x="280" y="78" font-size="12" fill="#888">equal</text>
+      </svg>
+      <figcaption>Fig 5 – M is the midpoint of AB, equidistant from both ends.</figcaption>
+    </figure>
+
+    <div class="example">
+      <div class="ex-label">✏️ Worked Example 4</div>
+      <p><strong>Problem:</strong> Find the midpoint of the segment joining P(3, 4) and Q(−5, 2).</p>
+      <div class="solution">
+x = (3 + (−5)) / 2  =  −2 / 2  =  −1
+y = (4 + 2) / 2       =   6 / 2  =   3
+
+∴  Midpoint M = (−1, 3)
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ 6. AREA OF A TRIANGLE -->
+  <section id="area">
+    <h2><span class="num">6</span> Area of a Triangle</h2>
+
+    <p>When the three vertices of a triangle are given as coordinate points, we can calculate its area using a neat algebraic formula rather than measuring a base and height.</p>
+
+    <p>Let the vertices of triangle ABC be <strong>A(x₁, y₁)</strong>, <strong>B(x₂, y₂)</strong>, and <strong>C(x₃, y₃)</strong>.</p>
+
+    <!-- Diagram: Area of Triangle -->
+    <figure class="diagram-wrap">
+      <svg viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" style="max-width:440px; width:100%;">
+        <!-- Grid (light) -->
+        <g stroke="#f0f4fa" stroke-width="1">
+          <line x1="0"   y1="60"  x2="440" y2="60"/>
+          <line x1="0"   y1="120" x2="440" y2="120"/>
+          <line x1="0"   y1="180" x2="440" y2="180"/>
+          <line x1="0"   y1="240" x2="440" y2="240"/>
+          <line x1="60"  y1="0"   x2="60"  y2="280"/>
+          <line x1="140" y1="0"   x2="140" y2="280"/>
+          <line x1="220" y1="0"   x2="220" y2="280"/>
+          <line x1="300" y1="0"   x2="300" y2="280"/>
+          <line x1="380" y1="0"   x2="380" y2="280"/>
+        </g>
+
+        <!-- Axes -->
+        <line x1="20" y1="240" x2="430" y2="240" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="60" y1="10"  x2="60"  y2="260" stroke="#ccc" stroke-width="1.5"/>
+
+        <!-- Triangle fill -->
+        <polygon points="140,60 380,180 220,220" fill="rgba(37,87,167,0.12)" stroke="#2557a7" stroke-width="2.5"/>
+
+        <!-- Dashed perpendiculars to x-axis -->
+        <line x1="140" y1="60"  x2="140" y2="240" stroke="#f5a623" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <line x1="380" y1="180" x2="380" y2="240" stroke="#f5a623" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <line x1="220" y1="220" x2="220" y2="240" stroke="#f5a623" stroke-width="1.2" stroke-dasharray="5,3"/>
+
+        <!-- Vertices -->
+        <circle cx="140" cy="60"  r="6" fill="#2557a7"/>
+        <circle cx="380" cy="180" r="6" fill="#2557a7"/>
+        <circle cx="220" cy="220" r="6" fill="#2557a7"/>
+
+        <!-- Vertex Labels -->
+        <text x="130" y="50"  font-size="14" fill="#2557a7" font-weight="700" text-anchor="end">A(x₁,y₁)</text>
+        <text x="388" y="176" font-size="14" fill="#2557a7" font-weight="700">B(x₂,y₂)</text>
+        <text x="228" y="232" font-size="14" fill="#2557a7" font-weight="700">C(x₃,y₃)</text>
+
+        <!-- x-axis foot labels -->
+        <text x="140" y="256" font-size="11" fill="#c07800" text-anchor="middle">x₁</text>
+        <text x="220" y="256" font-size="11" fill="#c07800" text-anchor="middle">x₃</text>
+        <text x="380" y="256" font-size="11" fill="#c07800" text-anchor="middle">x₂</text>
+      </svg>
+      <figcaption>Fig 6 – Triangle with vertices A, B, C on the Cartesian plane. Perpendiculars are drawn to the x-axis.</figcaption>
+    </figure>
+
+    <div class="formula-box">
+      <div class="label">🔢 Area of a Triangle</div>
+      <div class="formula">
+Area = ½ |x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)|
+      </div>
+      <p>The absolute value | · | ensures the area is always positive, regardless of the order the vertices are listed.</p>
+    </div>
+
+    <div class="insight">
+      <strong>💡 Memory Tip:</strong> Think of it as a "cyclic rotation" – each term is xᵢ × (difference of the y-coordinates of the other two vertices), going around the triangle. Always take the absolute value at the end.
+    </div>
+
+    <div class="note">
+      <strong>📝 Sign of the Result:</strong> If vertices are taken in <em>anti-clockwise</em> order, the expression inside the absolute value is positive; if <em>clockwise</em>, it is negative. The absolute value handles both cases, so either order works.
+    </div>
+
+    <div class="example">
+      <div class="ex-label">✏️ Worked Example 5</div>
+      <p><strong>Problem:</strong> Find the area of the triangle with vertices A(4, −6), B(3, −2), and C(5, 2).</p>
+      <div class="solution">
+Area = ½ |x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)|
+
+     = ½ |4(−2 − 2) + 3(2 − (−6)) + 5(−6 − (−2))|
+
+     = ½ |4(−4) + 3(8) + 5(−4)|
+
+     = ½ |−16 + 24 − 20|
+
+     = ½ |−12|
+
+     = ½ × 12
+
+     = 6 square units
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ 7. COLLINEARITY -->
+  <section id="collinear">
+    <h2><span class="num">7</span> Collinearity of Three Points</h2>
+
+    <p>Three points are said to be <strong>collinear</strong> if they all lie on the same straight line — in other words, no triangle can be formed by joining them.</p>
+
+    <p>There are two ways to check collinearity:</p>
+
+    <h3>Method 1 – Area of Triangle = 0</h3>
+    <p>If the area of the triangle formed by the three points is <strong>zero</strong>, the points are collinear. Using the area formula:</p>
+    <div class="formula-box">
+      <div class="label">🔢 Condition for Collinearity</div>
+      <div class="formula">
+x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂) = 0
+      </div>
+    </div>
+
+    <h3>Method 2 – Distance Check</h3>
+    <p>If three points A, B, C are collinear, then the sum of the two smaller distances equals the largest distance:</p>
+    <div class="formula-box">
+      <div class="label">🔢 Distance Collinearity Check</div>
+      <div class="formula">
+AB + BC = AC  (or whichever arrangement fits)
+      </div>
+    </div>
+
+    <!-- Diagram: Collinear vs Non-collinear -->
+    <figure class="diagram-wrap">
+      <svg viewBox="0 0 460 150" xmlns="http://www.w3.org/2000/svg" style="max-width:460px; width:100%;">
+        <!-- Collinear side -->
+        <text x="115" y="22" font-size="13" fill="#1a7a55" font-weight="700" text-anchor="middle">✔ Collinear</text>
+        <line x1="30" y1="80" x2="200" y2="80" stroke="#1a7a55" stroke-width="2.5"/>
+        <circle cx="30"  cy="80" r="6" fill="#1a7a55"/>
+        <circle cx="115" cy="80" r="6" fill="#1a7a55"/>
+        <circle cx="200" cy="80" r="6" fill="#1a7a55"/>
+        <text x="30"  y="103" font-size="11" fill="#1a7a55" text-anchor="middle">A</text>
+        <text x="115" y="103" font-size="11" fill="#1a7a55" text-anchor="middle">B</text>
+        <text x="200" y="103" font-size="11" fill="#1a7a55" text-anchor="middle">C</text>
+        <text x="115" y="128" font-size="11" fill="#5a6278" text-anchor="middle">All on one line</text>
+
+        <!-- Divider -->
+        <line x1="240" y1="10" x2="240" y2="140" stroke="#dde3f0" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+        <!-- Non-collinear side -->
+        <text x="355" y="22" font-size="13" fill="#c02020" font-weight="700" text-anchor="middle">✖ Non-Collinear</text>
+        <polygon points="270,120 430,120 350,40" fill="rgba(220,50,50,0.08)" stroke="#c02020" stroke-width="2"/>
+        <circle cx="270" cy="120" r="6" fill="#c02020"/>
+        <circle cx="430" cy="120" r="6" fill="#c02020"/>
+        <circle cx="350" cy="40"  r="6" fill="#c02020"/>
+        <text x="263" y="138" font-size="11" fill="#c02020">A</text>
+        <text x="432" y="138" font-size="11" fill="#c02020">B</text>
+        <text x="344" y="34"  font-size="11" fill="#c02020">C</text>
+        <text x="355" y="128" font-size="11" fill="#5a6278" text-anchor="middle">Form a triangle</text>
+      </svg>
+      <figcaption>Fig 7 – Collinear points lie on a single straight line; non-collinear points form a triangle.</figcaption>
+    </figure>
+
+    <div class="example">
+      <div class="ex-label">✏️ Worked Example 6</div>
+      <p><strong>Problem:</strong> Check whether points A(1, 2), B(2, 4), and C(3, 6) are collinear.</p>
+      <div class="solution">
+Area = ½ |1(4 − 6) + 2(6 − 2) + 3(2 − 4)|
+     = ½ |1(−2) + 2(4) + 3(−2)|
+     = ½ |−2 + 8 − 6|
+     = ½ |0|
+     = 0
+
+∴ Area = 0  →  Points A, B, C are collinear. ✔
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ 8. SUMMARY -->
+  <section id="summary">
+    <h2><span class="num">8</span> Quick Reference – Formula Summary</h2>
+
+    <div class="summary-card">
+      <table>
+        <thead>
+          <tr><th>Concept</th><th>Formula</th><th>Use When…</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Distance Formula</td>
+            <td>d = √[(x₂−x₁)² + (y₂−y₁)²]</td>
+            <td>Finding length between two points</td>
+          </tr>
+          <tr>
+            <td>Distance from Origin</td>
+            <td>OP = √(x² + y²)</td>
+            <td>One point is the origin O(0,0)</td>
+          </tr>
+          <tr>
+            <td>Section Formula (Internal)</td>
+            <td>P = ((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n))</td>
+            <td>P lies between A and B</td>
+          </tr>
+          <tr>
+            <td>Section Formula (External)</td>
+            <td>P = ((mx₂−nx₁)/(m−n), (my₂−ny₁)/(m−n))</td>
+            <td>P lies beyond A or B on extension</td>
+          </tr>
+          <tr>
+            <td>Midpoint Formula</td>
+            <td>M = ((x₁+x₂)/2, (y₁+y₂)/2)</td>
+            <td>Divides AB in ratio 1:1</td>
+          </tr>
+          <tr>
+            <td>Area of Triangle</td>
+            <td>½|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|</td>
+            <td>Given three vertices</td>
+          </tr>
+          <tr>
+            <td>Collinearity Condition</td>
+            <td>x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂) = 0</td>
+            <td>Checking if 3 points lie on a line</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:24px;">
+      <strong>📝 Exam Tips:</strong>
+      <ul style="padding-left:18px; margin-top:8px;">
+        <li style="margin:5px 0;">Always label your points clearly as (x₁, y₁) and (x₂, y₂) before substituting.</li>
+        <li style="margin:5px 0;">Watch out for negative signs when computing differences — this is the most common error.</li>
+        <li style="margin:5px 0;">When finding area, always take the <strong>absolute value</strong> at the end.</li>
+        <li style="margin:5px 0;">For collinearity, the area method is faster than the distance method.</li>
+        <li style="margin:5px 0;">The midpoint formula is just the average of the x-coordinates and the average of the y-coordinates.</li>
+      </ul>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer>
+  <p><strong>CBSE Class 10 Mathematics – Chapter 7: Coordinate Geometry</strong></p>
+  <p style="margin-top:6px;">Notes written for educational purposes. Diagrams are original SVG illustrations.</p>
+</footer>
+
+</body>
+</html>
