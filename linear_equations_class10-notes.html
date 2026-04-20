@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pair of Linear Equations in Two Variables | Class 10 Maths Chapter 3 | CBSE Notes</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #1a1a1a;
+      background: #f7f7f5;
+    }
+
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      background: linear-gradient(135deg, #534AB7 0%, #3B8BD4 100%);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2rem 2rem 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .page-header .breadcrumb {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+    .page-header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .page-header .meta {
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    /* ── Typography ── */
+    h2 {
+      font-size: 21px;
+      font-weight: 600;
+      margin: 2.4rem 0 0.7rem;
+      color: #1a1a1a;
+      border-left: 4px solid #534AB7;
+      padding-left: 12px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      color: #534AB7;
+    }
+    p { margin: 0.6rem 0; color: #333; }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid #e5e5e0;
+      margin: 2.5rem 0;
+    }
+
+    /* ── Boxes ── */
+    .formula-box {
+      background: #f1f0fb;
+      border: 1px solid #c5c1f0;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      color: #2d2860;
+      line-height: 1.9;
+    }
+    .formula-box .label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 11px;
+      color: #7b77c0;
+      margin-bottom: 6px;
+      font-style: italic;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .highlight-box {
+      background: #e8f4fe;
+      border-left: 4px solid #3B8BD4;
+      border-radius: 0 8px 8px 0;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0;
+      font-size: 14.5px;
+      color: #1a3a5c;
+    }
+
+    .note-callout {
+      background: #fef7e8;
+      border-left: 4px solid #EF9F27;
+      border-radius: 0 8px 8px 0;
+      padding: 0.8rem 1rem;
+      margin: 0.9rem 0;
+      font-size: 14px;
+      color: #5a3e00;
+    }
+
+    .example-box {
+      background: #fff;
+      border: 1px solid #e0e0d8;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    .example-box .ex-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #534AB7;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .example-box p { margin: 0.35rem 0; font-size: 14.5px; }
+
+    /* ── Method cards ── */
+    .method-card {
+      background: #fff;
+      border: 1px solid #e2e2dc;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.2rem 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    /* ── Steps ── */
+    .step {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 0.55rem 0;
+      font-size: 14.5px;
+      color: #333;
+    }
+    .step-num {
+      background: #534AB7;
+      color: #fff;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 1px;
+    }
+
+    /* ── Table ── */
+    .tbl-wrap { overflow-x: auto; margin: 1rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    th {
+      background: #534AB7;
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 13px;
+    }
+    td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #f0f0ea;
+      color: #333;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafaf8; }
+
+    /* ── Diagram area ── */
+    .diagram-wrap {
+      margin: 1.5rem 0;
+      background: #fff;
+      border: 1px solid #e2e2dc;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .diagram-wrap svg { display: block; width: 100%; }
+    .diagram-caption {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    /* ── Footer ── */
+    .page-footer {
+      margin-top: 3rem;
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid #e2e2dc;
+      border-radius: 10px;
+      font-size: 12.5px;
+      color: #888;
+      text-align: center;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; }
+      .page-wrap { padding: 1rem; }
+      .page-header { background: #534AB7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .method-card, .example-box { box-shadow: none; break-inside: avoid; }
+      h2 { break-after: avoid; }
+    }
+
+    @media (max-width: 600px) {
+      .page-header h1 { font-size: 22px; }
+      h2 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div class="breadcrumb">CBSE &nbsp;›&nbsp; Class 10 Mathematics &nbsp;›&nbsp; Chapter 3</div>
+    <h1>Pair of Linear Equations in Two Variables</h1>
+    <div class="meta">Complete Notes &nbsp;|&nbsp; Graphical Method · Substitution · Elimination · Cross-Multiplication</div>
+  </div>
+
+  <!-- Section 1 -->
+  <h2>1. What is a Linear Equation in Two Variables?</h2>
+  <p>An equation involving two variables, each raised to the first power (degree 1), is called a <strong>linear equation in two variables</strong>. The general form is:</p>
+  <div class="formula-box">
+    <div class="label">Standard form</div>
+    ax + by + c = 0<br><br>
+    where a, b, c are real numbers, and a ≠ 0 or b ≠ 0
+  </div>
+  <p>Examples: &nbsp; 2x + 3y − 6 = 0 &nbsp;|&nbsp; x − y = 5 &nbsp;|&nbsp; 4x − 8 = 0</p>
+  <p>A single linear equation in two variables has <strong>infinitely many solutions</strong>, because for every value of x you choose, there is a corresponding value of y that satisfies the equation. When plotted on the coordinate plane, all these solutions together form a straight line.</p>
+
+  <hr class="divider">
+
+  <!-- Section 2 -->
+  <h2>2. Pair of Linear Equations — General Form</h2>
+  <p>When two linear equations in the same two variables are considered together, they form a <strong>pair (or system) of linear equations in two variables</strong>.</p>
+  <div class="formula-box">
+    <div class="label">General form of a pair</div>
+    a₁x + b₁y + c₁ = 0 &nbsp;&nbsp; …(i)<br>
+    a₂x + b₂y + c₂ = 0 &nbsp;&nbsp; …(ii)<br><br>
+    where a₁, b₁, c₁, a₂, b₂, c₂ are real numbers<br>
+    and a₁² + b₁² ≠ 0, &nbsp; a₂² + b₂² ≠ 0
+  </div>
+  <p>The <strong>solution</strong> of such a pair is a pair of values (x, y) that satisfies both equations simultaneously. Geometrically, it is the point where the two straight lines representing the equations intersect on the coordinate plane.</p>
+
+  <hr class="divider">
+
+  <!-- Section 3 -->
+  <h2>3. Graphical Representation</h2>
+  <p>Each linear equation in two variables, when plotted, gives a straight line. So a pair of linear equations gives two straight lines on the same graph. These two lines can behave in one of three ways:</p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ax" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Panel 1: Intersecting -->
+      <g transform="translate(20,20)">
+        <text x="90" y="14" text-anchor="middle" font-size="13" font-weight="600" fill="#534AB7">Intersecting Lines</text>
+        <line x1="15" y1="125" x2="175" y2="125" stroke="#aaa" stroke-width="0.8" marker-end="url(#ax)"/>
+        <line x1="95" y1="235" x2="95" y2="25" stroke="#aaa" stroke-width="0.8" marker-end="url(#ax)"/>
+        <text x="170" y="140" font-size="10" fill="#aaa">x</text>
+        <text x="100" y="30" font-size="10" fill="#aaa">y</text>
+        <line x1="20" y1="60" x2="170" y2="200" stroke="#3B8BD4" stroke-width="2" stroke-linecap="round"/>
+        <line x1="20" y1="195" x2="170" y2="55" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="95" cy="127" r="5" fill="#534AB7"/>
+        <text x="90" y="258" text-anchor="middle" font-size="12" fill="#534AB7" font-weight="600">Unique Solution</text>
+        <text x="90" y="272" text-anchor="middle" font-size="11" fill="#888">Consistent</text>
+      </g>
+
+      <!-- Panel 2: Parallel -->
+      <g transform="translate(250,20)">
+        <text x="90" y="14" text-anchor="middle" font-size="13" font-weight="600" fill="#D85A30">Parallel Lines</text>
+        <line x1="15" y1="125" x2="175" y2="125" stroke="#aaa" stroke-width="0.8" marker-end="url(#ax)"/>
+        <line x1="95" y1="235" x2="95" y2="25" stroke="#aaa" stroke-width="0.8" marker-end="url(#ax)"/>
+        <text x="170" y="140" font-size="10" fill="#aaa">x</text>
+        <text x="100" y="30" font-size="10" fill="#aaa">y</text>
+        <line x1="20" y1="80" x2="170" y2="185" stroke="#3B8BD4" stroke-width="2" stroke-linecap="round"/>
+        <line x1="20" y1="55" x2="170" y2="160" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/>
+        <text x="90" y="258" text-anchor="middle" font-size="12" fill="#D85A30" font-weight="600">No Solution</text>
+        <text x="90" y="272" text-anchor="middle" font-size="11" fill="#888">Inconsistent</text>
+      </g>
+
+      <!-- Panel 3: Coincident -->
+      <g transform="translate(480,20)">
+        <text x="90" y="14" text-anchor="middle" font-size="13" font-weight="600" fill="#0F6E56">Coincident Lines</text>
+        <line x1="15" y1="125" x2="175" y2="125" stroke="#aaa" stroke-width="0.8" marker-end="url(#ax)"/>
+        <line x1="95" y1="235" x2="95" y2="25" stroke="#aaa" stroke-width="0.8" marker-end="url(#ax)"/>
+        <text x="170" y="140" font-size="10" fill="#aaa">x</text>
+        <text x="100" y="30" font-size="10" fill="#aaa">y</text>
+        <line x1="20" y1="70" x2="170" y2="195" stroke="#3B8BD4" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+        <line x1="20" y1="70" x2="170" y2="195" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="7 4"/>
+        <text x="90" y="258" text-anchor="middle" font-size="12" fill="#0F6E56" font-weight="600">Infinite Solutions</text>
+        <text x="90" y="272" text-anchor="middle" font-size="11" fill="#888">Dependent / Consistent</text>
+      </g>
+    </svg>
+    <div class="diagram-caption">Figure 1: Three possible geometric outcomes of a pair of linear equations</div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Type of Lines</th>
+          <th>Condition</th>
+          <th>Number of Solutions</th>
+          <th>Consistency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Intersecting</td>
+          <td>a₁/a₂ ≠ b₁/b₂</td>
+          <td>Exactly one (unique)</td>
+          <td>Consistent</td>
+        </tr>
+        <tr>
+          <td>Parallel</td>
+          <td>a₁/a₂ = b₁/b₂ ≠ c₁/c₂</td>
+          <td>None</td>
+          <td>Inconsistent</td>
+        </tr>
+        <tr>
+          <td>Coincident</td>
+          <td>a₁/a₂ = b₁/b₂ = c₁/c₂</td>
+          <td>Infinitely many</td>
+          <td>Dependent / Consistent</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Key terms:</strong> A pair of equations is called <em>consistent</em> if it has at least one solution, and <em>inconsistent</em> if it has no solution at all. When it has infinitely many solutions, it is called a <em>dependent</em> pair.
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 4 -->
+  <h2>4. Methods of Solving a Pair of Linear Equations</h2>
+  <p>There are four main methods for finding the solution of a pair of linear equations algebraically and graphically:</p>
+
+  <!-- Method 1 -->
+  <div class="method-card">
+    <h3>Method 1: Graphical Method</h3>
+    <p>Plot both equations as straight lines on the same coordinate plane. The coordinates of the point where they intersect represent the solution of the pair.</p>
+    <div class="step"><div class="step-num">1</div><div>Rearrange each equation in the form y = mx + c to identify easy-to-plot points.</div></div>
+    <div class="step"><div class="step-num">2</div><div>Choose at least two values of x for each equation and calculate the corresponding y values.</div></div>
+    <div class="step"><div class="step-num">3</div><div>Plot both lines on the same graph and read off the coordinates of the intersection point.</div></div>
+    <div class="note-callout">⚠ This method can give approximate answers when the intersection point has non-integer coordinates. Algebraic methods are preferred for exact solutions.</div>
+  </div>
+
+  <!-- Method 2 -->
+  <div class="method-card">
+    <h3>Method 2: Substitution Method</h3>
+    <p>Express one variable in terms of the other using one equation, then substitute that expression into the second equation to reduce it to a single-variable equation.</p>
+    <div class="step"><div class="step-num">1</div><div>From either equation, isolate one variable (e.g., write x = ... or y = ...).</div></div>
+    <div class="step"><div class="step-num">2</div><div>Substitute this expression into the other equation — it now has only one variable.</div></div>
+    <div class="step"><div class="step-num">3</div><div>Solve this single-variable equation to find its value.</div></div>
+    <div class="step"><div class="step-num">4</div><div>Substitute the found value back into the expression from Step 1 to find the other variable.</div></div>
+    <div class="example-box">
+      <div class="ex-label">Worked Example</div>
+      <p>Solve: &nbsp; x + y = 5 &nbsp;…(i) &nbsp; and &nbsp; 2x − 3y = 5 &nbsp;…(ii)</p>
+      <p>From (i): &nbsp; x = 5 − y</p>
+      <p>Substituting in (ii): &nbsp; 2(5 − y) − 3y = 5 &nbsp;→&nbsp; 10 − 5y = 5 &nbsp;→&nbsp; y = 1</p>
+      <p>Then: &nbsp; x = 5 − 1 = 4</p>
+      <p><strong>∴ Solution: x = 4, y = 1</strong></p>
+    </div>
+  </div>
+
+  <!-- Method 3 -->
+  <div class="method-card">
+    <h3>Method 3: Elimination Method</h3>
+    <p>Make the coefficients of one variable equal in both equations by multiplying by suitable constants, then add or subtract the equations to eliminate that variable.</p>
+    <div class="step"><div class="step-num">1</div><div>Multiply one or both equations by appropriate non-zero constants so that one variable has the same coefficient in both equations.</div></div>
+    <div class="step"><div class="step-num">2</div><div>Add or subtract the two equations to cancel out that variable.</div></div>
+    <div class="step"><div class="step-num">3</div><div>Solve the resulting equation in one variable.</div></div>
+    <div class="step"><div class="step-num">4</div><div>Substitute the found value back into either original equation to find the other variable.</div></div>
+    <div class="example-box">
+      <div class="ex-label">Worked Example</div>
+      <p>Solve: &nbsp; 3x + 4y = 10 &nbsp;…(i) &nbsp; and &nbsp; 2x − 4y = 0 &nbsp;…(ii)</p>
+      <p>Adding (i) and (ii): &nbsp; 5x = 10 &nbsp;→&nbsp; x = 2</p>
+      <p>Substituting in (i): &nbsp; 6 + 4y = 10 &nbsp;→&nbsp; 4y = 4 &nbsp;→&nbsp; y = 1</p>
+      <p><strong>∴ Solution: x = 2, y = 1</strong></p>
+    </div>
+  </div>
+
+  <!-- Method 4 -->
+  <div class="method-card">
+    <h3>Method 4: Cross-Multiplication Method</h3>
+    <p>This method uses a direct formula derived from the coefficients of the two equations to find x and y in a single step.</p>
+    <div class="formula-box">
+      <div class="label">For a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0</div>
+      x / (b₁c₂ − b₂c₁) &nbsp;=&nbsp; y / (c₁a₂ − c₂a₁) &nbsp;=&nbsp; 1 / (a₁b₂ − a₂b₁)
+    </div>
+
+    <div class="diagram-wrap" style="border:none; padding: 0.5rem 0; background:transparent;">
+      <svg viewBox="0 0 680 140" xmlns="http://www.w3.org/2000/svg">
+        <text x="20" y="28" font-size="13" font-weight="600" fill="#534AB7">Cross-multiplication pattern:</text>
+
+        <!-- Column headers -->
+        <text x="80"  y="65" text-anchor="middle" font-size="15" font-weight="600" fill="#3B8BD4">b₁</text>
+        <text x="160" y="65" text-anchor="middle" font-size="15" font-weight="600" fill="#1D9E75">c₁</text>
+        <text x="240" y="65" text-anchor="middle" font-size="15" font-weight="600" fill="#3B8BD4">a₁</text>
+        <text x="320" y="65" text-anchor="middle" font-size="15" font-weight="600" fill="#1D9E75">b₁</text>
+
+        <text x="80"  y="105" text-anchor="middle" font-size="15" font-weight="600" fill="#3B8BD4">b₂</text>
+        <text x="160" y="105" text-anchor="middle" font-size="15" font-weight="600" fill="#1D9E75">c₂</text>
+        <text x="240" y="105" text-anchor="middle" font-size="15" font-weight="600" fill="#3B8BD4">a₂</text>
+        <text x="320" y="105" text-anchor="middle" font-size="15" font-weight="600" fill="#1D9E75">b₂</text>
+
+        <!-- Forward diagonals (positive products) -->
+        <line x1="90" y1="72" x2="150" y2="98" stroke="#D85A30" stroke-width="1.5"/>
+        <line x1="250" y1="72" x2="310" y2="98" stroke="#D85A30" stroke-width="1.5"/>
+        <!-- Backward diagonals (negative products) -->
+        <line x1="150" y1="72" x2="90" y2="98" stroke="#534AB7" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <line x1="310" y1="72" x2="250" y2="98" stroke="#534AB7" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+        <!-- Legend -->
+        <line x1="390" y1="75" x2="430" y2="75" stroke="#D85A30" stroke-width="2"/>
+        <text x="438" y="79" font-size="12" fill="#D85A30">= positive product</text>
+        <line x1="390" y1="100" x2="430" y2="100" stroke="#534AB7" stroke-width="2" stroke-dasharray="5 3"/>
+        <text x="438" y="104" font-size="12" fill="#534AB7">= negative product</text>
+
+        <text x="200" y="130" text-anchor="middle" font-size="11" fill="#888">Write the coefficients in the pattern shown, then cross-multiply diagonally</text>
+      </svg>
+    </div>
+
+    <div class="note-callout">
+      This formula is valid only when a₁b₂ − a₂b₁ ≠ 0, which means the two lines are neither parallel nor coincident.
+    </div>
+
+    <div class="example-box">
+      <div class="ex-label">Worked Example</div>
+      <p>Solve: &nbsp; 2x + 3y − 11 = 0 &nbsp;…(i) &nbsp; and &nbsp; 3x + 2y − 9 = 0 &nbsp;…(ii)</p>
+      <p>Here: a₁=2, b₁=3, c₁=−11, a₂=3, b₂=2, c₂=−9</p>
+      <p>x = (b₁c₂ − b₂c₁) / (a₁b₂ − a₂b₁) = (3×(−9) − 2×(−11)) / (2×2 − 3×3) = (−27+22)/(4−9) = (−5)/(−5) = 1</p>
+      <p>y = (c₁a₂ − c₂a₁) / (a₁b₂ − a₂b₁) = ((−11)×3 − (−9)×2) / (−5) = (−33+18)/(−5) = (−15)/(−5) = 3</p>
+      <p><strong>∴ Solution: x = 1, y = 3</strong></p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 5 -->
+  <h2>5. Comparison of All Four Methods</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Best Used When</th>
+          <th>Gives Exact Answer?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Graphical</strong></td>
+          <td>Visualising the type of solution; approximate integer answers needed</td>
+          <td>Only if intersection is at integer coordinates</td>
+        </tr>
+        <tr>
+          <td><strong>Substitution</strong></td>
+          <td>One variable can be easily isolated (coefficient of 1 or −1)</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td><strong>Elimination</strong></td>
+          <td>Coefficients of one variable are equal or easy to make equal</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td><strong>Cross-multiplication</strong></td>
+          <td>Quick formula required; general form equations given</td>
+          <td>Yes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 6 -->
+  <h2>6. Equations Reducible to a Pair of Linear Equations</h2>
+  <p>Some equations that are not linear in appearance can be converted into a pair of linear equations using a suitable substitution. This is also called the <strong>method of reducing to linear form</strong>.</p>
+  <div class="highlight-box">
+    <strong>Common trick:</strong> If equations contain terms like 1/x and 1/y, substitute:<br>
+    <strong>p = 1/x &nbsp; and &nbsp; q = 1/y</strong><br>
+    Rewrite both equations in terms of p and q — they become linear. Solve for p and q, then find x = 1/p and y = 1/q.
+  </div>
+  <div class="example-box">
+    <div class="ex-label">Worked Example</div>
+    <p>Solve: &nbsp; 2/x + 3/y = 13 &nbsp; and &nbsp; 5/x − 4/y = −2</p>
+    <p>Let p = 1/x, &nbsp; q = 1/y. The equations become:</p>
+    <p>2p + 3q = 13 &nbsp;…(i) &nbsp; and &nbsp; 5p − 4q = −2 &nbsp;…(ii)</p>
+    <p>Solving this linear pair (by elimination): &nbsp; p = 2, &nbsp; q = 3</p>
+    <p>∴ &nbsp; x = 1/p = 1/2 &nbsp; and &nbsp; y = 1/q = 1/3</p>
+    <p><strong>∴ Solution: x = 1/2, y = 1/3</strong></p>
+  </div>
+  <p>Similarly, if equations involve expressions like (ax + b) or (cx + d) in the denominators, substitute the entire expression as a new variable to reduce to linear form, solve, and then reverse the substitution.</p>
+
+  <hr class="divider">
+
+  <!-- Section 7 -->
+  <h2>7. Word Problems — Strategy</h2>
+  <p>Most real-life application problems in this chapter require you to form a pair of linear equations from a given situation and then solve it. The standard approach is:</p>
+  <div class="step"><div class="step-num">1</div><div>Read carefully and <strong>identify the two unknown quantities</strong>. Assign them variables, typically x and y.</div></div>
+  <div class="step"><div class="step-num">2</div><div><strong>Formulate two equations</strong> from the two conditions given in the problem.</div></div>
+  <div class="step"><div class="step-num">3</div><div>Choose a suitable solving method and find the values of x and y.</div></div>
+  <div class="step"><div class="step-num">4</div><div><strong>Verify your answer</strong> by substituting back into both original conditions from the problem.</div></div>
+  <div class="highlight-box">
+    <strong>Common types of word problems in this chapter:</strong> &nbsp; Age problems · Speed-distance-time · Two-digit number problems · Mixture and coin problems · Geometry (perimeter, area) · Boat and stream (upstream-downstream) problems.
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 8 -->
+  <h2>8. Quick Reference — Key Conditions</h2>
+  <div class="formula-box">
+    <div class="label">Condition check for a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0</div>
+    a₁/a₂ ≠ b₁/b₂ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; → Lines intersect &nbsp;&nbsp;&nbsp; → Unique solution &nbsp;&nbsp; (Consistent)<br><br>
+    a₁/a₂ = b₁/b₂ ≠ c₁/c₂ &nbsp; → Parallel lines &nbsp;&nbsp;&nbsp;&nbsp; → No solution &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Inconsistent)<br><br>
+    a₁/a₂ = b₁/b₂ = c₁/c₂ &nbsp; → Coincident lines &nbsp; → Infinite solutions &nbsp; (Dependent)
+  </div>
+  <div class="note-callout">
+    <strong>Important:</strong> Always convert both equations to the standard form ax + by + c = 0 before checking the ratio conditions above.
+  </div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    Class 10 Mathematics &nbsp;|&nbsp; Chapter 3: Pair of Linear Equations in Two Variables &nbsp;|&nbsp; CBSE Curriculum
+  </div>
+
+</div>
+</body>
+</html>
