@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Polynomials – Class 10 Maths Chapter 2 Notes | CBSE</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #7c3aed;
+      --accent-light: #f5f3ff;
+      --green: #16a34a;
+      --green-light: #f0fdf4;
+      --orange: #ea580c;
+      --orange-light: #fff7ed;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --card: #f8fafc;
+      --heading-font: Georgia, 'Times New Roman', serif;
+      --body-font: system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--body-font);
+      color: var(--text);
+      line-height: 1.75;
+      background: #fff;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    /* Typography */
+    h1 { font-family: var(--heading-font); font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 0.4rem; }
+    h2 { font-family: var(--heading-font); font-size: 1.45rem; font-weight: 700; color: #1e3a8a; margin: 2.5rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--primary-border); }
+    h3 { font-size: 1.1rem; font-weight: 600; color: #1e3a8a; margin: 1.8rem 0 0.5rem; }
+    p { margin-bottom: 0.9rem; font-size: 1rem; }
+    ul, ol { padding-left: 1.4rem; margin-bottom: 0.9rem; }
+    li { margin-bottom: 0.35rem; }
+    strong { color: #0f172a; }
+    code { font-family: 'Courier New', monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.92em; color: #334155; }
+
+    /* Metadata bar */
+    .meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .badge { background: var(--primary-light); color: var(--primary); border-radius: 20px; padding: 2px 10px; font-weight: 600; }
+
+    /* Intro box */
+    .intro-box { background: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+
+    /* Key concept cards */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .card { border-radius: 10px; padding: 1rem; border: 1px solid; }
+    .card.blue { background: #eff6ff; border-color: #93c5fd; }
+    .card.green { background: #f0fdf4; border-color: #86efac; }
+    .card.purple { background: #f5f3ff; border-color: #c4b5fd; }
+    .card.orange { background: #fff7ed; border-color: #fdba74; }
+    .card .label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+    .card.blue .label { color: #1d4ed8; }
+    .card.green .label { color: #15803d; }
+    .card.purple .label { color: #6d28d9; }
+    .card.orange .label { color: #c2410c; }
+    .card .value { font-size: 1rem; font-weight: 600; color: #0f172a; }
+    .card .sub { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* Formula box */
+    .formula { background: #1e3a8a; color: #fff; border-radius: 10px; padding: 1.1rem 1.4rem; margin: 1.25rem 0; font-family: 'Courier New', monospace; font-size: 1rem; line-height: 1.9; }
+    .formula .label { font-family: var(--body-font); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #93c5fd; margin-bottom: 0.5rem; }
+
+    /* Note / tip box */
+    .note { background: #fefce8; border-left: 4px solid #facc15; border-radius: 0 8px 8px 0; padding: 0.75rem 1.1rem; margin: 1rem 0; font-size: 0.95rem; }
+    .note strong { color: #854d0e; }
+
+    /* Example box */
+    .example { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+    .example .ex-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 0.5rem; }
+
+    /* SVG diagram wrapper */
+    .diagram-wrap { margin: 1.5rem 0; }
+    .diagram-wrap figcaption { font-size: 0.85rem; color: var(--muted); text-align: center; margin-top: 0.5rem; }
+
+    /* Table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 1.25rem 0; }
+    th { background: #1e3a8a; color: #fff; padding: 0.6rem 0.9rem; text-align: left; font-weight: 600; }
+    td { padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    /* Quick revision box at end */
+    .revision { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-top: 2.5rem; }
+    .revision h2 { color: #93c5fd; border-color: #1e40af; font-family: var(--body-font); font-size: 1.15rem; }
+    .revision li { color: #cbd5e1; font-size: 0.95rem; }
+    .revision code { background: #1e293b; color: #7dd3fc; }
+
+    /* Section divider */
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.2rem; }
+      .formula { font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Polynomials – Class 10 Maths</h1>
+<div class="meta">
+  <span class="badge">CBSE Class 10</span>
+  <span>Chapter 2</span>
+  <span>Algebra</span>
+  <span>NCERT Based</span>
+</div>
+
+<div class="intro-box">
+  <p>The word <strong>"Polynomial"</strong> comes from two roots: <em>poly</em> (meaning <em>many</em>) and <em>nomial</em> (meaning <em>term</em>). So, a polynomial simply means an expression with many terms. This chapter builds on what you already know about algebraic expressions and takes it further — introducing zeros, graphs, and a powerful division method.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>1. What Is a Polynomial?</h2>
+
+<p>A <strong>polynomial</strong> is an algebraic expression made up of variables and constants, combined using addition, subtraction, and multiplication — where every exponent on any variable must be a <em>whole number</em> (0, 1, 2, 3, …).</p>
+
+<div class="example">
+  <div class="ex-label">Examples</div>
+  <ul>
+    <li><code>5x³ + 3x + 1</code> — ✅ Polynomial (all exponents are whole numbers)</li>
+    <li><code>2x + 3√x</code> — ❌ Not a polynomial (exponent on <em>x</em> is ½, which is not a whole number)</li>
+    <li><code>7</code> — ✅ Polynomial (a constant polynomial)</li>
+    <li><code>1/x + 2</code> — ❌ Not a polynomial (negative exponent: x⁻¹)</li>
+  </ul>
+</div>
+
+<p>Each part of a polynomial separated by addition or subtraction is called a <strong>term</strong>. The number multiplied with the variable in any term is called the <strong>coefficient</strong>.</p>
+
+<!-- Diagram 1: Anatomy of a Polynomial -->
+<div class="diagram-wrap">
+  <figure>
+    <svg width="100%" viewBox="0 0 680 340" role="img">
+      <title>Anatomy of a polynomial expression</title>
+      <desc>Shows 3x squared plus 5x minus 7 broken down into its parts: coefficient, exponent/degree, variable term, and constant term, with colour-coded arrows pointing to each part.</desc>
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Main expression box — centred, tall enough for large text -->
+      <rect x="140" y="24" width="400" height="72" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+      <text x="340" y="72" text-anchor="middle" font-family="'Courier New', monospace" font-size="34" font-weight="700" fill="#1e3a8a">3x² + 5x − 7</text>
+
+      <!--
+        Approximate character centres inside the expression at font-size 34px,
+        centred at x=340. The string is 10 chars ≈ 204px wide → starts ~238.
+        3   → x≈252
+        x   → x≈272
+        ²   → x≈290  (superscript, visually near x≈287)
+        5x  → x≈330
+        −7  → x≈430
+      -->
+
+      <!-- ── Arrow 1: Coefficient "3" ── blue, drops to LEFT label box -->
+      <line x1="252" y1="100" x2="100" y2="160" stroke="#2563eb" stroke-width="1.4" marker-end="url(#arr)"/>
+      <rect x="20" y="162" width="158" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="0.8"/>
+      <text x="99" y="183" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#1d4ed8">Coefficient</text>
+      <text x="99" y="201" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#3b82f6">The number multiplying x²</text>
+
+      <!-- ── Arrow 2: Exponent "²" ── purple, drops straight down to LEFT-CENTRE box -->
+      <line x1="292" y1="100" x2="220" y2="160" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arr)"/>
+      <rect x="148" y="162" width="172" height="52" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="0.8"/>
+      <text x="234" y="183" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#6d28d9">Exponent / Degree</text>
+      <text x="234" y="201" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#7c3aed">Highest = degree of poly.</text>
+
+      <!-- ── Arrow 3: Variable term "5x" ── green, drops to RIGHT-CENTRE box -->
+      <line x1="338" y1="100" x2="400" y2="160" stroke="#16a34a" stroke-width="1.4" marker-end="url(#arr)"/>
+      <rect x="338" y="162" width="164" height="52" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="0.8"/>
+      <text x="420" y="183" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#15803d">Variable term</text>
+      <text x="420" y="201" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#16a34a">A term containing x (here: 5x)</text>
+
+      <!-- ── Arrow 4: Constant "−7" ── orange, drops to RIGHT box -->
+      <line x1="432" y1="100" x2="560" y2="160" stroke="#ea580c" stroke-width="1.4" marker-end="url(#arr)"/>
+      <rect x="502" y="162" width="158" height="52" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="0.8"/>
+      <text x="581" y="183" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#c2410c">Constant term</text>
+      <text x="581" y="201" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#ea580c">No variable (here: −7)</text>
+
+      <!-- Divider line -->
+      <line x1="40" y1="234" x2="640" y2="234" stroke="#e2e8f0" stroke-width="0.8"/>
+
+      <!-- Bottom summary badge -->
+      <rect x="100" y="248" width="480" height="72" rx="10" fill="#1e3a8a"/>
+      <text x="340" y="274" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#93c5fd">3x² + 5x − 7  is a  TRINOMIAL  (3 terms)</text>
+      <text x="340" y="296" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#bfdbfe">Highest exponent = 2  →  Degree 2  →  Quadratic Polynomial</text>
+      <text x="340" y="314" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#7dd3fc">Coefficients: a = 3,  b = 5,  c = −7</text>
+    </svg>
+    <figcaption>Fig. 1 — Anatomy of a polynomial expression: 3x² + 5x − 7</figcaption>
+  </figure>
+</div>
+
+<!-- ============================================================ -->
+<h2>2. Degree of a Polynomial</h2>
+
+<p>The <strong>degree</strong> of a polynomial in one variable is the <em>highest power</em> of the variable present in the expression.</p>
+
+<div class="example">
+  <div class="ex-label">Examples</div>
+  <ul>
+    <li><code>x² + 2x + 3</code> → Degree = <strong>2</strong></li>
+    <li><code>x⁸ + 2x⁶ − 3x + 9</code> → Degree = <strong>8</strong></li>
+    <li><code>4x + 1</code> → Degree = <strong>1</strong></li>
+    <li><code>7</code> → Degree = <strong>0</strong> (constant polynomial)</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>3. Types of Polynomials</h2>
+
+<h3>A. Classified by Number of Terms</h3>
+<div class="card-grid">
+  <div class="card blue">
+    <div class="label">Monomial</div>
+    <div class="value">1 Term</div>
+    <div class="sub">e.g., 2x, 6x², 9xy</div>
+  </div>
+  <div class="card green">
+    <div class="label">Binomial</div>
+    <div class="value">2 Terms</div>
+    <div class="sub">e.g., 4x² + x, 5x + 4</div>
+  </div>
+  <div class="card purple">
+    <div class="label">Trinomial</div>
+    <div class="value">3 Terms</div>
+    <div class="sub">e.g., x² + 3x + 4</div>
+  </div>
+</div>
+
+<h3>B. Classified by Degree</h3>
+<table>
+  <thead>
+    <tr><th>Type</th><th>Degree</th><th>General Form</th><th>Example</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Linear</strong></td><td>1</td><td>ax + b</td><td>2x + 1</td></tr>
+    <tr><td><strong>Quadratic</strong></td><td>2</td><td>ax² + bx + c</td><td>3x² + 8x + 5</td></tr>
+    <tr><td><strong>Cubic</strong></td><td>3</td><td>ax³ + bx² + cx + d</td><td>2x³ + 5x² + 9x + 15</td></tr>
+    <tr><td><strong>Constant</strong></td><td>0</td><td>k (any number)</td><td>5, −20, 7</td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>Important:</strong> For a quadratic polynomial, a ≠ 0 is mandatory. If a = 0, the degree drops to 1 (linear) or lower.</div>
+
+<!-- ============================================================ -->
+<h2>4. Zeros of a Polynomial</h2>
+
+<p>A <strong>zero</strong> (also called a <em>root</em>) of a polynomial p(x) is any value of x for which <strong>p(x) = 0</strong>. In other words, it is the x-value where the graph of the polynomial crosses or touches the x-axis.</p>
+
+<div class="example">
+  <div class="ex-label">Example</div>
+  <p>For p(x) = x − 3, when x = 3: p(3) = 3 − 3 = 0. So <strong>3</strong> is the zero of this polynomial.</p>
+</div>
+
+<div class="note"><strong>Key fact:</strong> A polynomial of degree <em>n</em> has <em>at most n</em> zeros.</div>
+
+<!-- ============================================================ -->
+<h2>5. Geometric Meaning of Zeros (Graphical Representation)</h2>
+
+<p>The zeros of a polynomial correspond to the points where its graph meets the x-axis. Each type of polynomial has a characteristic graph shape:</p>
+
+<!-- Diagram 2: Graphs of Linear, Quadratic, Cubic -->
+<div class="diagram-wrap">
+  <figure>
+    <svg width="100%" viewBox="0 0 680 300" role="img">
+      <title>Graphs of linear, quadratic, and cubic polynomials</title>
+      <desc>Three graphs side by side showing a straight line (linear), a parabola (quadratic), and an S-curve (cubic) with their zero-crossings marked on the x-axis.</desc>
+      <defs>
+        <marker id="ax" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- ---- GRAPH 1: Linear ---- -->
+      <rect x="20" y="10" width="190" height="270" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.8"/>
+      <!-- Axes -->
+      <line x1="115" y1="260" x2="115" y2="30" stroke="#94a3b8" stroke-width="1" marker-end="url(#ax)"/>
+      <line x1="30" y1="165" x2="200" y2="165" stroke="#94a3b8" stroke-width="1" marker-end="url(#ax)"/>
+      <text x="204" y="169" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">x</text>
+      <text x="118" y="27" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">y</text>
+      <!-- Line y = x - 50 mapping to SVG coords: zero at x=165 (SVG) → real x=1; slope upward-right -->
+      <line x1="40" y1="240" x2="190" y2="55" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+      <!-- Zero point -->
+      <circle cx="140" cy="165" r="5" fill="#2563eb"/>
+      <text x="140" y="182" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#1d4ed8">1 zero</text>
+      <!-- Label -->
+      <text x="115" y="286" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#1e3a8a">Linear Polynomial</text>
+      <text x="115" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">p(x) = ax + b</text>
+
+      <!-- ---- GRAPH 2: Quadratic (Parabola) ---- -->
+      <rect x="245" y="10" width="190" height="270" rx="10" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="0.8"/>
+      <!-- Axes -->
+      <line x1="340" y1="260" x2="340" y2="30" stroke="#94a3b8" stroke-width="1" marker-end="url(#ax)"/>
+      <line x1="255" y1="200" x2="425" y2="200" stroke="#94a3b8" stroke-width="1" marker-end="url(#ax)"/>
+      <text x="428" y="204" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">x</text>
+      <text x="343" y="27" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">y</text>
+      <!-- Parabola path: opens upward, vertex inside, two zeros -->
+      <path d="M270 55 Q340 220 410 55" fill="none" stroke="#7c3aed" stroke-width="2"/>
+      <!-- Zeros -->
+      <circle cx="299" cy="200" r="5" fill="#7c3aed"/>
+      <circle cx="381" cy="200" r="5" fill="#7c3aed"/>
+      <text x="340" y="218" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6d28d9">2 zeros (A, B)</text>
+      <text x="299" y="215" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#6d28d9">A</text>
+      <text x="381" y="215" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#6d28d9">B</text>
+      <!-- Label -->
+      <text x="340" y="286" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#4c1d95">Quadratic Polynomial</text>
+      <text x="340" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">p(x) = ax² + bx + c</text>
+
+      <!-- ---- GRAPH 3: Cubic ---- -->
+      <rect x="468" y="10" width="192" height="270" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="0.8"/>
+      <!-- Axes -->
+      <line x1="564" y1="260" x2="564" y2="30" stroke="#94a3b8" stroke-width="1" marker-end="url(#ax)"/>
+      <line x1="478" y1="155" x2="650" y2="155" stroke="#94a3b8" stroke-width="1" marker-end="url(#ax)"/>
+      <text x="652" y="159" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">x</text>
+      <text x="567" y="27" font-family="system-ui,sans-serif" font-size="10" fill="#94a3b8">y</text>
+      <!-- Cubic S-curve: crosses x-axis 3 times -->
+      <path d="M488 238 C510 238,520 155,540 155 S565 72,590 72 C610 72,630 100,648 70" fill="none" stroke="#16a34a" stroke-width="2"/>
+      <!-- 3 zeros -->
+      <circle cx="509" cy="155" r="5" fill="#16a34a"/>
+      <circle cx="564" cy="155" r="5" fill="#16a34a"/>
+      <circle cx="619" cy="155" r="5" fill="#16a34a"/>
+      <text x="564" y="172" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#15803d">3 zeros (A, B, C)</text>
+      <!-- Label -->
+      <text x="564" y="286" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#14532d">Cubic Polynomial</text>
+      <text x="564" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">p(x) = ax³ + bx² + cx + d</text>
+    </svg>
+    <figcaption>Fig. 2 — Graphs of polynomials. The points where the graph touches/crosses the x-axis are the zeros.</figcaption>
+  </figure>
+</div>
+
+<div class="note">
+  <strong>Graph Tip:</strong> A linear polynomial always has exactly <strong>1 zero</strong>. A quadratic polynomial can have 0, 1, or 2 zeros depending on whether its parabola crosses the x-axis twice, just touches it, or never meets it. A cubic polynomial always crosses the x-axis at least once and at most <strong>3 times</strong>.
+</div>
+
+<p>There are three possible shapes for a quadratic polynomial's graph (parabola):</p>
+
+<!-- Diagram 3: Three types of quadratic graphs -->
+<div class="diagram-wrap">
+  <figure>
+    <svg width="100%" viewBox="0 0 680 230" role="img">
+      <title>Three cases of quadratic polynomial graphs</title>
+      <desc>Three parabolas: one cutting the x-axis at two points (two zeros), one touching it at one point (one zero), and one not touching it at all (no real zeros).</desc>
+      <defs>
+        <marker id="ax2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Case 1: 2 distinct zeros -->
+      <rect x="20" y="10" width="190" height="210" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="0.8"/>
+      <line x1="115" y1="210" x2="115" y2="20" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#ax2)"/>
+      <line x1="30" y1="150" x2="200" y2="150" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#ax2)"/>
+      <path d="M55 40 Q115 210 175 40" fill="none" stroke="#2563eb" stroke-width="2"/>
+      <circle cx="83" cy="150" r="5" fill="#2563eb"/>
+      <circle cx="147" cy="150" r="5" fill="#2563eb"/>
+      <text x="115" y="195" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#1e3a8a">Two distinct zeros</text>
+      <text x="115" y="208" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">Graph cuts x-axis twice</text>
+
+      <!-- Case 2: 1 repeated zero -->
+      <rect x="245" y="10" width="190" height="210" rx="10" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="0.8"/>
+      <line x1="340" y1="210" x2="340" y2="20" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#ax2)"/>
+      <line x1="255" y1="150" x2="425" y2="150" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#ax2)"/>
+      <path d="M275 40 Q340 160 405 40" fill="none" stroke="#7c3aed" stroke-width="2"/>
+      <circle cx="340" cy="150" r="5" fill="#7c3aed"/>
+      <text x="340" y="195" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#4c1d95">One repeated zero</text>
+      <text x="340" y="208" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">Graph just touches x-axis</text>
+
+      <!-- Case 3: No real zeros -->
+      <rect x="468" y="10" width="192" height="210" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="0.8"/>
+      <line x1="564" y1="210" x2="564" y2="20" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#ax2)"/>
+      <line x1="478" y1="170" x2="650" y2="170" stroke="#94a3b8" stroke-width="0.8" marker-end="url(#ax2)"/>
+      <path d="M498 155 Q564 50 630 155" fill="none" stroke="#ea580c" stroke-width="2"/>
+      <text x="564" y="195" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#9a3412">No real zeros</text>
+      <text x="564" y="208" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">Graph does not touch x-axis</text>
+    </svg>
+    <figcaption>Fig. 3 — Three cases of a quadratic polynomial's parabola</figcaption>
+  </figure>
+</div>
+
+<!-- ============================================================ -->
+<h2>6. Relationship Between Zeros and Coefficients</h2>
+
+<p>One of the most important results in this chapter is the direct relationship between the zeros of a polynomial and its coefficients. You don't need to find the zeros to know their sum and product!</p>
+
+<h3>For a Linear Polynomial: ax + b</h3>
+<div class="formula">
+  <div class="label">Zero of ax + b</div>
+  Zero (k) = −b/a = −(constant term) / (coefficient of x)
+</div>
+
+<h3>For a Quadratic Polynomial: ax² + bx + c</h3>
+<p>Let α (alpha) and β (beta) be the two zeros.</p>
+<div class="formula">
+  <div class="label">Quadratic — Sum and Product of Zeros</div>
+  Sum of zeros:     α + β = −b/a = −(coefficient of x) / (coefficient of x²)<br/>
+  Product of zeros: α × β =  c/a =  (constant term) / (coefficient of x²)
+</div>
+
+<div class="note">
+  <strong>Quick trick to form a quadratic polynomial from its zeros:</strong><br/>
+  p(x) = k × [x² − (sum of zeros)x + (product of zeros)], where k is any non-zero real number.
+</div>
+
+<div class="example">
+  <div class="ex-label">Example</div>
+  <p>For p(x) = 6x² − 7x − 3 with zeros α and β:</p>
+  <ul>
+    <li>Sum: α + β = −(−7)/6 = <strong>7/6</strong></li>
+    <li>Product: α × β = −3/6 = <strong>−1/2</strong></li>
+  </ul>
+</div>
+
+<h3>For a Cubic Polynomial: ax³ + bx² + cx + d</h3>
+<p>Let α, β, and γ (gamma) be the three zeros.</p>
+<div class="formula">
+  <div class="label">Cubic — Relationships with Coefficients</div>
+  Sum of zeros:                       α + β + γ       = −b/a<br/>
+  Sum of products (taken two at a time): αβ + βγ + αγ = c/a<br/>
+  Product of all zeros:               α × β × γ       = −d/a
+</div>
+
+<div class="example">
+  <div class="ex-label">Example — Finding a Cubic Polynomial</div>
+  <p>Find a cubic polynomial whose sum of zeros = 5, sum of products two at a time = −6, product of zeros = −20.</p>
+  <p>Using p(x) = ax³ + bx² + cx + d with a = 1:</p>
+  <ul>
+    <li>b = −5 (since α + β + γ = −b/a → −b = 5)</li>
+    <li>c = −6 (since αβ + βγ + αγ = c/a → c = −6)</li>
+    <li>d = 20 (since αβγ = −d/a → −d = −20 → d = 20)</li>
+  </ul>
+  <p><strong>Answer: p(x) = x³ − 5x² − 6x + 20</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<h2>7. Factorisation of a Quadratic Polynomial</h2>
+
+<p>A quadratic polynomial can be factorised by the method of <strong>splitting the middle term</strong>. The goal is to express the middle term as the sum of two parts whose product equals the product of the leading coefficient and the constant term.</p>
+
+<div class="example">
+  <div class="ex-label">Example — Split the Middle Term</div>
+  <p>Factorise: 2x² − 5x + 3</p>
+  <ul>
+    <li>Product of first and last coefficients: 2 × 3 = 6</li>
+    <li>We need two numbers that add to −5 and multiply to 6 → (−2) and (−3)</li>
+    <li>Rewrite: 2x² − 2x − 3x + 3</li>
+    <li>Group: 2x(x − 1) − 3(x − 1)</li>
+    <li><strong>Factors: (2x − 3)(x − 1)</strong></li>
+    <li>Zeros: x = 3/2 and x = 1</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>8. Division Algorithm for Polynomials</h2>
+
+<p>Just like we divide ordinary numbers (dividend = divisor × quotient + remainder), we can divide one polynomial by another.</p>
+
+<div class="formula">
+  <div class="label">Division Algorithm</div>
+  p(x) = g(x) × q(x) + r(x)<br/><br/>
+  where:<br/>
+  p(x) = dividend polynomial<br/>
+  g(x) = divisor (g(x) ≠ 0)<br/>
+  q(x) = quotient<br/>
+  r(x) = remainder [r(x) = 0  OR  degree of r(x) &lt; degree of g(x)]
+</div>
+
+<!-- Diagram 4: Division Algorithm Flow -->
+<div class="diagram-wrap">
+  <figure>
+    <svg width="100%" viewBox="0 0 680 160" role="img">
+      <title>Division Algorithm for Polynomials flowchart</title>
+      <desc>A flowchart showing the steps of polynomial long division: divide, multiply, subtract, bring down, repeat until remainder degree is less than divisor degree.</desc>
+      <defs>
+        <marker id="fa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Step boxes -->
+      <!-- Step 1 -->
+      <rect x="20" y="40" width="120" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="0.8"/>
+      <text x="80" y="61" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#1e3a8a">Step 1</text>
+      <text x="80" y="77" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#1d4ed8">Divide highest</text>
+      <text x="80" y="89" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#1d4ed8">degree terms</text>
+
+      <!-- Arrow -->
+      <line x1="140" y1="66" x2="168" y2="66" stroke="#94a3b8" stroke-width="1" marker-end="url(#fa)"/>
+
+      <!-- Step 2 -->
+      <rect x="170" y="40" width="120" height="52" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="0.8"/>
+      <text x="230" y="61" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#4c1d95">Step 2</text>
+      <text x="230" y="77" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6d28d9">Multiply &amp; subtract</text>
+      <text x="230" y="89" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6d28d9">to get remainder</text>
+
+      <!-- Arrow -->
+      <line x1="290" y1="66" x2="318" y2="66" stroke="#94a3b8" stroke-width="1" marker-end="url(#fa)"/>
+
+      <!-- Step 3 -->
+      <rect x="320" y="40" width="140" height="52" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="0.8"/>
+      <text x="390" y="61" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#14532d">Step 3</text>
+      <text x="390" y="77" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#15803d">If degree(r) &lt; degree(g)</text>
+      <text x="390" y="89" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#15803d">→ Stop. Else repeat.</text>
+
+      <!-- Arrow -->
+      <line x1="460" y1="66" x2="488" y2="66" stroke="#94a3b8" stroke-width="1" marker-end="url(#fa)"/>
+
+      <!-- Result -->
+      <rect x="490" y="30" width="170" height="72" rx="8" fill="#1e3a8a"/>
+      <text x="575" y="55" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#93c5fd">Result</text>
+      <text x="575" y="72" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#e2e8f0">p(x) = g(x)·q(x) + r(x)</text>
+      <text x="575" y="88" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#7dd3fc">Dividend = Divisor × Quotient + Remainder</text>
+
+      <!-- Label -->
+      <text x="340" y="140" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">This is identical to how we do long division with numbers (e.g., 17 ÷ 5 = 3 remainder 2)</text>
+    </svg>
+    <figcaption>Fig. 4 — Steps of the Polynomial Division Algorithm</figcaption>
+  </figure>
+</div>
+
+<h3>How to Perform Polynomial Long Division</h3>
+<ol>
+  <li>Arrange both polynomials in <strong>descending order</strong> of degree.</li>
+  <li>Divide the <strong>highest-degree term</strong> of the dividend by the highest-degree term of the divisor. This gives the first term of the quotient.</li>
+  <li>Multiply this term with the entire divisor and subtract the result from the dividend.</li>
+  <li>Bring down the next term and <strong>repeat</strong> steps 2–3 until the degree of the remainder is less than the degree of the divisor (or the remainder is zero).</li>
+</ol>
+
+<div class="example">
+  <div class="ex-label">Example — Division Algorithm</div>
+  <p>Divide p(x) = x² − 3x − 10 by g(x) = x + 2.</p>
+  <p>Using long division: x² − 3x − 10 = (x + 2)(x − 5) + 0</p>
+  <ul>
+    <li>Quotient q(x) = x − 5</li>
+    <li>Remainder r(x) = 0</li>
+  </ul>
+  <p>Since remainder = 0, (x + 2) is a <strong>factor</strong> of x² − 3x − 10 and x = −2 is a zero.</p>
+</div>
+
+<div class="note">
+  <strong>Using the Division Algorithm to find unknown zeros:</strong> If you know one zero of a cubic polynomial, divide the polynomial by the corresponding linear factor. The quotient will be a quadratic, which you can then solve easily.
+</div>
+
+<!-- ============================================================ -->
+<h2>9. Summary of All Key Formulas</h2>
+
+<table>
+  <thead>
+    <tr><th>Polynomial</th><th>Formula</th><th>Relationship</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Linear: ax + b</td><td>Zero = −b/a</td><td>Zero = −(constant)/(coefficient of x)</td></tr>
+    <tr><td rowspan="2">Quadratic: ax² + bx + c</td><td>α + β = −b/a</td><td>Sum of zeros</td></tr>
+    <tr><td>αβ = c/a</td><td>Product of zeros</td></tr>
+    <tr><td rowspan="3">Cubic: ax³ + bx² + cx + d</td><td>α + β + γ = −b/a</td><td>Sum of zeros</td></tr>
+    <tr><td>αβ + βγ + αγ = c/a</td><td>Sum of pairwise products</td></tr>
+    <tr><td>αβγ = −d/a</td><td>Product of zeros</td></tr>
+    <tr><td>Division Algorithm</td><td>p(x) = g(x)·q(x) + r(x)</td><td>degree(r) &lt; degree(g)</td></tr>
+    <tr><td>Forming a quadratic</td><td>k[x² − (α+β)x + αβ]</td><td>Given sum and product of zeros</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================================================ -->
+<div class="revision">
+  <h2>⚡ Quick Revision Checklist</h2>
+  <ul style="margin-top:0.75rem;">
+    <li>A polynomial has whole-number exponents only. <code>2x + 3√x</code> is NOT a polynomial.</li>
+    <li>Degree = highest exponent of the variable.</li>
+    <li>Linear → degree 1 → at most 1 zero → straight line graph.</li>
+    <li>Quadratic → degree 2 → at most 2 zeros → parabola (U-shape or ∩-shape).</li>
+    <li>Cubic → degree 3 → at most 3 zeros → S-curve graph.</li>
+    <li>For quadratic ax² + bx + c: <code>α + β = −b/a</code> and <code>αβ = c/a</code>.</li>
+    <li>For cubic ax³ + bx² + cx + d: <code>α+β+γ = −b/a</code>, <code>αβ+βγ+αγ = c/a</code>, <code>αβγ = −d/a</code>.</li>
+    <li>Division Algorithm: <code>p(x) = g(x)·q(x) + r(x)</code>, where degree(r) &lt; degree(g).</li>
+    <li>If remainder = 0, the divisor is a factor of the dividend.</li>
+    <li>Number of zeros of a polynomial of degree n ≤ n (at most n zeros).</li>
+  </ul>
+</div>
+
+</body>
+</html>
