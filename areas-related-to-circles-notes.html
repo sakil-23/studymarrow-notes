@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Areas Related to Circles — CBSE Class 10 Maths Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink:      #1a1a2e;
+    --ink-soft: #3d3d5c;
+    --paper:    #fdfaf4;
+    --cream:    #f5f0e8;
+    --accent:   #c0392b;
+    --accent2:  #2980b9;
+    --gold:     #d4a017;
+    --green:    #1a7a4a;
+    --border:   #d6cdb8;
+    --diagram-bg: #eef4fb;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* HEADER */
+  .page-header {
+    border-top: 6px solid var(--accent);
+    border-bottom: 2px solid var(--border);
+    padding: 36px 0 28px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+  .subject-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: #fde8e6;
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .header-sub {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* SECTION HEADERS */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+    margin: 52px 0 20px;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 32px 0 12px;
+  }
+
+  p { margin-bottom: 14px; }
+  ul, ol { padding-left: 22px; margin-bottom: 14px; }
+  li { margin-bottom: 6px; }
+
+  /* FORMULA BOXES */
+  .formula-box {
+    background: #eaf3fb;
+    border-left: 5px solid var(--accent2);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 22px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--ink);
+  }
+  .formula-box strong { color: var(--accent2); }
+
+  /* WORKED EXAMPLES */
+  .example {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin: 24px 0;
+    position: relative;
+  }
+  .example::before {
+    content: "Worked Example";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    background: #e8f5ee;
+    padding: 3px 10px;
+    border-radius: 2px;
+    position: absolute;
+    top: -12px;
+    left: 18px;
+  }
+  .example .prob { font-weight: 600; margin-bottom: 10px; color: var(--ink); }
+  .example .sol  { font-size: 15.5px; color: var(--ink-soft); line-height: 2; }
+  .example .ans  { font-weight: 600; color: var(--accent); margin-top: 8px; }
+
+  /* KEY POINTS BOX */
+  .keybox {
+    background: #fff9ec;
+    border: 1px solid #e8d48f;
+    border-left: 5px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 22px 0;
+  }
+  .keybox-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  /* TABLES */
+  .tbl-wrap { overflow-x: auto; margin: 22px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  thead { background: var(--ink); color: #fff; }
+  thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  tbody tr:nth-child(odd)  { background: var(--cream); }
+  tbody tr:nth-child(even) { background: #fff; }
+  tbody td { padding: 11px 16px; border-bottom: 1px solid var(--border); }
+  tbody td:first-child { font-weight: 600; }
+
+  /* DIAGRAMS */
+  .diagram-wrap {
+    background: var(--diagram-bg);
+    border: 1px solid #cce0f5;
+    border-radius: 10px;
+    padding: 24px;
+    margin: 28px 0;
+    text-align: center;
+  }
+  .diagram-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 16px;
+  }
+  .diagram-wrap svg { max-width: 100%; height: auto; }
+
+  /* PRACTICE */
+  .practice-section { margin-top: 48px; }
+  .practice-group {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 20px 0;
+  }
+  .practice-group h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .practice-group ol { padding-left: 20px; }
+  .practice-group li { margin-bottom: 8px; font-size: 15.5px; }
+
+  /* STUDY TIPS */
+  .tips {
+    background: #eef9f3;
+    border: 1px solid #b2dfcc;
+    border-left: 5px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 30px 0;
+  }
+  .tips .tips-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 70px;
+    border-top: 2px solid var(--border);
+    padding-top: 22px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+  .toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .toc ol { padding-left: 18px; }
+  .toc li { margin-bottom: 5px; }
+  .toc a { color: var(--accent2); text-decoration: none; font-size: 15px; }
+  .toc a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    body { font-size: 15px; padding: 20px 14px 60px; }
+    .formula-box { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="subject-tag">CBSE · Class 10 · Mathematics</div>
+  <h1>Areas Related to Circles</h1>
+  <p class="header-sub">Complete Chapter Notes · Formulas · Worked Examples · Practice Questions</p>
+</header>
+
+<!-- TABLE OF CONTENTS -->
+<nav class="toc">
+  <div class="toc-title">📋 Contents</div>
+  <ol>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#basics">Basic Concepts — Parts of a Circle</a></li>
+    <li><a href="#circumference-area">Circumference and Area of a Circle</a></li>
+    <li><a href="#sector">Area of a Sector</a></li>
+    <li><a href="#segment">Area of a Segment</a></li>
+    <li><a href="#combinations">Combinations of Plane Figures</a></li>
+    <li><a href="#summary">Formula Summary Table</a></li>
+    <li><a href="#keypoints">Key Points to Remember</a></li>
+    <li><a href="#practice">Practice Questions</a></li>
+    <li><a href="#comparison">Sector vs. Segment — Quick Comparison</a></li>
+  </ol>
+</nav>
+
+
+<!-- 1. INTRODUCTION -->
+<section id="intro">
+  <h2>1. Introduction</h2>
+  <p>
+    This chapter explores the measurement of flat shapes that involve circles — focusing on their boundaries
+    and enclosed areas. We look at circles as a whole, then zoom into their parts: <strong>sectors</strong>
+    (pie-slice shapes) and <strong>segments</strong> (the region between a chord and its arc). Finally, we
+    tackle composite figures — shapes formed by combining circles with rectangles, triangles, or other
+    polygons — which are very commonly tested in CBSE board examinations.
+  </p>
+  <div class="keybox">
+    <div class="keybox-title">📌 Topics Covered in This Chapter</div>
+    <ul>
+      <li>Perimeter (Circumference) and Area of a Circle</li>
+      <li>Area of a Sector of a Circle</li>
+      <li>Area of a Segment of a Circle</li>
+      <li>Areas of Combinations of Plane Figures</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- 2. BASIC CONCEPTS -->
+<section id="basics">
+  <h2>2. Basic Concepts — Parts of a Circle</h2>
+  <p>Before working with areas, it helps to have a clear picture of the terminology:</p>
+  <ul>
+    <li><strong>Radius (r):</strong> The straight-line distance from the circle's centre to any point on it.</li>
+    <li><strong>Diameter (d):</strong> The longest possible chord; it passes through the centre. <em>d = 2r.</em></li>
+    <li><strong>Chord:</strong> Any straight line joining two points on the circumference.</li>
+    <li><strong>Arc:</strong> A continuous portion of the circle's curved boundary.</li>
+    <li><strong>Sector:</strong> The closed region enclosed by two radii and the arc connecting their endpoints — think of it as a slice of pie.</li>
+    <li><strong>Segment:</strong> The region between a chord and the arc it cuts off — like the piece left after slicing off the triangular tip of a pie slice.</li>
+  </ul>
+
+  <!-- DIAGRAM 1: Parts of a Circle -->
+  <div class="diagram-wrap">
+    <div class="diagram-title">Diagram 1 — Parts of a Circle</div>
+    <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4, serif">
+      <!-- Circle -->
+      <circle cx="200" cy="160" r="120" fill="#eef4fb" stroke="#2980b9" stroke-width="2.5"/>
+      <!-- Diameter -->
+      <line x1="80" y1="160" x2="320" y2="160" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+      <!-- Radius -->
+      <line x1="200" y1="160" x2="200" y2="40" stroke="#1a7a4a" stroke-width="2"/>
+      <!-- Chord -->
+      <line x1="110" y1="100" x2="290" y2="220" stroke="#d4a017" stroke-width="2"/>
+      <!-- Arc highlight (minor arc, upper right) -->
+      <path d="M 200 40 A 120 120 0 0 1 320 160" fill="none" stroke="#8e44ad" stroke-width="4" stroke-linecap="round"/>
+      <!-- Centre dot -->
+      <circle cx="200" cy="160" r="5" fill="#1a1a2e"/>
+
+      <!-- Labels -->
+      <text x="205" y="155" font-size="13" fill="#1a1a2e" font-weight="600">O</text>
+      <!-- Radius label -->
+      <text x="207" y="103" font-size="13" fill="#1a7a4a" font-weight="600">Radius (r)</text>
+      <!-- Diameter label -->
+      <text x="80" y="152" font-size="13" fill="#c0392b" font-weight="600">Diameter (d = 2r)</text>
+      <!-- Chord label -->
+      <text x="152" y="192" font-size="13" fill="#d4a017" font-weight="600">Chord</text>
+      <!-- Arc label -->
+      <text x="282" y="95" font-size="13" fill="#8e44ad" font-weight="600">Arc</text>
+
+      <!-- SECTOR shaded -->
+      <path d="M 200 160 L 200 40 A 120 120 0 0 1 320 160 Z" fill="rgba(41,128,185,0.15)" stroke="#2980b9" stroke-width="1.5"/>
+      <!-- Sector label -->
+      <text x="260" y="130" font-size="13" fill="#2980b9" font-weight="600">Sector</text>
+
+      <!-- SEGMENT shaded (below chord) -->
+      <path d="M 110 100 A 120 120 0 0 0 290 220 Z" fill="rgba(192,57,43,0.12)" stroke="none"/>
+      <line x1="110" y1="100" x2="290" y2="220" stroke="#d4a017" stroke-width="2"/>
+
+      <!-- Right side: legend -->
+      <rect x="355" y="40" width="145" height="240" rx="8" fill="#fff" stroke="#d6cdb8" stroke-width="1"/>
+      <text x="375" y="65" font-size="12" font-weight="700" fill="#1a1a2e">Legend</text>
+
+      <line x1="370" y1="85" x2="400" y2="85" stroke="#1a7a4a" stroke-width="2"/>
+      <text x="407" y="90" font-size="12" fill="#1a1a2e">Radius</text>
+
+      <line x1="370" y1="110" x2="400" y2="110" stroke="#c0392b" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="407" y="115" font-size="12" fill="#1a1a2e">Diameter</text>
+
+      <line x1="370" y1="135" x2="400" y2="135" stroke="#d4a017" stroke-width="2"/>
+      <text x="407" y="140" font-size="12" fill="#1a1a2e">Chord</text>
+
+      <line x1="370" y1="160" x2="400" y2="160" stroke="#8e44ad" stroke-width="3"/>
+      <text x="407" y="165" font-size="12" fill="#1a1a2e">Arc</text>
+
+      <rect x="370" y="178" width="30" height="14" fill="rgba(41,128,185,0.2)" stroke="#2980b9" stroke-width="1"/>
+      <text x="407" y="190" font-size="12" fill="#1a1a2e">Sector</text>
+
+      <rect x="370" y="205" width="30" height="14" fill="rgba(192,57,43,0.15)" stroke="#d4a017" stroke-width="1"/>
+      <text x="407" y="217" font-size="12" fill="#1a1a2e">Segment</text>
+    </svg>
+  </div>
+
+  <h3>2.1 Minor and Major Parts</h3>
+  <p>Every chord divides the circle into two unequal parts (unless it is a diameter). The smaller portion is called the <strong>minor</strong> part and the larger one the <strong>major</strong> part:</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Part</th><th>Minor</th><th>Major</th></tr></thead>
+      <tbody>
+        <tr><td>Arc</td><td>Shorter arc (less than a semicircle)</td><td>Longer arc (more than a semicircle)</td></tr>
+        <tr><td>Sector</td><td>Region of the smaller arc</td><td>Region of the larger arc</td></tr>
+        <tr><td>Segment</td><td>Region between minor arc and chord</td><td>Region between major arc and chord</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- 3. CIRCUMFERENCE AND AREA -->
+<section id="circumference-area">
+  <h2>3. Circumference and Area of a Circle</h2>
+
+  <h3>3.1 Circumference</h3>
+  <p>
+    The circumference is simply the distance all the way around the circle — its perimeter. If you were to
+    cut the circle and straighten it into a line, the length of that line would be its circumference.
+  </p>
+  <div class="formula-box">
+    <strong>Circumference = 2πr = πd</strong><br>
+    where r = radius, d = diameter, π ≈ 3.14159 ≈ 22/7
+  </div>
+
+  <h3>3.2 Area of a Circle</h3>
+  <p>
+    The area of a circle is the total surface enclosed within its boundary.
+  </p>
+  <div class="formula-box">
+    <strong>Area = πr²</strong><br>
+    Alternatively: Area = (π/4) × d²
+  </div>
+
+  <!-- DIAGRAM 2: Circle with r and circumference -->
+  <div class="diagram-wrap">
+    <div class="diagram-title">Diagram 2 — Circle: Radius, Diameter &amp; Circumference</div>
+    <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4, serif">
+      <circle cx="200" cy="130" r="100" fill="rgba(41,128,185,0.08)" stroke="#2980b9" stroke-width="2.5"/>
+      <!-- Radius -->
+      <line x1="200" y1="130" x2="200" y2="30" stroke="#1a7a4a" stroke-width="2.5" marker-end="url(#arr)"/>
+      <!-- Diameter -->
+      <line x1="100" y1="130" x2="300" y2="130" stroke="#c0392b" stroke-width="2" stroke-dasharray="7,4"/>
+      <!-- Centre -->
+      <circle cx="200" cy="130" r="5" fill="#1a1a2e"/>
+      <text x="208" y="128" font-size="14" fill="#1a1a2e" font-weight="700">O</text>
+      <!-- Radius label -->
+      <text x="208" y="83" font-size="14" fill="#1a7a4a" font-weight="600">r</text>
+      <!-- Diameter label -->
+      <text x="140" y="120" font-size="14" fill="#c0392b" font-weight="600">d = 2r</text>
+      <!-- Circumference label -->
+      <text x="285" y="60" font-size="13" fill="#8e44ad" font-weight="600">C = 2πr</text>
+      <path d="M 283 64 Q 270 50 255 40" fill="none" stroke="#8e44ad" stroke-width="1.5" marker-end="url(#arr2)"/>
+      <!-- Area label -->
+      <text x="160" y="168" font-size="14" fill="#2980b9" font-weight="600">A = πr²</text>
+
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L0,8 L8,4 Z" fill="#1a7a4a"/>
+        </marker>
+        <marker id="arr2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L0,8 L8,4 Z" fill="#8e44ad"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="example">
+    <p class="prob">Example 3.1 — Find the circumference and area of a circle with radius 7 cm. (Use π = 22/7)</p>
+    <div class="sol">
+      Circumference = 2πr = 2 × (22/7) × 7 = <strong>44 cm</strong><br>
+      Area = πr² = (22/7) × 7² = (22/7) × 49 = <strong>154 cm²</strong>
+    </div>
+    <p class="ans">✔ Circumference = 44 cm, Area = 154 cm²</p>
+  </div>
+</section>
+
+
+<!-- 4. SECTOR -->
+<section id="sector">
+  <h2>4. Area of a Sector of a Circle</h2>
+
+  <h3>4.1 What is a Sector?</h3>
+  <p>
+    Imagine cutting a circular cake into slices — each slice is a <strong>sector</strong>. Formally, a sector
+    is the region enclosed by two radii of a circle and the arc between them. The angle between the two radii,
+    measured at the centre, is called the <strong>angle of the sector</strong> (written as θ).
+  </p>
+
+  <div class="keybox">
+    <div class="keybox-title">💡 Special Cases</div>
+    <ul>
+      <li>When θ = 360°: the sector is the full circle.</li>
+      <li>When θ = 180°: the sector is a semicircle.</li>
+      <li>When θ = 90°: the sector is a quadrant (one-quarter of the circle).</li>
+    </ul>
+  </div>
+
+  <!-- DIAGRAM 3: Sector -->
+  <div class="diagram-wrap">
+    <div class="diagram-title">Diagram 3 — Sector of a Circle</div>
+    <svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4, serif">
+      <!-- Full circle (faint) -->
+      <circle cx="180" cy="150" r="120" fill="rgba(41,128,185,0.05)" stroke="#cce0f5" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <!-- Sector fill -->
+      <path d="M 180 150 L 300 150 A 120 120 0 0 0 228 36 Z" fill="rgba(41,128,185,0.22)" stroke="none"/>
+      <!-- Radii -->
+      <line x1="180" y1="150" x2="300" y2="150" stroke="#2980b9" stroke-width="2.5"/>
+      <line x1="180" y1="150" x2="228" y2="36" stroke="#2980b9" stroke-width="2.5"/>
+      <!-- Arc -->
+      <path d="M 300 150 A 120 120 0 0 0 228 36" fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+      <!-- Angle arc -->
+      <path d="M 215 150 A 35 35 0 0 0 200 116" fill="none" stroke="#d4a017" stroke-width="2"/>
+      <!-- Labels -->
+      <circle cx="180" cy="150" r="5" fill="#1a1a2e"/>
+      <text x="158" y="148" font-size="14" fill="#1a1a2e" font-weight="700">O</text>
+      <text x="245" y="155" font-size="13" fill="#2980b9" font-weight="600">r</text>
+      <text x="190" y="100" font-size="13" fill="#2980b9" font-weight="600">r</text>
+      <text x="220" y="135" font-size="13" fill="#d4a017" font-weight="700">θ</text>
+      <text x="282" y="90" font-size="13" fill="#c0392b" font-weight="600">Arc (l)</text>
+      <!-- Sector label -->
+      <text x="235" y="172" font-size="13" fill="#2980b9" font-weight="600">Sector</text>
+      <!-- Point labels -->
+      <text x="304" y="155" font-size="13" fill="#1a1a2e" font-weight="600">A</text>
+      <text x="230" y="28" font-size="13" fill="#1a1a2e" font-weight="600">B</text>
+
+      <!-- Formulas on right -->
+      <rect x="330" y="80" width="85" height="100" rx="6" fill="#fff" stroke="#cce0f5"/>
+      <text x="340" y="102" font-size="11" font-weight="700" fill="#2980b9">Sector OAB</text>
+      <text x="340" y="120" font-size="11" fill="#1a1a2e">Area =</text>
+      <text x="340" y="136" font-size="11" fill="#1a1a2e">θ/360 × πr²</text>
+      <text x="340" y="155" font-size="11" fill="#1a1a2e">Arc l =</text>
+      <text x="340" y="171" font-size="11" fill="#1a1a2e">θ/360 × 2πr</text>
+    </svg>
+  </div>
+
+  <h3>4.2 Formulas for a Sector</h3>
+  <div class="formula-box">
+    <strong>Area of Sector</strong> = (θ / 360°) × πr²<br><br>
+    <strong>Length of Arc (l)</strong> = (θ / 360°) × 2πr<br><br>
+    <strong>Perimeter of Sector</strong> = 2r + Arc Length = 2r + (θ / 360°) × 2πr
+  </div>
+
+  <div class="example">
+    <p class="prob">Example 4.1 — A sector has radius 12 cm and a central angle of 60°. Find its area, arc length, and perimeter. (Use π = 3.14)</p>
+    <div class="sol">
+      Area of Sector = (60/360) × 3.14 × 12² = (1/6) × 3.14 × 144 = <strong>75.36 cm²</strong><br>
+      Arc Length = (60/360) × 2 × 3.14 × 12 = (1/6) × 75.36 = <strong>12.56 cm</strong><br>
+      Perimeter = 2(12) + 12.56 = <strong>36.56 cm</strong>
+    </div>
+    <p class="ans">✔ Area = 75.36 cm², Arc Length = 12.56 cm, Perimeter = 36.56 cm</p>
+  </div>
+</section>
+
+
+<!-- 5. SEGMENT -->
+<section id="segment">
+  <h2>5. Area of a Segment of a Circle</h2>
+
+  <h3>5.1 What is a Segment?</h3>
+  <p>
+    A segment is the region trapped between a chord and the arc it subtends. Picture cutting a circle with a
+    straight knife — the smaller piece is the <strong>minor segment</strong> and the larger piece is the
+    <strong>major segment</strong>.
+  </p>
+
+  <!-- DIAGRAM 4: Segment -->
+  <div class="diagram-wrap">
+    <div class="diagram-title">Diagram 4 — Segment of a Circle</div>
+    <svg viewBox="0 0 460 290" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4, serif">
+      <!-- Full circle -->
+      <circle cx="200" cy="155" r="115" fill="rgba(41,128,185,0.06)" stroke="#cce0f5" stroke-width="1.5"/>
+      <!-- Triangle OAB fill -->
+      <path d="M 200 155 L 115 230 A 115 115 0 0 0 285 230 Z" fill="rgba(26,122,74,0.15)" stroke="none"/>
+      <!-- Segment fill (minor) -->
+      <path d="M 115 230 A 115 115 0 0 1 285 230 Z" fill="rgba(192,57,43,0.2)" stroke="none"/>
+      <!-- Chord -->
+      <line x1="115" y1="230" x2="285" y2="230" stroke="#d4a017" stroke-width="3"/>
+      <!-- Radii -->
+      <line x1="200" y1="155" x2="115" y2="230" stroke="#2980b9" stroke-width="2"/>
+      <line x1="200" y1="155" x2="285" y2="230" stroke="#2980b9" stroke-width="2"/>
+      <!-- Arc (minor, bottom) -->
+      <path d="M 115 230 A 115 115 0 0 1 285 230" fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+      <!-- Centre -->
+      <circle cx="200" cy="155" r="5" fill="#1a1a2e"/>
+      <!-- Angle -->
+      <path d="M 185 155 A 20 20 0 0 0 172 168" fill="none" stroke="#d4a017" stroke-width="2"/>
+
+      <!-- Labels -->
+      <text x="205" y="152" font-size="14" fill="#1a1a2e" font-weight="700">O</text>
+      <text x="100" y="232" font-size="14" fill="#1a1a2e" font-weight="700">A</text>
+      <text x="289" y="232" font-size="14" fill="#1a1a2e" font-weight="700">B</text>
+      <text x="163" y="173" font-size="13" fill="#d4a017" font-weight="700">θ</text>
+      <text x="155" y="200" font-size="12" fill="#1a7a4a" font-weight="600">△OAB</text>
+      <text x="165" y="250" font-size="12" fill="#c0392b" font-weight="600">Minor Segment</text>
+      <text x="165" y="110" font-size="12" fill="#2980b9" font-weight="600">Major Segment</text>
+      <text x="195" y="240" font-size="11" fill="#d4a017" font-weight="600">Chord AB</text>
+
+      <!-- Arrows pointing -->
+      <path d="M 196 105 Q 185 80 170 55" fill="none" stroke="#2980b9" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+      <!-- Formula box -->
+      <rect x="330" y="50" width="120" height="185" rx="6" fill="#fff" stroke="#d6cdb8"/>
+      <text x="340" y="72" font-size="11" font-weight="700" fill="#c0392b">Minor Segment</text>
+      <text x="340" y="90" font-size="10.5" fill="#1a1a2e">= Sector − △OAB</text>
+      <text x="340" y="108" font-size="10.5" fill="#1a1a2e">= θ/360·πr²</text>
+      <text x="340" y="124" font-size="10.5" fill="#1a1a2e">  − ½r²·sinθ</text>
+      <line x1="335" y1="136" x2="445" y2="136" stroke="#d6cdb8"/>
+      <text x="340" y="156" font-size="11" font-weight="700" fill="#2980b9">Major Segment</text>
+      <text x="340" y="174" font-size="10.5" fill="#1a1a2e">= πr²</text>
+      <text x="340" y="192" font-size="10.5" fill="#1a1a2e">  − Minor Seg.</text>
+      <line x1="335" y1="205" x2="445" y2="205" stroke="#d6cdb8"/>
+      <text x="340" y="223" font-size="11" font-weight="700" fill="#1a7a4a">△OAB Area</text>
+      <text x="340" y="228" font-size="10.5" fill="#1a1a2e"></text>
+    </svg>
+  </div>
+
+  <h3>5.2 Formulas for a Segment</h3>
+  <div class="formula-box">
+    <strong>Area of Minor Segment</strong> = Area of Sector − Area of Triangle OAB<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (θ/360°) × πr² − (1/2) × r² × sin θ<br><br>
+    <strong>Area of Major Segment</strong> = πr² − Area of Minor Segment<br><br>
+    <strong>Area of Triangle OAB</strong> = (1/2) × r² × sin θ
+  </div>
+
+  <div class="keybox">
+    <div class="keybox-title">📐 sin values for common angles</div>
+    sin 30° = 1/2 &nbsp;|&nbsp; sin 45° = √2/2 &nbsp;|&nbsp; sin 60° = √3/2 &nbsp;|&nbsp; sin 90° = 1
+  </div>
+
+  <div class="example">
+    <p class="prob">Example 5.1 — A chord of a circle with radius 10 cm subtends a 90° angle at the centre. Find the area of the minor segment. (Use π = 3.14)</p>
+    <div class="sol">
+      Area of Sector = (90/360) × 3.14 × 10² = (1/4) × 314 = <strong>78.5 cm²</strong><br>
+      Area of Triangle = (1/2) × 10² × sin 90° = (1/2) × 100 × 1 = <strong>50 cm²</strong><br>
+      Area of Minor Segment = 78.5 − 50 = <strong>28.5 cm²</strong>
+    </div>
+    <p class="ans">✔ Area of Minor Segment = 28.5 cm²</p>
+  </div>
+</section>
+
+
+<!-- 6. COMBINATIONS -->
+<section id="combinations">
+  <h2>6. Areas of Combinations of Plane Figures</h2>
+  <p>
+    Many real-life objects have shapes that are mixtures of circles and other polygons. To find their areas,
+    we break them down into simpler parts, calculate each part's area, and then add or subtract as needed.
+  </p>
+
+  <h3>6.1 General Strategy</h3>
+  <ol>
+    <li>Carefully identify all the simple shapes that make up the composite figure.</li>
+    <li>Calculate the area of each component shape independently.</li>
+    <li>Add areas together (if the shapes are placed side by side) or subtract (if one shape is cut from another).</li>
+    <li>Keep all measurements in the same unit throughout.</li>
+  </ol>
+
+  <h3>6.2 Common Combinations</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Combination</th><th>Method</th><th>Formula</th></tr></thead>
+      <tbody>
+        <tr><td>Circle inside/outside a Square</td><td>Add or subtract accordingly</td><td>Side² ± πr²</td></tr>
+        <tr><td>Sector minus Triangle</td><td>Gives the segment</td><td>(θ/360°)πr² − (1/2)r² sinθ</td></tr>
+        <tr><td>Ring (Annulus)</td><td>Outer circle minus inner circle</td><td>π(R² − r²)</td></tr>
+        <tr><td>Running Track</td><td>Rectangle plus two semicircles</td><td>l·b + πr²</td></tr>
+        <tr><td>Petal / Flower Design</td><td>Sum of multiple sectors or segments</td><td>n × (sector area)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DIAGRAM 5: Ring/Annulus -->
+  <div class="diagram-wrap">
+    <div class="diagram-title">Diagram 5 — Ring (Annulus): Outer Circle − Inner Circle</div>
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4, serif">
+      <!-- Outer circle -->
+      <circle cx="200" cy="120" r="100" fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="2.5"/>
+      <!-- Inner circle -->
+      <circle cx="200" cy="120" r="55" fill="white" stroke="#2980b9" stroke-width="2.5"/>
+      <!-- Ring shaded -->
+      <!-- Centre -->
+      <circle cx="200" cy="120" r="4" fill="#1a1a2e"/>
+      <!-- Outer radius -->
+      <line x1="200" y1="120" x2="300" y2="120" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,3"/>
+      <!-- Inner radius -->
+      <line x1="200" y1="120" x2="200" y2="65" stroke="#2980b9" stroke-width="2" stroke-dasharray="6,3"/>
+
+      <!-- Labels -->
+      <text x="242" y="113" font-size="14" fill="#c0392b" font-weight="600">R</text>
+      <text x="207" y="90" font-size="14" fill="#2980b9" font-weight="600">r</text>
+      <text x="136" y="102" font-size="12" fill="#c0392b" font-weight="600">Ring Area</text>
+      <text x="136" y="118" font-size="12" fill="#c0392b" font-weight="600">= π(R²−r²)</text>
+      <text x="175" y="128" font-size="13" fill="#1a1a2e" font-weight="700">O</text>
+    </svg>
+  </div>
+
+  <!-- DIAGRAM 6: Running Track -->
+  <div class="diagram-wrap">
+    <div class="diagram-title">Diagram 6 — Running Track (Rectangle + Two Semicircles)</div>
+    <svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" font-family="Source Serif 4, serif">
+      <!-- Rectangle -->
+      <rect x="130" y="60" width="200" height="100" fill="rgba(26,122,74,0.12)" stroke="#1a7a4a" stroke-width="2"/>
+      <!-- Left semicircle -->
+      <path d="M 130 60 A 50 50 0 0 0 130 160" fill="rgba(41,128,185,0.15)" stroke="#2980b9" stroke-width="2"/>
+      <!-- Right semicircle -->
+      <path d="M 330 60 A 50 50 0 0 1 330 160" fill="rgba(41,128,185,0.15)" stroke="#2980b9" stroke-width="2"/>
+      <!-- Labels -->
+      <text x="195" y="118" font-size="14" fill="#1a7a4a" font-weight="600">Rectangle</text>
+      <text x="195" y="136" font-size="13" fill="#1a7a4a">Area = l × b</text>
+      <text x="52" y="118" font-size="12" fill="#2980b9" font-weight="600">Semicircle</text>
+      <text x="348" y="118" font-size="12" fill="#2980b9" font-weight="600">Semicircle</text>
+      <!-- Length arrow -->
+      <line x1="130" y1="178" x2="330" y2="178" stroke="#1a1a2e" stroke-width="1.5" marker-start="url(#as)" marker-end="url(#ae)"/>
+      <text x="202" y="195" font-size="12" fill="#1a1a2e" font-weight="600">Length (l)</text>
+      <!-- Radius arrow -->
+      <line x1="105" y1="110" x2="130" y2="110" stroke="#2980b9" stroke-width="1.5" marker-start="url(#as2)" marker-end="url(#ae2)"/>
+      <text x="38" y="114" font-size="12" fill="#2980b9" font-weight="600">r</text>
+
+      <defs>
+        <marker id="as" markerWidth="7" markerHeight="7" refX="0" refY="3.5" orient="auto">
+          <path d="M7,0 L0,3.5 L7,7" fill="none" stroke="#1a1a2e" stroke-width="1"/>
+        </marker>
+        <marker id="ae" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7" fill="none" stroke="#1a1a2e" stroke-width="1"/>
+        </marker>
+        <marker id="as2" markerWidth="7" markerHeight="7" refX="0" refY="3.5" orient="auto">
+          <path d="M7,0 L0,3.5 L7,7" fill="none" stroke="#2980b9" stroke-width="1"/>
+        </marker>
+        <marker id="ae2" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7" fill="none" stroke="#2980b9" stroke-width="1"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="example">
+    <p class="prob">Example 6.1 — Ring (Annulus): Two concentric circles have radii 21 cm and 14 cm. Find the area of the ring between them. (Use π = 22/7)</p>
+    <div class="sol">
+      Area of outer circle = π × 21² = (22/7) × 441 = <strong>1386 cm²</strong><br>
+      Area of inner circle = π × 14² = (22/7) × 196 = <strong>616 cm²</strong><br>
+      Area of ring = 1386 − 616 = <strong>770 cm²</strong>
+    </div>
+    <p class="ans">✔ Area of ring = 770 cm²</p>
+  </div>
+
+  <div class="example">
+    <p class="prob">Example 6.2 — Running Track: A track consists of two straight parallel sections of 100 m each, joined by semicircular ends of radius 35 m. Find the total area enclosed. (Use π = 22/7)</p>
+    <div class="sol">
+      Area of rectangular region = length × width = 100 × (2 × 35) = 100 × 70 = <strong>7000 m²</strong><br>
+      Area of the two semicircles together = πr² = (22/7) × 35² = (22/7) × 1225 = <strong>3850 m²</strong><br>
+      Total area = 7000 + 3850 = <strong>10,850 m²</strong>
+    </div>
+    <p class="ans">✔ Total area = 10,850 m²</p>
+  </div>
+</section>
+
+
+<!-- 7. FORMULA SUMMARY -->
+<section id="summary">
+  <h2>7. Formula Summary Table</h2>
+  <p>Use this table for quick revision before your exam:</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Shape / Concept</th><th>Formula</th><th>Variables</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Circumference of Circle</td><td>C = 2πr = πd</td><td>r = radius, d = diameter</td></tr>
+        <tr><td>Area of Circle</td><td>A = πr²</td><td>r = radius</td></tr>
+        <tr><td>Area of Semicircle</td><td>A = πr² / 2</td><td>r = radius</td></tr>
+        <tr><td>Perimeter of Semicircle</td><td>P = πr + 2r</td><td>r = radius</td></tr>
+        <tr><td>Length of Arc</td><td>l = (θ/360°) × 2πr</td><td>θ = central angle in degrees</td></tr>
+        <tr><td>Area of Sector</td><td>A = (θ/360°) × πr²</td><td>θ = central angle in degrees</td></tr>
+        <tr><td>Perimeter of Sector</td><td>P = 2r + (θ/360°) × 2πr</td><td>r = radius, θ = angle</td></tr>
+        <tr><td>Area of Minor Segment</td><td>A = (θ/360°)πr² − (1/2)r² sinθ</td><td>θ = central angle in degrees</td></tr>
+        <tr><td>Area of Major Segment</td><td>A = πr² − Area of Minor Segment</td><td>—</td></tr>
+        <tr><td>Area of Ring (Annulus)</td><td>A = π(R² − r²)</td><td>R = outer radius, r = inner radius</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- 8. KEY POINTS -->
+<section id="keypoints">
+  <h2>8. Key Points to Remember</h2>
+  <ul>
+    <li>Use <strong>π = 22/7</strong> when the radius is a multiple of 7; use <strong>π = 3.14</strong> in all other cases — unless the question specifies otherwise.</li>
+    <li>The angle θ in sector and segment formulas must always be in <strong>degrees</strong>, not radians.</li>
+    <li>A semicircle is just a special sector where θ = 180°.</li>
+    <li>A quadrant is a special sector where θ = 90°, so its area = (1/4)πr².</li>
+    <li>Always calculate: <strong>Area of minor segment = Area of sector − Area of triangle</strong> (not the other way around).</li>
+    <li>Area of major segment = Total circle area − Area of minor segment.</li>
+    <li>For combination problems, <strong>always sketch a diagram</strong> before setting up any equation.</li>
+    <li>The perimeter of a segment = chord length + arc length (it does <em>not</em> include the two radii).</li>
+  </ul>
+</section>
+
+
+<!-- 9. PRACTICE -->
+<section id="practice" class="practice-section">
+  <h2>9. Practice Questions</h2>
+
+  <div class="practice-group">
+    <h4>Section A — 1 Mark Questions (Very Short Answer)</h4>
+    <ol>
+      <li>What is the area of a quadrant of a circle whose circumference is 44 cm? (Use π = 22/7)</li>
+      <li>If the radius of a circle is doubled, what is the ratio of the new area to the original area?</li>
+      <li>The arc of a sector of radius 6 cm has length 5π cm. Find the central angle of the sector.</li>
+      <li>A sector has area 38.5 cm² and radius 7 cm. Find its central angle. (Use π = 22/7)</li>
+      <li>What is the perimeter of a semicircle of radius 14 cm? (Use π = 22/7)</li>
+    </ol>
+  </div>
+
+  <div class="practice-group">
+    <h4>Section B — 3 Mark Questions (Short Answer)</h4>
+    <ol>
+      <li>ABCD is a square of side 14 cm. Four semicircles are drawn taking each side as a diameter. Find the area of the shaded region inside the square but outside the semicircles. (Use π = 22/7)</li>
+      <li>A chord of a circle with radius 15 cm subtends 60° at the centre. Find the area of the corresponding minor and major segments. (Use π = 3.14, √3 = 1.73)</li>
+      <li>Two circles touch each other externally. The sum of their areas is 130π cm² and the distance between their centres is 14 cm. Find both radii.</li>
+      <li>A brooch is made from a circle of diameter 35 mm with 5 diameters drawn in it, dividing it into 10 equal sectors. Find: (i) the total length of wire used, and (ii) the area of each sector.</li>
+      <li>From each corner of a square of side 4 cm, a quadrant of radius 1 cm is cut out. A circle of diameter 2 cm is also removed from the centre. Find the area of the remaining piece.</li>
+    </ol>
+  </div>
+
+  <div class="practice-group">
+    <h4>Section C — 5 Mark Questions (Long Answer)</h4>
+    <ol>
+      <li>A horse is tied at a corner of a square field (side 15 m) with a rope of length 5 m. Find: (i) the grazing area; and (ii) the extra area the horse could graze if the rope were 10 m long instead. (Use π = 3.14)</li>
+      <li>In a circle of radius 21 cm, an arc subtends 60° at the centre. Find: (i) arc length; (ii) sector area; and (iii) area of the corresponding segment. (Use π = 22/7)</li>
+      <li>ABCD is a flower bed (a quadrant) with OA = 21 m and OC = 14 m, where O is the centre. Find the area of the flower bed.</li>
+      <li>A round table cover has six equal designs. If the cover's radius is 28 cm, find the cost of making the designs at ₹0.35 per cm². (Use √3 = 1.7)</li>
+      <li>A square handkerchief has nine circular designs, each of radius 7 cm, arranged in a 3 × 3 grid. Find the area of the handkerchief not covered by the designs. (Use π = 22/7)</li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- 10. COMPARISON -->
+<section id="comparison">
+  <h2>10. Sector vs. Segment — Quick Comparison</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Property</th><th>Sector</th><th>Segment</th></tr></thead>
+      <tbody>
+        <tr><td>Bounded by</td><td>Two radii + one arc</td><td>One chord + one arc</td></tr>
+        <tr><td>Has a vertex at the centre?</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Area formula</td><td>(θ/360°) × πr²</td><td>(θ/360°)πr² − (1/2)r² sin θ</td></tr>
+        <tr><td>Perimeter formula</td><td>2r + arc length</td><td>Chord + arc length</td></tr>
+        <tr><td>Special case (θ = 180°)</td><td>Semicircle</td><td>Semicircular region (no triangle)</td></tr>
+        <tr><td>Common use</td><td>Frequently used directly</td><td>Petal, leaf, and irregular shapes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">🎯 Study Tips for Board Exam</div>
+    <ol>
+      <li>Write out all formulas every day as a warm-up — repetition builds recall.</li>
+      <li>Always draw and label a diagram before touching the numbers.</li>
+      <li>Check whether the question asks for <em>area</em> or <em>perimeter</em> — a very common mix-up.</li>
+      <li>Use π = 22/7 for multiples of 7 and π = 3.14 for all other cases.</li>
+      <li>Solve at least 10 combination-figure problems to get comfortable with the approach.</li>
+      <li>CBSE board papers almost always include one 5-mark question from this chapter — practise those.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <p>CBSE Class 10 Mathematics — Areas Related to Circles</p>
+  <p>Chapter Notes | All formulas and solutions are original, written for educational use.</p>
+</footer>
+
+</body>
+</html>
