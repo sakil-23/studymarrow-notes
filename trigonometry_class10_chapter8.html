@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Trigonometry – Class 10 Maths Chapter 8 Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf8f3;
+    --cream: #f0ebe0;
+    --accent: #c0392b;
+    --gold: #d4a017;
+    --teal: #1a6b6b;
+    --light-teal: #e8f4f4;
+    --light-red: #fdf0ef;
+    --border: #d9cfc0;
+    --muted: #6b6356;
+    --formula-bg: #1a1a2e;
+    --formula-text: #e8f4f4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: white;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border: 2px solid rgba(212,160,23,0.3);
+    border-radius: 50%;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 10%;
+    width: 200px; height: 200px;
+    border: 1.5px solid rgba(192,57,43,0.25);
+    border-radius: 50%;
+  }
+  .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  header h1 span { color: var(--gold); }
+  header p.subtitle {
+    color: rgba(255,255,255,0.65);
+    font-style: italic;
+    font-size: 1rem;
+    max-width: 540px;
+  }
+
+  /* ── LAYOUT ── */
+  .wrapper { max-width: 860px; margin: 0 auto; padding: 0 30px 80px; }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    padding: 28px 32px;
+    margin: 44px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .toc h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .toc ol {
+    padding-left: 22px;
+    columns: 2;
+    column-gap: 30px;
+  }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: var(--teal); text-decoration: none; font-size: 0.95rem; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ── SECTIONS ── */
+  section { margin-top: 60px; }
+  section:first-of-type { margin-top: 40px; }
+
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--ink);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  h2.section-title .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--teal);
+    margin: 30px 0 12px;
+  }
+
+  p { margin-bottom: 14px; }
+
+  /* ── DIAGRAMS ── */
+  .diagram-wrap {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    margin: 28px 0;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .diagram-wrap figcaption {
+    margin-top: 14px;
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── FORMULA BLOCKS ── */
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 22px 0;
+  }
+  .formula-card {
+    background: var(--formula-bg);
+    color: var(--formula-text);
+    border-radius: 6px;
+    padding: 16px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .formula-card .label {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .formula-card .expr { font-size: 1.05rem; color: white; }
+
+  .formula-box {
+    background: var(--formula-bg);
+    color: white;
+    border-radius: 6px;
+    padding: 20px 26px;
+    margin: 20px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.97rem;
+    line-height: 2;
+  }
+  .formula-box .title {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  /* ── TABLE ── */
+  .ratio-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 0.94rem;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  .ratio-table thead tr { background: var(--ink); color: white; }
+  .ratio-table thead th {
+    padding: 13px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .ratio-table td {
+    padding: 11px 14px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.93rem;
+  }
+  .ratio-table tr:nth-child(even) td { background: var(--cream); }
+  .ratio-table .angle-col { font-weight: 600; color: var(--teal); }
+
+  /* ── HIGHLIGHT BOXES ── */
+  .highlight {
+    background: var(--light-teal);
+    border-left: 4px solid var(--teal);
+    padding: 16px 20px;
+    border-radius: 0 4px 4px 0;
+    margin: 20px 0;
+    font-size: 0.97rem;
+  }
+  .note-box {
+    background: var(--light-red);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 4px 4px 0;
+    margin: 20px 0;
+    font-size: 0.97rem;
+  }
+  .note-box strong, .highlight strong { display: block; margin-bottom: 6px; font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+
+  /* ── TRICK CARD ── */
+  .mnemonic {
+    background: var(--ink);
+    color: white;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .mnemonic .icon { font-size: 2rem; flex-shrink: 0; }
+  .mnemonic h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold); margin-bottom: 6px; }
+  .mnemonic p { color: rgba(255,255,255,0.8); font-size: 0.95rem; margin: 0; }
+
+  /* ── EXAMPLE ── */
+  .example {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .example-header {
+    background: var(--teal);
+    color: white;
+    padding: 10px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .example-body { padding: 20px 22px; }
+  .example-body .q { font-weight: 600; margin-bottom: 10px; }
+  .example-body .step { 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 0.9rem; 
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin: 5px 0;
+    display: inline-block;
+  }
+
+  /* ── IDENTITIES ── */
+  .identity-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-top: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 14px 0;
+  }
+  .identity-card .id-title { 
+    font-family: 'JetBrains Mono', monospace; 
+    color: var(--accent); 
+    font-size: 0.82rem; 
+    letter-spacing: 1px; 
+    margin-bottom: 8px; 
+  }
+  .identity-card .id-eq { 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    color: var(--ink);
+  }
+
+  /* ── COMPLEMENTARY TABLE ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .comp-item {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92rem;
+    border-left: 3px solid var(--teal);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 0.85rem;
+    margin-top: 60px;
+  }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .toc ol { columns: 1; }
+    .comp-grid { grid-template-columns: 1fr; }
+    .formula-grid { grid-template-columns: 1fr 1fr; }
+    header { padding: 40px 24px 36px; }
+    h2.section-title { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header>
+  <div class="header-inner">
+    <div class="badge">CBSE Class 10 · Maths · Chapter 8</div>
+    <h1>Introduction to<br><span>Trigonometry</span></h1>
+    <p class="subtitle">Complete revision notes covering all concepts, formulas, tables, and identities for board exam preparation.</p>
+  </div>
+</header>
+
+<!-- ═══════════════ WRAPPER ═══════════════ -->
+<div class="wrapper">
+
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#intro">What is Trigonometry?</a></li>
+      <li><a href="#right-triangle">Right-Angled Triangle Basics</a></li>
+      <li><a href="#ratios">Trigonometric Ratios</a></li>
+      <li><a href="#reciprocals">Reciprocal Ratios</a></li>
+      <li><a href="#specific-angles">Values at Specific Angles</a></li>
+      <li><a href="#complementary">Complementary Angles</a></li>
+      <li><a href="#identities">Trigonometric Identities</a></li>
+      <li><a href="#summary">Quick Summary</a></li>
+    </ol>
+  </nav>
+
+  <!-- ════ SECTION 1: INTRODUCTION ════ -->
+  <section id="intro">
+    <h2 class="section-title"><span class="num">01</span> What is Trigonometry?</h2>
+    <p>
+      The word <em>trigonometry</em> comes from three Greek words: <strong>tri</strong> (three), <strong>gon</strong> (sides), and <strong>metron</strong> (measure). Literally, it means <em>measurement of three sides</em>. As a branch of mathematics, trigonometry deals with the relationship between the angles and sides of a triangle.
+    </p>
+    <p>
+      While trigonometry applies broadly to all triangles, the Class 10 syllabus focuses exclusively on <strong>right-angled triangles</strong> and the acute angles within them. The concepts you learn here form the backbone of more advanced mathematics and are widely used in physics, engineering, architecture, astronomy, and navigation.
+    </p>
+    <div class="highlight">
+      <strong>Key Idea</strong>
+      In a right-angled triangle, if an acute angle is fixed, the <em>ratio</em> of any two sides remains the same regardless of how large or small the triangle is. This consistency is what makes trigonometric ratios so powerful.
+    </div>
+  </section>
+
+  <!-- ════ SECTION 2: RIGHT TRIANGLE ════ -->
+  <section id="right-triangle">
+    <h2 class="section-title"><span class="num">02</span> Right-Angled Triangle Basics</h2>
+    <p>
+      Before defining trigonometric ratios, it is essential to understand how the three sides of a right-angled triangle are named with respect to a chosen acute angle.
+    </p>
+
+    <!-- DIAGRAM 1: Right Triangle -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:420px;">
+        <!-- Triangle -->
+        <polygon points="60,230 340,230 340,60" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <!-- Right angle marker -->
+        <rect x="320" y="210" width="20" height="20" fill="none" stroke="#1a6b6b" stroke-width="1.8"/>
+        <!-- Angle θ arc at A -->
+        <path d="M 84,230 A 24,24 0 0,0 71.5,209" fill="none" stroke="#c0392b" stroke-width="2"/>
+        <!-- Labels: vertices -->
+        <text x="44" y="240" font-family="JetBrains Mono, monospace" font-size="18" fill="#1a1a2e" font-weight="600">A</text>
+        <text x="348" y="240" font-family="JetBrains Mono, monospace" font-size="18" fill="#1a1a2e" font-weight="600">B</text>
+        <text x="348" y="58" font-family="JetBrains Mono, monospace" font-size="18" fill="#1a1a2e" font-weight="600">C</text>
+        <!-- angle θ label -->
+        <text x="92" y="224" font-family="Source Serif 4, serif" font-size="15" fill="#c0392b" font-style="italic">θ</text>
+        <!-- Side labels -->
+        <!-- Hypotenuse: AC -->
+        <text x="176" y="132" font-family="Source Serif 4, serif" font-size="14" fill="#c0392b" font-weight="600" transform="rotate(-35, 176, 132)">Hypotenuse (AC)</text>
+        <!-- Base: AB -->
+        <text x="175" y="255" font-family="Source Serif 4, serif" font-size="14" fill="#1a6b6b" font-weight="600">Base / Adjacent (AB)</text>
+        <!-- Perpendicular: BC -->
+        <text x="346" y="155" font-family="Source Serif 4, serif" font-size="14" fill="#d4a017" font-weight="600" transform="rotate(90, 346, 155)">Perpendicular / Opposite (BC)</text>
+      </svg>
+      <figcaption>Fig. 1 — Triangle ABC right-angled at B. The sides are named relative to angle θ at vertex A.</figcaption>
+    </div>
+
+    <h3>Naming the Sides</h3>
+    <p>For any acute angle <em>θ</em> in a right-angled triangle:</p>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="label">Hypotenuse</div>
+        <div class="expr">Side opposite the<br>right angle (90°)<br>— always the longest side</div>
+      </div>
+      <div class="formula-card">
+        <div class="label">Opposite Side</div>
+        <div class="expr">Side directly opposite<br>to angle θ<br>(Perpendicular)</div>
+      </div>
+      <div class="formula-card">
+        <div class="label">Adjacent Side</div>
+        <div class="expr">Side next to angle θ<br>(not the hypotenuse)<br>(Base)</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Important</strong>
+      The hypotenuse is always fixed (the side opposite 90°), but the "opposite" and "adjacent" sides change depending on which acute angle you are considering.
+    </div>
+  </section>
+
+  <!-- ════ SECTION 3: TRIG RATIOS ════ -->
+  <section id="ratios">
+    <h2 class="section-title"><span class="num">03</span> Trigonometric Ratios</h2>
+    <p>
+      For an acute angle <em>θ</em> in a right-angled triangle, there are six fundamental ratios formed by pairing the three sides. These are called <strong>trigonometric ratios</strong>.
+    </p>
+
+    <!-- DIAGRAM 2: Ratios labelled on triangle -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 460 270" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:460px;">
+        <polygon points="60,220 380,220 380,60" fill="#faf8f3" stroke="#1a1a2e" stroke-width="2"/>
+        <rect x="360" y="200" width="20" height="20" fill="none" stroke="#1a1a2e" stroke-width="1.8"/>
+        <!-- Angle arc -->
+        <path d="M 84,220 A 24,24 0 0,0 72,199" fill="none" stroke="#c0392b" stroke-width="2"/>
+        <text x="94" y="215" font-family="serif" font-size="15" fill="#c0392b" font-style="italic">θ</text>
+        <!-- Vertices -->
+        <text x="36" y="232" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">A</text>
+        <text x="386" y="232" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">B</text>
+        <text x="386" y="55" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">C</text>
+        <!-- Formula annotations -->
+        <text x="178" y="196" font-family="JetBrains Mono, monospace" font-size="12" fill="#1a6b6b">sin θ = BC/AC</text>
+        <text x="178" y="214" font-family="JetBrains Mono, monospace" font-size="12" fill="#d4a017">cos θ = AB/AC</text>
+        <text x="178" y="232" font-family="JetBrains Mono, monospace" font-size="12" fill="#c0392b">tan θ = BC/AB</text>
+        <!-- Side colouring -->
+        <line x1="60" y1="220" x2="380" y2="220" stroke="#d4a017" stroke-width="3"/>
+        <line x1="380" y1="220" x2="380" y2="60" stroke="#1a6b6b" stroke-width="3"/>
+        <line x1="60" y1="220" x2="380" y2="60" stroke="#c0392b" stroke-width="3" stroke-dasharray="6,3"/>
+      </svg>
+      <figcaption>Fig. 2 — The three primary ratios shown on triangle ABC (right angle at B).</figcaption>
+    </div>
+
+    <h3>The Six Trigonometric Ratios</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="label">Sine</div>
+        <div class="expr">sin θ = Opposite / Hypotenuse</div>
+      </div>
+      <div class="formula-card">
+        <div class="label">Cosine</div>
+        <div class="expr">cos θ = Adjacent / Hypotenuse</div>
+      </div>
+      <div class="formula-card">
+        <div class="label">Tangent</div>
+        <div class="expr">tan θ = Opposite / Adjacent</div>
+      </div>
+      <div class="formula-card">
+        <div class="label">Cosecant</div>
+        <div class="expr">cosec θ = Hypotenuse / Opposite</div>
+      </div>
+      <div class="formula-card">
+        <div class="label">Secant</div>
+        <div class="expr">sec θ = Hypotenuse / Adjacent</div>
+      </div>
+      <div class="formula-card">
+        <div class="label">Cotangent</div>
+        <div class="expr">cot θ = Adjacent / Opposite</div>
+      </div>
+    </div>
+
+    <div class="mnemonic">
+      <div class="icon">💡</div>
+      <div>
+        <h4>Memory Trick — "SOH CAH TOA"</h4>
+        <p><strong>S</strong>in = <strong>O</strong>pposite / <strong>H</strong>ypotenuse &nbsp;·&nbsp; <strong>C</strong>os = <strong>A</strong>djacent / <strong>H</strong>ypotenuse &nbsp;·&nbsp; <strong>T</strong>an = <strong>O</strong>pposite / <strong>A</strong>djacent</p>
+      </div>
+    </div>
+
+    <!-- Worked Example 1 -->
+    <div class="example">
+      <div class="example-header">Worked Example 1</div>
+      <div class="example-body">
+        <p class="q">In △ABC, right-angled at B, with hypotenuse AC = 5 cm, base AB = 3 cm, and perpendicular BC = 4 cm. Find sin A, cos A, and tan A.</p>
+        <p><strong>Solution:</strong></p>
+        <span class="step">sin A = BC/AC = 4/5</span><br>
+        <span class="step">cos A = AB/AC = 3/5</span><br>
+        <span class="step">tan A = BC/AB = 4/3</span>
+        <p style="margin-top:12px; color:#6b6356; font-size:0.92rem;">Verify: sin²A + cos²A = (4/5)² + (3/5)² = 16/25 + 9/25 = 1 ✓</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SECTION 4: RECIPROCALS ════ -->
+  <section id="reciprocals">
+    <h2 class="section-title"><span class="num">04</span> Reciprocal Relationships</h2>
+    <p>
+      Each of the three primary ratios has a reciprocal. These relationships are critical for simplifying expressions and proving identities.
+    </p>
+    <div class="formula-box">
+      <div class="title">Reciprocal Pairs</div>
+      sin θ · cosec θ = 1 &nbsp;&nbsp;→&nbsp;&nbsp; cosec θ = 1 / sin θ<br>
+      cos θ · sec θ = 1 &nbsp;&nbsp;&nbsp;→&nbsp;&nbsp; sec θ = 1 / cos θ<br>
+      tan θ · cot θ = 1 &nbsp;&nbsp;&nbsp;→&nbsp;&nbsp; cot θ = 1 / tan θ
+    </div>
+
+    <div class="formula-box" style="margin-top:16px;">
+      <div class="title">Quotient Relations</div>
+      tan θ = sin θ / cos θ<br>
+      cot θ = cos θ / sin θ
+    </div>
+
+    <div class="note-box">
+      <strong>Note</strong>
+      cosec θ is the reciprocal of sin θ (not cos θ). A common mistake is to confuse cosec with cos. Remember: <em>cosec ↔ sin</em>, <em>sec ↔ cos</em>.
+    </div>
+  </section>
+
+  <!-- ════ SECTION 5: SPECIFIC ANGLES ════ -->
+  <section id="specific-angles">
+    <h2 class="section-title"><span class="num">05</span> Trigonometric Values at Specific Angles</h2>
+    <p>
+      The exact values of trigonometric ratios for the standard angles 0°, 30°, 45°, 60°, and 90° are derived geometrically and must be memorised.
+    </p>
+
+    <h3>Derivation for 45°</h3>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:360px;">
+        <!-- Isosceles right triangle: vertices A(50,220), B(310,220), C(310,60) but 45-45-90 so let's do A(80,210), B(280,210), C(280,60) adjusted -->
+        <!-- For 45°, let's use an isosceles right triangle A(60,220), B(300,220), C(180,50) -->
+        <!-- Actually a simple one: right angle at B: A(60,220), B(280,220), C(280,50) with AB=BC=a -->
+        <polygon points="60,220 280,220 280,50" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="2"/>
+        <rect x="260" y="200" width="20" height="20" fill="none" stroke="#1a6b6b" stroke-width="1.8"/>
+        <!-- 45° arc at A -->
+        <path d="M 84,220 A 24,24 0 0,0 76,197" fill="none" stroke="#c0392b" stroke-width="2"/>
+        <!-- 45° arc at C -->
+        <path d="M 258,70 A 22,22 0 0,1 280,75" fill="none" stroke="#c0392b" stroke-width="1.8"/>
+        <text x="90" y="213" font-family="serif" font-size="14" fill="#c0392b" font-style="italic">45°</text>
+        <text x="255" y="88" font-family="serif" font-size="14" fill="#c0392b" font-style="italic">45°</text>
+        <!-- Vertices -->
+        <text x="38" y="234" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">A</text>
+        <text x="286" y="234" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">B</text>
+        <text x="286" y="46" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">C</text>
+        <!-- Side labels -->
+        <text x="148" y="244" font-family="JetBrains Mono, monospace" font-size="12" fill="#d4a017">a</text>
+        <text x="288" y="140" font-family="JetBrains Mono, monospace" font-size="12" fill="#1a6b6b">a</text>
+        <text x="148" y="124" font-family="JetBrains Mono, monospace" font-size="12" fill="#c0392b" transform="rotate(-42, 148, 124)">a√2 (Hyp)</text>
+      </svg>
+      <figcaption>Fig. 3 — Isosceles right triangle for 45° derivation. Both legs = a, hypotenuse = a√2.</figcaption>
+    </div>
+    <p>
+      Consider an isosceles right triangle where both legs are equal (each = <em>a</em>). By Pythagoras' theorem, the hypotenuse becomes <em>a√2</em>. Since the base angles are equal, both are 45°. From this:
+    </p>
+    <div class="formula-box">
+      <div class="title">45° Values</div>
+      sin 45° = a / a√2 = 1/√2 = √2/2<br>
+      cos 45° = a / a√2 = 1/√2 = √2/2<br>
+      tan 45° = a / a = 1
+    </div>
+
+    <h3>Derivation for 30° and 60°</h3>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:400px;">
+        <!-- Equilateral triangle ABC with perpendicular AD, side = 2a -->
+        <!-- A at top(200,30), B at left(60,240), C at right(340,240), D at (200,240) -->
+        <polygon points="200,30 60,240 340,240" fill="#fdf0ef" stroke="#c0392b" stroke-width="2"/>
+        <!-- Perpendicular AD -->
+        <line x1="200" y1="30" x2="200" y2="240" stroke="#1a6b6b" stroke-width="2" stroke-dasharray="6,3"/>
+        <!-- Right angle at D -->
+        <rect x="200" y="220" width="20" height="20" fill="none" stroke="#1a6b6b" stroke-width="1.8"/>
+        <!-- Vertices -->
+        <text x="192" y="22" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">A</text>
+        <text x="38" y="255" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">B</text>
+        <text x="346" y="255" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">C</text>
+        <text x="204" y="260" font-family="JetBrains Mono, monospace" font-size="16" fill="#1a1a2e" font-weight="700">D</text>
+        <!-- Side labels -->
+        <text x="112" y="143" font-family="JetBrains Mono, monospace" font-size="12" fill="#c0392b">2a</text>
+        <text x="278" y="143" font-family="JetBrains Mono, monospace" font-size="12" fill="#c0392b">2a</text>
+        <text x="116" y="256" font-family="JetBrains Mono, monospace" font-size="12" fill="#d4a017">a</text>
+        <text x="260" y="256" font-family="JetBrains Mono, monospace" font-size="12" fill="#d4a017">a</text>
+        <text x="208" y="140" font-family="JetBrains Mono, monospace" font-size="12" fill="#1a6b6b">a√3</text>
+        <!-- Angle labels -->
+        <text x="60" y="230" font-family="serif" font-size="13" fill="#c0392b" font-style="italic">60°</text>
+        <text x="310" y="230" font-family="serif" font-size="13" fill="#c0392b" font-style="italic">60°</text>
+        <text x="185" y="55" font-family="serif" font-size="13" fill="#c0392b" font-style="italic">60°</text>
+        <text x="148" y="230" font-family="serif" font-size="12" fill="#1a6b6b" font-style="italic">30°</text>
+      </svg>
+      <figcaption>Fig. 4 — Equilateral triangle ABC (each side = 2a) with perpendicular AD. △ABD gives 30°–60°–90° ratios.</figcaption>
+    </div>
+    <p>
+      Take an equilateral triangle with each side equal to 2a. All angles = 60°. Drop a perpendicular from vertex A to side BC, meeting it at D. This bisects BC, so BD = a. The perpendicular AD = a√3 (by Pythagoras). Triangle ABD now has angles 30° at A, 60° at B, and 90° at D.
+    </p>
+    <div class="formula-box">
+      <div class="title">30° Values (from △ABD with ∠ABD = 60°)</div>
+      sin 30° = BD/AB = a/2a = 1/2 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; sin 60° = AD/AB = a√3/2a = √3/2<br>
+      cos 30° = AD/AB = √3/2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; cos 60° = BD/AB = a/2a = 1/2<br>
+      tan 30° = BD/AD = 1/√3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; tan 60° = AD/BD = a√3/a = √3
+    </div>
+
+    <h3>Values for 0° and 90°</h3>
+    <p>
+      As angle A approaches 0°, side BC (opposite) shrinks to zero while AC approaches AB. Conversely, as angle A approaches 90°, BC approaches AC and AB shrinks to zero.
+    </p>
+
+    <h3>Standard Values Table</h3>
+    <table class="ratio-table">
+      <thead>
+        <tr>
+          <th>Angle →</th>
+          <th>0°</th>
+          <th>30°</th>
+          <th>45°</th>
+          <th>60°</th>
+          <th>90°</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="angle-col">sin</td>
+          <td>0</td>
+          <td>1/2</td>
+          <td>1/√2</td>
+          <td>√3/2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td class="angle-col">cos</td>
+          <td>1</td>
+          <td>√3/2</td>
+          <td>1/√2</td>
+          <td>1/2</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td class="angle-col">tan</td>
+          <td>0</td>
+          <td>1/√3</td>
+          <td>1</td>
+          <td>√3</td>
+          <td>Not defined</td>
+        </tr>
+        <tr>
+          <td class="angle-col">cosec</td>
+          <td>Not defined</td>
+          <td>2</td>
+          <td>√2</td>
+          <td>2/√3</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td class="angle-col">sec</td>
+          <td>1</td>
+          <td>2/√3</td>
+          <td>√2</td>
+          <td>2</td>
+          <td>Not defined</td>
+        </tr>
+        <tr>
+          <td class="angle-col">cot</td>
+          <td>Not defined</td>
+          <td>√3</td>
+          <td>1</td>
+          <td>1/√3</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="mnemonic">
+      <div class="icon">🧠</div>
+      <div>
+        <h4>Trick to Remember sin Values (0° → 90°)</h4>
+        <p>Write: √0/2, √1/2, √2/2, √3/2, √4/2 → which simplifies to 0, 1/2, 1/√2, √3/2, 1. For cos, just read the sin row in reverse!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SECTION 6: COMPLEMENTARY ════ -->
+  <section id="complementary">
+    <h2 class="section-title"><span class="num">06</span> Trigonometric Ratios of Complementary Angles</h2>
+    <p>
+      Two angles are called <strong>complementary</strong> if their sum equals 90°. In a right-angled triangle, the two acute angles always add up to 90° and are therefore complementary to each other.
+    </p>
+    <p>
+      If one acute angle is θ, the other is (90° − θ). The following relationships hold:
+    </p>
+    <div class="comp-grid">
+      <div class="comp-item">sin(90° − θ) = cos θ</div>
+      <div class="comp-item">cos(90° − θ) = sin θ</div>
+      <div class="comp-item">tan(90° − θ) = cot θ</div>
+      <div class="comp-item">cot(90° − θ) = tan θ</div>
+      <div class="comp-item">sec(90° − θ) = cosec θ</div>
+      <div class="comp-item">cosec(90° − θ) = sec θ</div>
+    </div>
+
+    <div class="highlight">
+      <strong>How to Remember</strong>
+      Each function and its "co-function" are complementary pairs: sine ↔ cosine, tangent ↔ cotangent, secant ↔ cosecant. The "co" in cosine, cotangent, and cosecant literally refers to "complement."
+    </div>
+
+    <!-- Worked Example 2 -->
+    <div class="example">
+      <div class="example-header">Worked Example 2</div>
+      <div class="example-body">
+        <p class="q">Evaluate: sin 65° / cos 25°</p>
+        <p><strong>Solution:</strong> Note that 65° + 25° = 90°, so 65° and 25° are complementary.</p>
+        <span class="step">sin 65° = sin(90° − 25°) = cos 25°</span><br><br>
+        <span class="step">∴ sin 65° / cos 25° = cos 25° / cos 25° = 1</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SECTION 7: IDENTITIES ════ -->
+  <section id="identities">
+    <h2 class="section-title"><span class="num">07</span> Trigonometric Identities</h2>
+    <p>
+      A <strong>trigonometric identity</strong> is an equation involving trigonometric ratios that holds true for every valid value of the angle. Unlike a regular equation, an identity is universally true — it's not "solved" but rather "proved" or "verified."
+    </p>
+
+    <h3>The Three Fundamental Identities</h3>
+    <p>All three are derived from the Pythagorean theorem. In △ABC right-angled at B:</p>
+    <p style="font-family:'JetBrains Mono', monospace; background:var(--cream); padding:10px 16px; border-radius:4px; display:inline-block;">AB² + BC² = AC² (Pythagoras)</p>
+    <p>Dividing throughout by AC², AB², and BC² respectively gives the three identities:</p>
+
+    <div class="identity-card">
+      <div class="id-title">Identity 1 — Pythagorean Identity</div>
+      <div class="id-eq">sin²θ + cos²θ = 1</div>
+      <p style="margin-top:10px; font-size:0.92rem; color:var(--muted);">Rearrangements: sin²θ = 1 − cos²θ &nbsp;|&nbsp; cos²θ = 1 − sin²θ</p>
+    </div>
+
+    <div class="identity-card">
+      <div class="id-title">Identity 2 — Secant–Tangent Identity</div>
+      <div class="id-eq">1 + tan²θ = sec²θ</div>
+      <p style="margin-top:10px; font-size:0.92rem; color:var(--muted);">Rearrangement: tan²θ = sec²θ − 1 &nbsp;|&nbsp; sec²θ − tan²θ = 1</p>
+    </div>
+
+    <div class="identity-card">
+      <div class="id-title">Identity 3 — Cosecant–Cotangent Identity</div>
+      <div class="id-eq">1 + cot²θ = cosec²θ</div>
+      <p style="margin-top:10px; font-size:0.92rem; color:var(--muted);">Rearrangement: cot²θ = cosec²θ − 1 &nbsp;|&nbsp; cosec²θ − cot²θ = 1</p>
+    </div>
+
+    <h3>How to Prove an Identity</h3>
+    <p>
+      To prove a trigonometric identity, always work on one side (usually the more complex side) and transform it step-by-step into the other side using known identities and ratio relationships. Never move terms from one side to the other — that's solving an equation, not proving an identity.
+    </p>
+
+    <!-- Worked Example 3 -->
+    <div class="example">
+      <div class="example-header">Worked Example 3</div>
+      <div class="example-body">
+        <p class="q">Prove that: (1 − sin²A) · sec²A = 1</p>
+        <p><strong>Proof (taking LHS):</strong></p>
+        <span class="step">LHS = (1 − sin²A) · sec²A</span><br><br>
+        <span class="step">= cos²A · sec²A &nbsp;&nbsp;&nbsp;[using sin²A + cos²A = 1]</span><br><br>
+        <span class="step">= cos²A · (1/cos²A) &nbsp;[since sec A = 1/cos A]</span><br><br>
+        <span class="step">= 1 = RHS &nbsp;✓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SECTION 8: SUMMARY ════ -->
+  <section id="summary">
+    <h2 class="section-title"><span class="num">08</span> Quick Summary</h2>
+    <p>Here is a concise review of everything covered in this chapter:</p>
+
+    <div class="formula-box">
+      <div class="title">All Key Formulas at a Glance</div>
+      — 6 Ratios: sin, cos, tan, cosec, sec, cot<br>
+      — sin = Opp/Hyp &nbsp;|&nbsp; cos = Adj/Hyp &nbsp;|&nbsp; tan = Opp/Adj<br>
+      — cosec = 1/sin &nbsp;|&nbsp; sec = 1/cos &nbsp;|&nbsp; cot = 1/tan<br>
+      — tan = sin/cos &nbsp;|&nbsp; cot = cos/sin<br><br>
+      — sin²θ + cos²θ = 1<br>
+      — 1 + tan²θ = sec²θ<br>
+      — 1 + cot²θ = cosec²θ<br><br>
+      — sin(90°−θ) = cosθ &nbsp;|&nbsp; cos(90°−θ) = sinθ<br>
+      — tan(90°−θ) = cotθ &nbsp;|&nbsp; cot(90°−θ) = tanθ<br>
+      — sec(90°−θ) = cosecθ &nbsp;|&nbsp; cosec(90°−θ) = secθ
+    </div>
+
+    <div class="highlight">
+      <strong>Exam Tips</strong>
+      (1) Always start identity proofs from the more complex side. (2) Use the Pythagorean identity to convert between sin and cos. (3) For complementary angle questions, check if the two given angles add up to 90°. (4) Memorise the standard values table — at least one question always tests it directly.
+    </div>
+  </section>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <p>Class 10 Mathematics · Chapter 8 · <span>Introduction to Trigonometry</span> · CBSE Curriculum Notes</p>
+</footer>
+
+</body>
+</html>
