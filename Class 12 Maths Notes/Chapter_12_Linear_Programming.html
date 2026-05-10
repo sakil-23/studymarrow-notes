@@ -1,0 +1,532 @@
+<style>
+    /* Scoped CSS for Study Marrow Notes - Component Ready */
+    .study-marrow-chapter {
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #2d3748;
+        line-height: 1.6;
+        background-color: #faf7f2;
+        padding-bottom: 0; /* Flush fit with footer */
+    }
+
+    .study-marrow-chapter h1, 
+    .study-marrow-chapter h2, 
+    .study-marrow-chapter h3, 
+    .study-marrow-chapter .sm-serif {
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* Hero Section */
+    .sm-hero {
+        background: repeating-linear-gradient(
+            -45deg,
+            #110e0c,
+            #110e0c 4px,
+            #1a1512 4px,
+            #1a1512 8px
+        );
+        text-align: center;
+        padding: 60px 20px;
+        border-bottom: 4px solid #e2a836;
+        margin-bottom: 40px;
+    }
+
+    .sm-hero-eyebrow {
+        color: #e2a836;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .sm-hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #ffffff;
+    }
+
+    .sm-hero-title .sm-gold-text {
+        color: #e2a836;
+    }
+
+    .sm-hero-subtitle {
+        color: #a8a29e;
+        font-style: italic;
+        font-size: 1.2rem;
+        font-family: 'Playfair Display', serif;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Main Content Container */
+    .sm-content-container {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 0 20px 40px 20px;
+    }
+
+    /* Section Dividers */
+    .sm-section-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 50px 0 25px 0;
+    }
+
+    .sm-section-part {
+        color: #718096;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        white-space: nowrap;
+        background: #e2e8f0;
+        padding: 4px 10px;
+        border-radius: 4px;
+    }
+
+    .sm-section-line {
+        height: 2px;
+        background-color: #e2e8f0;
+        flex-grow: 1;
+    }
+
+    .sm-section-title {
+        font-size: 2.4rem;
+        color: #1a202c;
+        margin-bottom: 15px;
+    }
+
+    .sm-section-desc {
+        font-size: 1.1rem;
+        color: #4a5568;
+        margin-bottom: 25px;
+    }
+
+    /* Card Grid Layout */
+    .sm-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .sm-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 24px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .sm-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .sm-card-icon {
+        color: #e2a836;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .sm-card-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 10px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .sm-card-text {
+        font-size: 1.05rem;
+        color: #4a5568;
+    }
+
+    /* List Styling */
+    .sm-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .sm-list li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 14px;
+        color: #4a5568;
+        font-size: 1.05rem;
+    }
+
+    .sm-list li::before {
+        content: "■";
+        color: #e2a836;
+        font-size: 1rem;
+        position: absolute;
+        left: 0;
+        top: 2px;
+    }
+    
+    /* Math Blocks */
+    .sm-math-block {
+        background-color: #f8fafc;
+        padding: 24px;
+        border-left: 4px solid #e2a836;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1.15rem;
+        margin: 25px 0;
+        border-radius: 0 8px 8px 0;
+        color: #2d3748;
+        overflow-x: auto;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    /* Tables */
+    .sm-table-container {
+        overflow-x: auto;
+        margin: 30px 0;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+
+    .sm-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 1.05rem;
+    }
+
+    .sm-table th, .sm-table td {
+        padding: 16px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .sm-table th {
+        background-color: #f7fafc;
+        color: #2d3748;
+        font-weight: 700;
+        font-family: 'Playfair Display', serif;
+        border-bottom: 2px solid #cbd5e0;
+    }
+
+    .sm-table tr:hover {
+        background-color: #f8fafc;
+    }
+
+    /* Advanced Callout */
+    .sm-advanced-callout {
+        background-color: #ebf8ff;
+        border: 1px solid #bee3f8;
+        border-left: 4px solid #3182ce;
+        padding: 20px;
+        border-radius: 6px;
+        margin: 25px 0;
+    }
+
+    .sm-advanced-callout h4 {
+        color: #2b6cb0;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+    }
+
+    /* Diagrams */
+    .sm-diagram-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        margin: 35px 0;
+        padding: 25px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        position: relative;
+    }
+
+    .sm-diagram-box {
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+    }
+
+    .sm-diagram-title {
+        margin-top: 15px;
+        font-weight: 700;
+        color: #2d3748;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    
+    .sm-diagram-subtitle {
+        font-size: 0.95rem;
+        color: #718096;
+    }
+
+    .sm-svg-diagram {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Watermark for Diagrams */
+    .sm-watermark {
+        font-family: 'Playfair Display', serif;
+        font-size: 14px;
+        fill: #e2e8f0;
+        font-weight: bold;
+        opacity: 0.6;
+    }
+
+    /* Footer */
+    .sm-footer {
+        background-color: #1a202c;
+        color: #a0aec0;
+        padding: 30px 20px;
+        text-align: center;
+        margin-top: 40px;
+        border-top: 4px solid #e2a836;
+    }
+
+    .sm-footer-logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: #ffffff;
+        border: 2px solid #2b6cb0;
+        border-radius: 50%;
+        font-family: 'Playfair Display', serif;
+        color: #2b6cb0;
+        font-weight: 900;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="study-marrow-chapter">
+
+    <header class="sm-hero">
+        <div class="sm-hero-eyebrow">Class 12 • Mathematics • Complete Guide • Study Marrow</div>
+        <h1 class="sm-hero-title">
+            Chapter 12: <span class="sm-gold-text">Linear Programming</span>
+        </h1>
+        <p class="sm-hero-subtitle">The ultimate guide to optimization: Constraints, Bounded Regions, Corner Point Methods, and advanced Iso-Profit techniques.</p>
+    </header>
+
+    <main class="sm-content-container">
+
+        <div class="sm-section-header">
+            <span class="sm-section-part">Part 1</span>
+            <div class="sm-section-line"></div>
+        </div>
+        <h2 class="sm-section-title">Core Terminology of LPP</h2>
+        <p class="sm-section-desc">
+            Linear Programming is a mathematical method used to determine the best possible outcome (like maximum profit or lowest cost) in a given mathematical model whose requirements are represented by linear relationships.
+        </p>
+
+        <div class="sm-card-grid">
+            <div class="sm-card">
+                <div class="sm-card-icon">Z</div>
+                <h3 class="sm-card-title">Objective Function</h3>
+                <p class="sm-card-text">The linear function <strong>Z = ax + by</strong> which must be maximized or minimized. The variables x and y are called decision variables.</p>
+            </div>
+            <div class="sm-card">
+                <div class="sm-card-icon">&le; / &ge;</div>
+                <h3 class="sm-card-title">Constraints</h3>
+                <p class="sm-card-text">The linear inequalities or equations that restrict the decision variables based on limited resources (like money, time, or raw materials).</p>
+            </div>
+            <div class="sm-card">
+                <div class="sm-card-icon">+</div>
+                <h3 class="sm-card-title">Non-Negativity</h3>
+                <p class="sm-card-text">The specific constraints <strong>x &ge; 0</strong> and <strong>y &ge; 0</strong>. Because physical quantities (like number of chairs produced) cannot be negative, we only work in the First Quadrant.</p>
+            </div>
+        </div>
+
+        <div class="sm-section-header">
+            <span class="sm-section-part">Part 2</span>
+            <div class="sm-section-line"></div>
+        </div>
+        <h2 class="sm-section-title">Feasible Regions & Solutions</h2>
+
+        <div class="sm-diagram-container">
+            <div class="sm-diagram-box">
+                <svg class="sm-svg-diagram" viewBox="0 0 300 250">
+                    <text x="280" y="240" class="sm-watermark" text-anchor="end">STUDY MARROW</text>
+                    
+                    <line x1="20" y1="200" x2="280" y2="200" stroke="#718096" stroke-width="2"/>
+                    <line x1="40" y1="20" x2="40" y2="220" stroke="#718096" stroke-width="2"/>
+                    
+                    <line x1="20" y1="60" x2="240" y2="220" stroke="#e53e3e" stroke-width="2"/>
+                    <line x1="20" y1="170" x2="200" y2="40" stroke="#3182ce" stroke-width="2"/>
+                    
+                    <polygon points="40,200 137,200 115,130 40,75" fill="#48bb78" fill-opacity="0.3" stroke="none"/>
+                    
+                    <circle cx="40" cy="200" r="4" fill="#1a202c"/>
+                    <circle cx="137" cy="200" r="4" fill="#1a202c"/>
+                    <circle cx="115" cy="130" r="4" fill="#1a202c"/>
+                    <circle cx="40" cy="75" r="4" fill="#1a202c"/>
+                    
+                    <text x="140" y="115" font-family="sans-serif" font-weight="bold" font-size="12" fill="#2f855a">Bounded Region</text>
+                </svg>
+                <div class="sm-diagram-title">Bounded Feasible Region</div>
+                <div class="sm-diagram-subtitle">Closed perfectly on all sides by constraints.</div>
+            </div>
+
+            <div class="sm-diagram-box">
+                <svg class="sm-svg-diagram" viewBox="0 0 300 250">
+                    <line x1="20" y1="200" x2="280" y2="200" stroke="#718096" stroke-width="2"/>
+                    <line x1="40" y1="20" x2="40" y2="220" stroke="#718096" stroke-width="2"/>
+                    
+                    <line x1="20" y1="80" x2="240" y2="220" stroke="#e53e3e" stroke-width="2"/>
+                    <line x1="20" y1="180" x2="200" y2="40" stroke="#3182ce" stroke-width="2"/>
+                    
+                    <polygon points="40,20 280,20 280,200 178,200 120,143 40,65" fill="#e2a836" fill-opacity="0.3" stroke="none"/>
+                    
+                    <circle cx="178" cy="200" r="4" fill="#1a202c"/>
+                    <circle cx="120" cy="143" r="4" fill="#1a202c"/>
+                    <circle cx="40" cy="65" r="4" fill="#1a202c"/>
+                    
+                    <text x="160" y="80" font-family="sans-serif" font-weight="bold" font-size="12" fill="#b7791f">Unbounded Region</text>
+                </svg>
+                <div class="sm-diagram-title">Unbounded Feasible Region</div>
+                <div class="sm-diagram-subtitle">Extends infinitely outward. Max/Min may not exist.</div>
+            </div>
+        </div>
+
+        <ul class="sm-list">
+            <li><strong>Feasible Region:</strong> The common region determined by all the constraints including the non-negative constraints x, y &ge; 0. Every point in this region satisfies all constraints simultaneously.</li>
+            <li><strong>Feasible Solution:</strong> Any point within or on the boundary of the feasible region.</li>
+            <li><strong>Optimal (Feasible) Solution:</strong> The specific feasible solution that yields the maximum or minimum value of the objective function Z.</li>
+        </ul>
+
+        <div class="sm-section-header">
+            <span class="sm-section-part">Part 3</span>
+            <div class="sm-section-line"></div>
+        </div>
+        <h2 class="sm-section-title">Fundamental Theorems of LPP</h2>
+
+        <div class="sm-math-block">
+            <strong>Theorem 1:</strong><br>
+            Let R be the feasible region for a linear programming problem and let Z = ax + by be the objective function. When Z has an optimal value (maximum or minimum), it MUST occur at a <strong>corner point (vertex)</strong> of the feasible region.<br><br>
+            <strong>Theorem 2:</strong><br>
+            Let R be the feasible region. If R is <strong>bounded</strong>, then the objective function Z has both a maximum and a minimum value on R, and each of these occurs at a corner point.
+        </div>
+
+        <div class="sm-section-header">
+            <span class="sm-section-part">Part 4</span>
+            <div class="sm-section-line"></div>
+        </div>
+        <h2 class="sm-section-title">The Corner Point Method</h2>
+        <p class="sm-section-desc">This is the standard NCERT algorithm to solve all linear programming problems.</p>
+
+        <ol class="sm-list">
+            <li><strong>Graph the constraints:</strong> Draw the lines for all inequalities and shade the common intersection area in the first quadrant. This is your Feasible Region.</li>
+            <li><strong>Find the Corner Points:</strong> Identify all the vertices of the shaded region. You may need to solve line equations simultaneously to find exact intersections.</li>
+            <li><strong>Evaluate Z:</strong> Plug the (x, y) coordinates of every corner point into the objective function <strong>Z = ax + by</strong>.</li>
+            <li><strong>Determine Optimal Value:</strong>
+                <ul style="margin-top: 10px; margin-bottom: 10px;">
+                    <li>If the region is <strong>Bounded</strong>: The highest value is the Maximum, the lowest is the Minimum.</li>
+                    <li>If the region is <strong>Unbounded</strong>: Proceed to the Unbounded Check (below).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="sm-advanced-callout" style="border-left-color: #e53e3e; background-color: #fff5f5; border-color: #fed7d7;">
+            <h4 style="color: #c53030;">⚠️ The Unbounded Region Check</h4>
+            <p>If your feasible region is open/unbounded, the max/min value you found at the corner points might be fake. Let 'M' be the maximum value and 'm' be the minimum value found at the corners.</p>
+            <ul class="sm-list" style="margin-top:10px;">
+                <li><strong>To verify Maximum 'M':</strong> Draw the dotted line <strong>ax + by > M</strong>. If this open half-plane has <em>any</em> points in common with the feasible region, then the LPP has <strong>no maximum value</strong>. Otherwise, M is the true max.</li>
+                <li><strong>To verify Minimum 'm':</strong> Draw the dotted line <strong>ax + by < m</strong>. If this open half-plane shares <em>any</em> points with the feasible region, then the LPP has <strong>no minimum value</strong>. Otherwise, m is the true min.</li>
+            </ul>
+        </div>
+
+        <div class="sm-section-header">
+            <span class="sm-section-part">Part 5</span>
+            <div class="sm-section-line"></div>
+        </div>
+        <h2 class="sm-section-title">Types of Linear Programming Problems</h2>
+
+        <div class="sm-card-grid">
+            <div class="sm-card">
+                <h3 class="sm-card-title">Manufacturing Problems</h3>
+                <p class="sm-card-text">Determine the number of units of different products to produce in order to maximize profit, given limitations on machine hours, labor, and raw materials.</p>
+            </div>
+            <div class="sm-card">
+                <h3 class="sm-card-title">Diet Problems</h3>
+                <p class="sm-card-text">Determine the amount of different foods to consume to meet minimum nutritional requirements (vitamins, minerals) while minimizing the total cost of the diet.</p>
+            </div>
+            <div class="sm-card">
+                <h3 class="sm-card-title">Transportation Problems</h3>
+                <p class="sm-card-text">Find the cheapest way to transport goods from several factories/plants to various distribution centers or markets without exceeding supply or failing demand.</p>
+            </div>
+        </div>
+
+        <div class="sm-section-header">
+            <span class="sm-section-part">Part 6 (Advanced)</span>
+            <div class="sm-section-line"></div>
+        </div>
+        <h2 class="sm-section-title">Competitive Method: Iso-Profit Lines</h2>
+        <p class="sm-section-desc">Instead of testing every single corner point, you can visually sweep a line across the graph to find the optimal point instantly. Highly useful for JEE/Competitive time-saving.</p>
+
+        <div class="sm-diagram-container">
+            <div class="sm-diagram-box" style="max-width: 500px;">
+                <svg class="sm-svg-diagram" viewBox="0 0 500 250">
+                    <text x="480" y="240" class="sm-watermark" text-anchor="end">STUDY MARROW</text>
+                    
+                    <line x1="20" y1="200" x2="480" y2="200" stroke="#718096" stroke-width="2"/>
+                    <line x1="40" y1="20" x2="40" y2="220" stroke="#718096" stroke-width="2"/>
+                    
+                    <polygon points="40,200 300,200 250,100 120,60 40,120" fill="#ebf8ff" fill-opacity="0.5" stroke="#3182ce" stroke-width="2"/>
+                    
+                    <circle cx="250" cy="100" r="6" fill="#e53e3e"/>
+                    <text x="250" y="85" font-family="sans-serif" font-weight="bold" font-size="14" fill="#c53030" text-anchor="middle">Optimal Vertex</text>
+
+                    <line x1="20" y1="180" x2="160" y2="220" stroke="#48bb78" stroke-width="2" stroke-dasharray="4"/>
+                    
+                    <line x1="80" y1="120" x2="260" y2="171" stroke="#48bb78" stroke-width="2" stroke-dasharray="4"/>
+                    
+                    <line x1="160" y1="74" x2="350" y2="128" stroke="#48bb78" stroke-width="3"/>
+                    
+                    <line x1="120" y1="160" x2="200" y2="110" stroke="#2f855a" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <text x="180" y="160" font-family="sans-serif" font-weight="bold" font-size="12" fill="#2f855a" transform="rotate(-32 180 160)">Sweeping Z outwards</text>
+                    
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#2f855a" />
+                        </marker>
+                    </defs>
+                </svg>
+                <div class="sm-diagram-title">Iso-Profit Line Method</div>
+                <div class="sm-diagram-subtitle">The line ax + by = Z is moved parallel to itself. The last vertex it touches before leaving the region is the Maximum.</div>
+            </div>
+        </div>
+
+        <div class="sm-advanced-callout" style="border-left-color: #48bb78; background-color: #f0fff4; border-color: #c6f6d5;">
+            <h4 style="color: #276749;">🎯 Infinite Optimal Solutions</h4>
+            <p>If the Iso-profit/Iso-cost line (the line representing the objective function Z) is exactly <strong>parallel</strong> to one of the boundary constraint lines of the feasible region, then <strong>every single point on that line segment</strong> yields the same optimal value.</p>
+            <p>In this case, the LPP has <strong>infinitely many optimal solutions</strong>.</p>
+        </div>
+
+    </main>
+
+    <footer class="sm-footer">
+        <div class="sm-footer-logo">SM</div>
+        <p style="font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 5px;">Study Marrow</p>
+        <p style="font-size: 0.9rem;">Revision notes curated exclusively for Study Marrow students. Keep Learning, Keep Growing.</p>
+        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.5;">© 2026 Study Marrow. All rights reserved.</p>
+    </footer>
+
+</div>
